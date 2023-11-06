@@ -14,7 +14,10 @@
 		B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63937712AF66852001604AB /* LaunchScreen.storyboard */; };
 		B68FA9BA2AF6804300748603 /* emptyFileForGit1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9B92AF6804300748603 /* emptyFileForGit1.swift */; };
 		B68FA9BC2AF680A800748603 /* emptyFileForGit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* emptyFileForGit2.swift */; };
-		B68FA9BE2AF680B100748603 /* emptyFileForGit3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BD2AF680B100748603 /* emptyFileForGit3.swift */; };
+		B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030A82AF6864A0078660A /* OnboardingViewController.swift */; };
+		B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */; };
+		B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AC2AF68D580078660A /* OnboardingSlide.swift */; };
+		B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +30,10 @@
 		B63937742AF66852001604AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B68FA9B92AF6804300748603 /* emptyFileForGit1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyFileForGit1.swift; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* emptyFileForGit2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyFileForGit2.swift; sourceTree = "<group>"; };
-		B68FA9BD2AF680B100748603 /* emptyFileForGit3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emptyFileForGit3.swift; sourceTree = "<group>"; };
+		B6B030A82AF6864A0078660A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
+		B6B030AC2AF68D580078660A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +86,7 @@
 		B63530372AF6737C0048C7AA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B68FA9BD2AF680B100748603 /* emptyFileForGit3.swift */,
+				B6B030A72AF685FE0078660A /* Onboarding */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -135,6 +141,17 @@
 				B63530332AF671DF0048C7AA /* Resources */,
 			);
 			path = "Food-Order-App";
+			sourceTree = "<group>";
+		};
+		B6B030A72AF685FE0078660A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030A82AF6864A0078660A /* OnboardingViewController.swift */,
+				B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */,
+				B6B030AC2AF68D580078660A /* OnboardingSlide.swift */,
+				B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +225,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B68FA9BA2AF6804300748603 /* emptyFileForGit1.swift in Sources */,
+				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
+				B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */,
+				B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* emptyFileForGit2.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,
-				B68FA9BE2AF680B100748603 /* emptyFileForGit3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

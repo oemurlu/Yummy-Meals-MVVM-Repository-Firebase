@@ -18,6 +18,8 @@
 		B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */; };
 		B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AC2AF68D580078660A /* OnboardingSlide.swift */; };
 		B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */; };
+		B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B12AFBA3E40078660A /* HomeViewController.swift */; };
+		B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B42AFBAC4E0078660A /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		B6B030AC2AF68D580078660A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		B6B030B12AFBA3E40078660A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B6B030B42AFBAC4E0078660A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B030A72AF685FE0078660A /* Onboarding */,
+				B6B030B32AFBAC370078660A /* TabBarController */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -152,6 +157,23 @@
 				B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B6B030B02AFBA3C30078660A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B6B030B32AFBAC370078660A /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030B02AFBA3C30078660A /* Home */,
+				B6B030B42AFBAC4E0078660A /* TabBarController.swift */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +250,10 @@
 				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B68FA9BA2AF6804300748603 /* emptyFileForGit1.swift in Sources */,
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
+				B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */,
 				B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */,
 				B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */,
+				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* emptyFileForGit2.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,

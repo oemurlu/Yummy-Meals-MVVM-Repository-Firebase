@@ -8,13 +8,13 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
     let viewModel = OnboardingViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +58,7 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 }
 
 extension OnboardingViewController: OnboardingViewModelProtocol {
+    
     func currentPageChanged(currentPage: Int, title: String, fontSize: CGFloat, fontName: String) {
         pageControl.currentPage = currentPage
         nextButton.setTitle(title, for: .normal)
@@ -66,6 +67,20 @@ extension OnboardingViewController: OnboardingViewModelProtocol {
     
     func scrollCollectionView(at: IndexPath, position: UICollectionView.ScrollPosition, animated: Bool) {
         collectionView.scrollToItem(at: at, at: position, animated: animated)
+    }
+    
+    func showTabBarController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+            let currentViewController = self.view.window?.rootViewController
+            let newViewController = tabBarController
+            
+            if let currentView = currentViewController?.view, let newView = newViewController.view {
+                UIView.transition(from: currentView, to: newView, duration: 0.5, options: .transitionCrossDissolve) { _ in
+                    self.view.window?.rootViewController = newViewController
+                }
+            }
+        }
     }
 }
 

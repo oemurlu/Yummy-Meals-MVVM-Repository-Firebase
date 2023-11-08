@@ -10,6 +10,7 @@ import UIKit
 protocol OnboardingViewModelProtocol: AnyObject {
     func scrollCollectionView(at: IndexPath, position: UICollectionView.ScrollPosition, animated: Bool)
     func currentPageChanged(currentPage: Int, title: String, fontSize: CGFloat, fontName: String)
+    func showTabBarController()
 }
 
 class OnboardingViewModel {
@@ -33,7 +34,7 @@ class OnboardingViewModel {
     
     func nextButton_TUI() {
         if currentPage == slides.count - 1 {
-            // TODO: performSegue to home screen
+            delegate?.showTabBarController()
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
@@ -42,7 +43,6 @@ class OnboardingViewModel {
     }
     
     func createSlides() {
-        print("slaytlar olusturuluyor....")
         slides = [
             OnboardingSlide(label: "Delicious Dishes", image: UIImage(systemName: "square.and.arrow.up.fill")),
             OnboardingSlide(label: "Best Quality Standarts", image: UIImage(systemName: "rectangle.portrait.and.arrow.forward.fill")),

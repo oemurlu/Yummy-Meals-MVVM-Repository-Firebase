@@ -20,6 +20,10 @@
 		B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */; };
 		B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B12AFBA3E40078660A /* HomeViewController.swift */; };
 		B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B42AFBAC4E0078660A /* TabBarController.swift */; };
+		B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B72AFD48B80078660A /* EntranceViewController.swift */; };
+		B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B92AFD4F720078660A /* EntranceViewModel.swift */; };
+		B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */; };
+		B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030C02AFE1B260078660A /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		B6B030AE2AF68E2A0078660A /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		B6B030B12AFBA3E40078660A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6B030B42AFBAC4E0078660A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B6B030B72AFD48B80078660A /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
+		B6B030B92AFD4F720078660A /* EntranceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewModel.swift; sourceTree = "<group>"; };
+		B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B6B030C02AFE1B260078660A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				B6B030A72AF685FE0078660A /* Onboarding */,
+				B6B030B62AFD48830078660A /* Entrance */,
+				B6B030BC2AFE1B000078660A /* SignIn */,
+				B6B030BD2AFE1B070078660A /* SignUp */,
 				B6B030B32AFBAC370078660A /* TabBarController */,
 			);
 			path = Screens;
@@ -176,6 +187,31 @@
 			path = TabBarController;
 			sourceTree = "<group>";
 		};
+		B6B030B62AFD48830078660A /* Entrance */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030B72AFD48B80078660A /* EntranceViewController.swift */,
+				B6B030B92AFD4F720078660A /* EntranceViewModel.swift */,
+			);
+			path = Entrance;
+			sourceTree = "<group>";
+		};
+		B6B030BC2AFE1B000078660A /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B6B030BD2AFE1B070078660A /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B6B030C02AFE1B260078660A /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,11 +288,15 @@
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
 				B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */,
 				B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */,
+				B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */,
 				B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */,
+				B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */,
+				B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */,
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* emptyFileForGit2.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,
+				B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,10 @@ class OnboardingViewController: UIViewController {
         setupNextButton()
     }
     
+    deinit {
+        print("deinit")
+    }
+    
     func setupNextButton() {
         nextButton.setTitle("Next", for: .normal)
         nextButton.titleLabel?.font = UIFont(name: "Helvetica", size: 40)
@@ -69,17 +73,13 @@ extension OnboardingViewController: OnboardingViewModelProtocol {
         collectionView.scrollToItem(at: at, at: position, animated: animated)
     }
     
-    func showTabBarController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
-            let currentViewController = self.view.window?.rootViewController
-            let newViewController = tabBarController
-            
-            if let currentView = currentViewController?.view, let newView = newViewController.view {
-                UIView.transition(from: currentView, to: newView, duration: 0.5, options: .transitionCrossDissolve) { _ in
-                    self.view.window?.rootViewController = newViewController
-                }
-            }
+    func showNavigationController() {
+        DispatchQueue.main.async {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "navigationController") as? UINavigationController
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle  = .flipHorizontal
+            self.present(vc!, animated: true)
         }
     }
 }

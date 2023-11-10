@@ -10,7 +10,7 @@ import UIKit
 protocol OnboardingViewModelProtocol: AnyObject {
     func scrollCollectionView(at: IndexPath, position: UICollectionView.ScrollPosition, animated: Bool)
     func currentPageChanged(currentPage: Int, title: String, fontSize: CGFloat, fontName: String)
-    func showTabBarController()
+    func showNavigationController()
 }
 
 class OnboardingViewModel {
@@ -34,7 +34,9 @@ class OnboardingViewModel {
     
     func nextButton_TUI() {
         if currentPage == slides.count - 1 {
-            delegate?.showTabBarController()
+//            delegate?.showTabBarController()
+//            delegate?.showEntranceController()
+            delegate?.showNavigationController()
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)

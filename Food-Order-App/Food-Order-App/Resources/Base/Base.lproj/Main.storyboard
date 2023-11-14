@@ -207,14 +207,74 @@
                     <view key="view" contentMode="scaleToFill" id="hZG-nj-EnV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCu-E9-6em">
+                                <rect key="frame" x="51" y="232" width="142" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpM-e1-oWn">
+                                <rect key="frame" x="51" y="308" width="188" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-nF-7EH">
+                                <rect key="frame" x="48" y="452" width="318" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icW-DE-Hvd">
+                                <rect key="frame" x="100" y="672" width="214" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Q6f-DQ-iae"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="40"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInButton_TUI:" destination="zdi-1o-6Ca" eventType="touchUpInside" id="Mbx-27-KNl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bc0-8u-8X5">
+                                <rect key="frame" x="48" y="512.5" width="318" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ODr-0z-6G0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Rcl-Lq-wrf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="icW-DE-Hvd" firstAttribute="top" secondItem="bc0-8u-8X5" secondAttribute="bottom" constant="119.5" id="Bjb-TD-zl4"/>
+                            <constraint firstItem="Rcl-Lq-wrf" firstAttribute="trailing" secondItem="icW-DE-Hvd" secondAttribute="trailing" constant="100" id="K11-VA-5Xz"/>
+                            <constraint firstItem="DKe-nF-7EH" firstAttribute="top" secondItem="YpM-e1-oWn" secondAttribute="bottom" constant="72" id="Ku1-at-fbX"/>
+                            <constraint firstItem="Rcl-Lq-wrf" firstAttribute="trailing" secondItem="DKe-nF-7EH" secondAttribute="trailing" constant="48" id="MXZ-Pm-gbB"/>
+                            <constraint firstItem="XCu-E9-6em" firstAttribute="leading" secondItem="Rcl-Lq-wrf" secondAttribute="leading" constant="51" id="Nfs-4J-TfG"/>
+                            <constraint firstItem="YpM-e1-oWn" firstAttribute="top" secondItem="XCu-E9-6em" secondAttribute="bottom" constant="4" id="OVf-z9-dp2"/>
+                            <constraint firstItem="DKe-nF-7EH" firstAttribute="leading" secondItem="Rcl-Lq-wrf" secondAttribute="leading" constant="48" id="Vbo-qz-3eX"/>
+                            <constraint firstItem="XCu-E9-6em" firstAttribute="centerY" secondItem="hZG-nj-EnV" secondAttribute="centerY" constant="-180" id="aRB-Iy-YgH"/>
+                            <constraint firstItem="bc0-8u-8X5" firstAttribute="trailing" secondItem="DKe-nF-7EH" secondAttribute="trailing" id="e7s-KM-Mci"/>
+                            <constraint firstItem="DKe-nF-7EH" firstAttribute="height" secondItem="bc0-8u-8X5" secondAttribute="height" id="m39-qC-c7e"/>
+                            <constraint firstItem="icW-DE-Hvd" firstAttribute="leading" secondItem="Rcl-Lq-wrf" secondAttribute="leading" constant="100" id="pYZ-MY-Ker"/>
+                            <constraint firstItem="bc0-8u-8X5" firstAttribute="top" secondItem="DKe-nF-7EH" secondAttribute="bottom" constant="20.5" id="v6h-Ko-mcU"/>
+                            <constraint firstItem="bc0-8u-8X5" firstAttribute="leading" secondItem="DKe-nF-7EH" secondAttribute="leading" id="vSm-tP-foe"/>
+                            <constraint firstItem="YpM-e1-oWn" firstAttribute="leading" secondItem="XCu-E9-6em" secondAttribute="leading" id="xzS-te-t1X"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7EX-7t-6Ti"/>
+                    <connections>
+                        <outlet property="emailTexfField" destination="bc0-8u-8X5" id="GQr-sh-e70"/>
+                        <outlet property="passwordTextField" destination="bc0-8u-8X5" id="9v4-Y6-ovP"/>
+                        <outlet property="signInButton" destination="icW-DE-Hvd" id="Ued-5b-UBc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uis-Fv-7kq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-522" y="-344"/>
+            <point key="canvasLocation" x="-523.1884057971015" y="-344.19642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0jx-b2-CAE">

@@ -16,24 +16,19 @@ class EntranceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        print("asdasdsjn")
         setupButtons()
         
 
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {
-        print("inbutton")
         performSegue(withIdentifier: "toSignIn", sender: nil)
     }
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
-        print("upbutton")
         performSegue(withIdentifier: "toSignUp", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare calisti")
         if segue.identifier == "entranceToSignIn" {
             print("in")
         } else if segue.identifier == "entranceToSignUp" {

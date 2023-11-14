@@ -13,13 +13,23 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    let viewModel = OnboardingViewModel()
+    private let viewModel: OnboardingViewModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.delegate = self
         setupNextButton()
+    }
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = OnboardingViewModel() 
+        super.init(coder: coder)
     }
     
     deinit {

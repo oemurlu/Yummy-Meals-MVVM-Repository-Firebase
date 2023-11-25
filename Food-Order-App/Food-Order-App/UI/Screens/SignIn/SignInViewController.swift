@@ -14,12 +14,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     
     private let viewModel: SignInViewModel
-    
-    init(viewModel: SignInViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
+        
     required init?(coder: NSCoder) {
         self.viewModel = SignInViewModel()
         super.init(coder: coder)

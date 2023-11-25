@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */; };
 		B6125A892B039F4D00A13215 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6125A882B039F4D00A13215 /* SignInViewModel.swift */; };
 		B63937672AF66851001604AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937662AF66851001604AB /* AppDelegate.swift */; };
 		B63937692AF66851001604AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937682AF66851001604AB /* SceneDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		B6125A882B039F4D00A13215 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B63937632AF66851001604AB /* Food-Order-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food-Order-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63937662AF66851001604AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B030C02AFE1B260078660A /* SignUpViewController.swift */,
+				B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B68FA9BA2AF6804300748603 /* emptyFileForGit1.swift in Sources */,
+				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
 				B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */,
 				B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */,

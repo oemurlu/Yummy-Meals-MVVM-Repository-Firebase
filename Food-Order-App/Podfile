@@ -1,0 +1,9 @@
+target 'Food-Order-App' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Food-Order-App
+	pod 'FirebaseFirestore'
+	pod 'FirebaseAuth'
+
+end

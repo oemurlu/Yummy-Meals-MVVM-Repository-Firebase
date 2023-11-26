@@ -6,39 +6,60 @@
 //
 
 import Foundation
+import UIKit.UIStoryboard
 
 protocol SignUpProtocol: AnyObject {
-    func showErrorMsg()
+    func showAlertMessage(title: String, message: String, style: UIAlertController.Style)
     func showPasswordError()
+    func goToSignInScreen()
 }
 
 class SignUpViewModel {
     
+    var username: String?
+    var fullName: String?
+    var email: String?
+    var phoneNumber: String?
+    var password: String?
+    var confirmPassword: String?
+    
     weak var delegate: SignUpProtocol?
-        
-    func checkTextFields(tf1: String, tf2: String, tf3: String, tf4: String, tf5: String, tf6: String) {
-        let textFields = [tf1, tf2, tf3, tf4, tf5, tf6]
-        
+    var userRepo: UserRepository
+    
+    init(userRepo: UserRepository) {
+        self.userRepo = userRepo
+    }
+    
+    
+    func checkTextFields() {
+        print("checkTextFields...")
+        let textFields = [username, fullName, email, phoneNumber, password, confirmPassword]
         // check the all text fields whether is empty or not
-        let allTextFieldsFilled = textFields.allSatisfy { $0.isEmpty == false }
+        let allTextFieldsFilled = textFields.allSatisfy { $0!.isEmpty == false }
         
         if allTextFieldsFilled {
-            checkPasswords(pw1: tf5, pw2: tf6)
+            checkPasswords(pw1: password!, pw2: confirmPassword!)
         } else {
-            delegate?.showErrorMsg()
+            delegate?.showAlertMessage(title: "Error", message: "Please fill all the fields.", style: .alert)
         }
     }
     
     func checkPasswords(pw1: String, pw2: String) {
         if pw1 == pw2 {
-            signUpClicked()
+            createUser(username: username!, fullName: fullName!, email: email!, phoneNumber: phoneNumber!, pw: password!)
         } else {
             delegate?.showPasswordError()
         }
     }
     
-    func signUpClicked() {
-        //TODO: bind to repostory
-        //completion handlerda sign in ekranina git diyecez.
+    func createUser(username: String, fullName: String, email: String, phoneNumber: String, pw: String) {
+        userRepo.createUser(email: email, pw: pw) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.goToSignInScreen()
+            case .failure(let error):
+                self?.delegate?.showAlertMessage(title: "Error", message: error.localizedDescription, style: .alert)
+            }
+        }
     }
 }

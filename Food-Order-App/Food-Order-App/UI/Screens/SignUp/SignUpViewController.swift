@@ -8,7 +8,7 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var fullNameTextField: UITextField!
@@ -18,18 +18,18 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordConfirmTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    private let viewModel: SignUpViewModel
+    var viewModel: SignUpViewModel
     var isExpand: Bool = false
-        
+    
     required init?(coder: NSCoder) {
-        print("required")
-        self.viewModel = SignUpViewModel()
+        let userRepository = UserRepository()
+        self.viewModel = SignUpViewModel(userRepo: userRepository)
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewModel.delegate = self
         
         setupSignUpButton()
@@ -38,7 +38,17 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
         self.view.endEditing(true)
-        viewModel.checkTextFields(tf1: usernameTextField.text ?? "", tf2: fullNameTextField.text ?? "", tf3: emailTextField.text ?? "", tf4: phoneNumberTextField.text ?? "", tf5: passwordTextField.text ?? "", tf6: passwordConfirmTextField.text ?? "")
+        //        viewModel.checkTextFields(tf1: usernameTextField.text ?? "", tf2: fullNameTextField.text ?? "", tf3: emailTextField.text ?? "", tf4: phoneNumberTextField.text ?? "", tf5: passwordTextField.text ?? "", tf6: passwordConfirmTextField.text ?? "")
+        
+        viewModel.username = usernameTextField.text
+        viewModel.fullName = fullNameTextField.text
+        viewModel.email = emailTextField.text
+        viewModel.phoneNumber = phoneNumberTextField.text
+        viewModel.password = passwordTextField.text
+        viewModel.confirmPassword = passwordConfirmTextField.text
+        
+        viewModel.checkTextFields()
+        
     }
     
     func setupSignUpButton() {
@@ -59,22 +69,21 @@ class SignUpViewController: UIViewController {
             self.isExpand = true
         }
     }
-
+    
     @objc func keyboardDisappear() {
         if isExpand {
             self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 100)
             self.isExpand = false
         }
-    }    
+    }
 }
 
 extension SignUpViewController: SignUpProtocol {
-    func showErrorMsg() {
-        print("errorrrr")
-        let alertController = UIAlertController(title: "Error", message: "Please fill all the fields correctly.", preferredStyle: .alert)
-        let okeyAction = UIAlertAction(title: "Okay", style: .default)
-        alertController.addAction(okeyAction)
-        self.present(alertController, animated: true)
+    func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
     }
     
     func showPasswordError() {
@@ -82,5 +91,14 @@ extension SignUpViewController: SignUpProtocol {
         let okeyAction = UIAlertAction(title: "Try Again", style: .default)
         alertController.addAction(okeyAction)
         self.present(alertController, animated: true)
+    }
+    
+    func goToSignInScreen() {
+        DispatchQueue.main.async {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+                self.navigationController?.pushViewController(signInVC, animated: true)
+            }
+        }
     }
 }

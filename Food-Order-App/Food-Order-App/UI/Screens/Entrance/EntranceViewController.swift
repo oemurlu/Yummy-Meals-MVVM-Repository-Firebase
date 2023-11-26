@@ -17,8 +17,6 @@ class EntranceViewController: UIViewController {
         super.viewDidLoad()
 
         setupButtons()
-        
-
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {
@@ -29,9 +27,12 @@ class EntranceViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "entranceToSignIn" {
-            print("in")
-        } else if segue.identifier == "entranceToSignUp" {
+        if segue.identifier == "toSignIn" {
+            if let signUpVC = segue.destination as? SignUpViewController {
+                let userRepository = UserRepository()
+                signUpVC.viewModel = SignUpViewModel(userRepo: userRepository)
+            }
+        } else if segue.identifier == "toSignUp" {
             print("up")
         }
     }

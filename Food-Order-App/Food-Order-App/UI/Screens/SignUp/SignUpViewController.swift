@@ -30,12 +30,15 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.delegate = self
+        
         setupSignUpButton()
         setupScrollView()
     }
     
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
         self.view.endEditing(true)
+        viewModel.checkTextFields(tf1: usernameTextField.text ?? "", tf2: fullNameTextField.text ?? "", tf3: emailTextField.text ?? "", tf4: phoneNumberTextField.text ?? "", tf5: passwordTextField.text ?? "", tf6: passwordConfirmTextField.text ?? "")
     }
     
     func setupSignUpButton() {
@@ -62,20 +65,22 @@ class SignUpViewController: UIViewController {
             self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 100)
             self.isExpand = false
         }
-    }
+    }    
+}
 
-//    @objc func keyboardAppear(notification: NSNotification) {
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-//            let keyboardHeight = keyboardFrame.cgRectValue.height
-//            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
-//            scrollView.contentInset = contentInsets
-//            scrollView.scrollIndicatorInsets = contentInsets
-//        }
-//    }
-//
-//    @objc func keyboardDisappear(notification: NSNotification) {
-//        scrollView.contentInset = .zero
-//        scrollView.scrollIndicatorInsets = .zero
-//    }
+extension SignUpViewController: SignUpProtocol {
+    func showErrorMsg() {
+        print("errorrrr")
+        let alertController = UIAlertController(title: "Error", message: "Please fill all the fields correctly.", preferredStyle: .alert)
+        let okeyAction = UIAlertAction(title: "Okay", style: .default)
+        alertController.addAction(okeyAction)
+        self.present(alertController, animated: true)
+    }
     
+    func showPasswordError() {
+        let alertController = UIAlertController(title: "Error", message: "Passwords do not match.", preferredStyle: .alert)
+        let okeyAction = UIAlertAction(title: "Try Again", style: .default)
+        alertController.addAction(okeyAction)
+        self.present(alertController, animated: true)
+    }
 }

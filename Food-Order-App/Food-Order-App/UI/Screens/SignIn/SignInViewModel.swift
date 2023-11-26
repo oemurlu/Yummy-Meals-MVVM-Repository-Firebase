@@ -10,8 +10,7 @@ import Foundation
 class SignInViewModel {
     
     func signInClicked(email: String, pw: String) {
-        //TODO: firebase sign in
-        print("email: \(email), pw: \(pw)")
+        // TODO: repository check in and if is login attemp succes, go to tabBar controller.
     }
     
 }

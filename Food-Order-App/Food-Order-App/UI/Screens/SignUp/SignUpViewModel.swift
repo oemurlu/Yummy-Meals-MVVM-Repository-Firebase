@@ -56,9 +56,20 @@ class SignUpViewModel {
         userRepo.createUser(email: email, pw: pw) { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.goToSignInScreen()
+                self?.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber)
             case .failure(let error):
                 self?.delegate?.showAlertMessage(title: "Error", message: error.localizedDescription, style: .alert)
+            }
+        }
+    }
+    
+    func saveUserInfosToFirestore(username: String, fullName: String, email: String, phoneNumber: String) {
+        userRepo.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber) { result in
+            switch result {
+            case .success():
+                self.delegate?.goToSignInScreen()
+            case .failure(let error):
+                self.delegate?.showAlertMessage(title: "Error", message: error.localizedDescription, style: .alert)
             }
         }
     }

@@ -8,21 +8,23 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTexfField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
     private let viewModel: SignInViewModel
-        
+    
     required init?(coder: NSCoder) {
-        self.viewModel = SignInViewModel()
+        let userRepository = UserRepository()
+        self.viewModel = SignInViewModel(userRepo: userRepository)
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.delegate = self
         setupSignInButton()
         
     }
@@ -38,5 +40,21 @@ class SignInViewController: UIViewController {
         if let email = emailTexfField.text, let password = passwordTextField.text {
             viewModel.signInClicked(email: email, pw: password)
         }
+    }
+}
+
+extension SignInViewController: SignInProtocol {
+    func goToHomeScreen() {
+        DispatchQueue.main.async {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController
+            vc?.modalPresentationStyle = .fullScreen
+            vc?.modalTransitionStyle  = .flipHorizontal
+            self.present(vc!, animated: true)
+        }
+    }
+    
+    func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
+        MakeAlert.alertMessage(title: title, message: message, style: .alert, vc: self)
     }
 }

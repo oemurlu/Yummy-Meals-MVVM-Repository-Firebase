@@ -352,7 +352,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKe-nF-7EH">
                                 <rect key="frame" x="48" y="416" width="318" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icW-DE-Hvd">
                                 <rect key="frame" x="100" y="639.5" width="214" height="56"/>
@@ -397,7 +397,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7EX-7t-6Ti"/>
                     <connections>
-                        <outlet property="emailTexfField" destination="bc0-8u-8X5" id="GQr-sh-e70"/>
+                        <outlet property="emailTexfField" destination="DKe-nF-7EH" id="s8k-40-Wki"/>
                         <outlet property="passwordTextField" destination="bc0-8u-8X5" id="9v4-Y6-ovP"/>
                         <outlet property="signInButton" destination="icW-DE-Hvd" id="Ued-5b-UBc"/>
                     </connections>

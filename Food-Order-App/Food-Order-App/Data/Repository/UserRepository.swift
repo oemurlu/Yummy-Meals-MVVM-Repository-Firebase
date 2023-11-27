@@ -23,4 +23,18 @@ class UserRepository {
             }
         }
     }
+    
+    func signInUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
+        Auth.auth().signIn(withEmail: email, password: pw) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+            
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(authResult!))
+            }
+        }
+    }
+    
+    
 }

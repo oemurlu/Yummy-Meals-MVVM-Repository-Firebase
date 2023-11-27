@@ -80,17 +80,11 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpProtocol {
     func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(alertAction)
-        self.present(alert, animated: true)
+        MakeAlert.alertMessage(title: title, message: message, style: .alert, vc: self)
     }
     
     func showPasswordError() {
-        let alertController = UIAlertController(title: "Error", message: "Passwords do not match.", preferredStyle: .alert)
-        let okeyAction = UIAlertAction(title: "Try Again", style: .default)
-        alertController.addAction(okeyAction)
-        self.present(alertController, animated: true)
+            MakeAlert.alertMessage(title: "Error", message: "Passwords do not match.", style: .alert, vc: self)
     }
     
     func goToSignInScreen() {

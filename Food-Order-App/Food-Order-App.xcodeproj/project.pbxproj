@@ -11,6 +11,8 @@
 		B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */; };
 		B60883912B135375006DDBA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B60883902B135375006DDBA8 /* GoogleService-Info.plist */; };
 		B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60883932B136729006DDBA8 /* MakeAlert.swift */; };
+		B60883972B15D2C4006DDBA8 /* FoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60883962B15D2C4006DDBA8 /* FoodsCell.swift */; };
+		B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */; };
 		B6125A892B039F4D00A13215 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6125A882B039F4D00A13215 /* SignInViewModel.swift */; };
 		B63937672AF66851001604AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937662AF66851001604AB /* AppDelegate.swift */; };
 		B63937692AF66851001604AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937682AF66851001604AB /* SceneDelegate.swift */; };
@@ -38,6 +40,8 @@
 		B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		B60883902B135375006DDBA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B60883932B136729006DDBA8 /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
+		B60883962B15D2C4006DDBA8 /* FoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCell.swift; sourceTree = "<group>"; };
+		B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
 		B6125A882B039F4D00A13215 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B63937632AF66851001604AB /* Food-Order-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food-Order-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63937662AF66851001604AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,8 +97,17 @@
 			isa = PBXGroup;
 			children = (
 				B60883932B136729006DDBA8 /* MakeAlert.swift */,
+				B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		B60883952B15D296006DDBA8 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B60883962B15D2C4006DDBA8 /* FoodsCell.swift */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		B63530332AF671DF0048C7AA /* Resources */ = {
@@ -215,6 +228,7 @@
 		B6B030B02AFBA3C30078660A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B60883952B15D296006DDBA8 /* CollectionView */,
 				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -223,8 +237,8 @@
 		B6B030B32AFBAC370078660A /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
-				B6B030B02AFBA3C30078660A /* Home */,
 				B6B030B42AFBAC4E0078660A /* TabBarController.swift */,
+				B6B030B02AFBA3C30078660A /* Home */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -374,6 +388,7 @@
 			files = (
 				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B68FA9BA2AF6804300748603 /* emptyFileForGit1.swift in Sources */,
+				B60883972B15D2C4006DDBA8 /* FoodsCell.swift in Sources */,
 				B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */,
 				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
@@ -382,6 +397,7 @@
 				B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */,
 				B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */,
 				B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */,
+				B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */,
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,

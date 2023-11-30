@@ -434,9 +434,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-c5-Oh5">
-                                <rect key="frame" x="0.0" y="266" width="414" height="547"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-c5-Oh5">
+                                <rect key="frame" x="0.0" y="220" width="414" height="593"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cdw-qZ-MbW">
                                     <size key="itemSize" width="202" height="256"/>
@@ -465,7 +464,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.97657614946365356" green="0.47163492441177368" blue="0.097584150731563568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.97658103704452515" green="0.47164994478225708" blue="0.1034245565533638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="VyY-ju-Rp2" firstAttribute="centerX" secondItem="yCA-ky-m3q" secondAttribute="centerX" id="D2t-gY-ifc"/>
                                                 <constraint firstItem="VyY-ju-Rp2" firstAttribute="centerY" secondItem="yCA-ky-m3q" secondAttribute="centerY" id="TQT-C3-6b7"/>
@@ -486,13 +485,62 @@
                                     <outlet property="delegate" destination="8Mw-8R-gi4" id="bQA-GM-AD1"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi ${username}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWH-A4-Ef2">
+                                <rect key="frame" x="20" y="100" width="136.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you like to eat today ? 😋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygp-fx-tIv">
+                                <rect key="frame" x="20" y="132" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search here.." translatesAutoresizingMaskIntoConstraints="NO" id="gfk-rR-M6v">
+                                <rect key="frame" x="0.0" y="164" width="358" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8Mw-8R-gi4" id="1lM-ET-du5"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ha-u7-Tvg">
+                                <rect key="frame" x="358" y="164" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4ha-u7-Tvg" secondAttribute="height" multiplier="1:1" id="ft8-4w-fGc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal" catalog="system"/>
+                                <connections>
+                                    <action selector="filterButtonPressed:" destination="8Mw-8R-gi4" eventType="touchUpInside" id="YWr-kv-qkV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Aob-Wj-wPI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ygp-fx-tIv" firstAttribute="top" secondItem="AWH-A4-Ef2" secondAttribute="bottom" constant="8" id="8gw-zW-HbS"/>
+                            <constraint firstItem="VJR-c5-Oh5" firstAttribute="leading" secondItem="Aob-Wj-wPI" secondAttribute="leading" id="B8m-Xh-Og1"/>
+                            <constraint firstItem="VJR-c5-Oh5" firstAttribute="bottom" secondItem="Aob-Wj-wPI" secondAttribute="bottom" id="ETG-AA-LfK"/>
+                            <constraint firstItem="gfk-rR-M6v" firstAttribute="leading" secondItem="Aob-Wj-wPI" secondAttribute="leading" id="Fm3-IQ-0yF"/>
+                            <constraint firstItem="Aob-Wj-wPI" firstAttribute="trailing" secondItem="ygp-fx-tIv" secondAttribute="trailing" constant="20" id="G1b-e5-vUE"/>
+                            <constraint firstItem="4ha-u7-Tvg" firstAttribute="trailing" secondItem="Aob-Wj-wPI" secondAttribute="trailing" id="Jdj-BW-X9o"/>
+                            <constraint firstItem="ygp-fx-tIv" firstAttribute="leading" secondItem="AWH-A4-Ef2" secondAttribute="leading" id="Oy9-5V-eAn"/>
+                            <constraint firstItem="AWH-A4-Ef2" firstAttribute="leading" secondItem="Aob-Wj-wPI" secondAttribute="leading" constant="20" id="RY1-dN-Ikj"/>
+                            <constraint firstItem="4ha-u7-Tvg" firstAttribute="centerY" secondItem="gfk-rR-M6v" secondAttribute="centerY" id="V7h-Gf-0W0"/>
+                            <constraint firstItem="AWH-A4-Ef2" firstAttribute="top" secondItem="Aob-Wj-wPI" secondAttribute="top" constant="8" id="Wh9-du-HSx"/>
+                            <constraint firstItem="VJR-c5-Oh5" firstAttribute="trailing" secondItem="Aob-Wj-wPI" secondAttribute="trailing" id="XoL-TI-gF1"/>
+                            <constraint firstItem="gfk-rR-M6v" firstAttribute="top" secondItem="ygp-fx-tIv" secondAttribute="bottom" constant="8" id="Xqx-I5-QV2"/>
+                            <constraint firstItem="VJR-c5-Oh5" firstAttribute="top" secondItem="gfk-rR-M6v" secondAttribute="bottom" id="aVT-Z6-jRs"/>
+                            <constraint firstItem="4ha-u7-Tvg" firstAttribute="leading" secondItem="gfk-rR-M6v" secondAttribute="trailing" id="oRs-ZE-Gev"/>
+                            <constraint firstItem="4ha-u7-Tvg" firstAttribute="height" secondItem="gfk-rR-M6v" secondAttribute="height" id="wgy-Nd-LMp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iL7-92-d9Q"/>
                     <connections>
                         <outlet property="collectionView" destination="VJR-c5-Oh5" id="Qq0-fk-7AA"/>
+                        <outlet property="searchBar" destination="gfk-rR-M6v" id="p1f-H8-MEI"/>
+                        <outlet property="welcomingMessageLabel" destination="AWH-A4-Ef2" id="rZh-3f-1Zz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jls-HD-Jy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -646,6 +694,7 @@
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="xbox.logo" catalog="system" width="128" height="123"/>

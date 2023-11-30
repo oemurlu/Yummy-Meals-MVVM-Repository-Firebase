@@ -16,7 +16,7 @@ extension UICollectionViewLayout {
                 heightDimension: .fractionalHeight(1)
             )
             
-            let cellHeight = layoutEnvironment.container.effectiveContentSize.height * 0.4 / 2
+            let cellHeight = layoutEnvironment.container.effectiveContentSize.height * 0.2 / 2
             
             let leftItem = NSCollectionLayoutItem(layoutSize: elementSize)
             leftItem.contentInsets = NSDirectionalEdgeInsets(top: cellHeight, leading: 0, bottom: -(cellHeight), trailing: 0)
@@ -52,6 +52,7 @@ extension UICollectionViewLayout {
         }
     }
 }
+
 
 
 

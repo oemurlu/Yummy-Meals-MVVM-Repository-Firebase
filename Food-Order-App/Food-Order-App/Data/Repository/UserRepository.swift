@@ -53,22 +53,46 @@ class UserRepository {
         }
     }
     
-    func loadFoods(completion: @escaping ([Foods]) -> ()) {
-        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
-            if let data = response.data {
-                do {
-                    let response = try JSONDecoder().decode(FoodsResponse.self, from: data)
-                    if let foods = response.yemekler {
-                        completion(foods)
-                    } else {
-                        print("loadFoods error on userRepository")
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+    // v1 request directly
+//    func loadFoods(completion: @escaping ([Foods]) -> ()) {
+//        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
+//            if let data = response.data {
+//                do {
+//                    let response = try JSONDecoder().decode(FoodsResponse.self, from: data)
+//                    if let foods = response.yemekler {
+//                        completion(foods)
+//                    } else {
+//                        print("loadFoods error on userRepository")
+//                    }
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            }
+//        }
+//    }
+
+    // v2 request from network manager
+//    func loadFoods(completion: @escaping ([Foods]) -> ()) {
+//        let networkManager = NetworkManager.shared
+//        networkManager.request(url: "tumYemekleriGetir", method: .get) { (result: Result<FoodsResponse, Error>) in
+//            switch result {
+//            case .success(let response):
+//                if let foods = response.yemekler {
+//                    completion(foods)
+//                } else {
+//                    print("loadFoods error on userRepository")
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
+    
+    // v3: make request from homeManager and homeManager requests from NetworkManager
+    func loadAllFoods(completion: @escaping ([Foods]) -> ()) {
+        let homeManager = HomeManager.shared
+        homeManager.loadAllFoods { foods in
+            completion(foods)
         }
     }
-    
-    
 }

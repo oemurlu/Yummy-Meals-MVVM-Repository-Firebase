@@ -34,8 +34,6 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        
-        viewModel.loadFoods()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

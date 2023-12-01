@@ -16,6 +16,10 @@
 		B6125A892B039F4D00A13215 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6125A882B039F4D00A13215 /* SignInViewModel.swift */; };
 		B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4A2B1918F60054B094 /* HomeViewModel.swift */; };
 		B626EE4F2B19234B0054B094 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4E2B19234B0054B094 /* Foods.swift */; };
+		B626EE562B1A15C90054B094 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE552B1A15C90054B094 /* NetworkManager.swift */; };
+		B626EE582B1A172F0054B094 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE572B1A172F0054B094 /* NetworkHelper.swift */; };
+		B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE5A2B1A18690054B094 /* HomeManager.swift */; };
+		B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE5C2B1A18790054B094 /* HomeHelper.swift */; };
 		B63937672AF66851001604AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937662AF66851001604AB /* AppDelegate.swift */; };
 		B63937692AF66851001604AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63937682AF66851001604AB /* SceneDelegate.swift */; };
 		B639376E2AF66851001604AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B639376C2AF66851001604AB /* Main.storyboard */; };
@@ -46,6 +50,10 @@
 		B6125A882B039F4D00A13215 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B626EE4A2B1918F60054B094 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B626EE4E2B19234B0054B094 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
+		B626EE552B1A15C90054B094 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B626EE572B1A172F0054B094 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		B626EE5A2B1A18690054B094 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		B626EE5C2B1A18790054B094 /* HomeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHelper.swift; sourceTree = "<group>"; };
 		B63937632AF66851001604AB /* Food-Order-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food-Order-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63937662AF66851001604AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B63937682AF66851001604AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +120,33 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		B626EE532B1A15B80054B094 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B626EE542B1A15BF0054B094 /* Core */,
+				B626EE592B1A18450054B094 /* Home */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B626EE542B1A15BF0054B094 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B626EE552B1A15C90054B094 /* NetworkManager.swift */,
+				B626EE572B1A172F0054B094 /* NetworkHelper.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B626EE592B1A18450054B094 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B626EE5A2B1A18690054B094 /* HomeManager.swift */,
+				B626EE5C2B1A18790054B094 /* HomeHelper.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B63530332AF671DF0048C7AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +199,7 @@
 		B63530382AF67AEC0048C7AA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B626EE532B1A15B80054B094 /* Network */,
 				B635303A2AF67AFC0048C7AA /* Entity */,
 				B63530392AF67AF30048C7AA /* Repository */,
 			);
@@ -392,6 +428,8 @@
 				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B60883972B15D2C4006DDBA8 /* FoodsCell.swift in Sources */,
 				B626EE4F2B19234B0054B094 /* Foods.swift in Sources */,
+				B626EE562B1A15C90054B094 /* NetworkManager.swift in Sources */,
+				B626EE582B1A172F0054B094 /* NetworkHelper.swift in Sources */,
 				B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */,
 				B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */,
 				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
@@ -405,7 +443,9 @@
 				B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */,
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,
+				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
+				B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,
 				B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */,
 				B6125A892B039F4D00A13215 /* SignInViewModel.swift in Sources */,

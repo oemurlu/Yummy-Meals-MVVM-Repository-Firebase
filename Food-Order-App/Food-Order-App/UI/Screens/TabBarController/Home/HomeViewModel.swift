@@ -27,7 +27,7 @@ class HomeViewModel {
     }
     
     func loadFoods() {
-        repo.loadFoods { [weak self] foods in
+        repo.loadAllFoods { [weak self] foods in
             self?.foodsList = foods
         }
     }

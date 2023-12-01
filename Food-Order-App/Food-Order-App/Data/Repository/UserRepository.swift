@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import Alamofire
 
 class UserRepository {
     
@@ -51,4 +52,23 @@ class UserRepository {
             }
         }
     }
+    
+    func loadFoods(completion: @escaping ([Foods]) -> ()) {
+        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
+            if let data = response.data {
+                do {
+                    let response = try JSONDecoder().decode(FoodsResponse.self, from: data)
+                    if let foods = response.yemekler {
+                        completion(foods)
+                    } else {
+                        print("loadFoods error on userRepository")
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    
 }

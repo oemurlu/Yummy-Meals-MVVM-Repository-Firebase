@@ -5,5 +5,5 @@ target 'Food-Order-App' do
   # Pods for Food-Order-App
 	pod 'FirebaseFirestore'
 	pod 'FirebaseAuth'
-
+	pod 'Alamofire'
 end

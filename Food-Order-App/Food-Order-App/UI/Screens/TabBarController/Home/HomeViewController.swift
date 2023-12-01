@@ -14,6 +14,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     private var messageLabel: UILabel?
+    private let viewModel: HomeViewModel
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = HomeViewModel()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +27,15 @@ class HomeViewController: UIViewController {
         collectionView.collectionViewLayout = .createCompositionalLayout()
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
         setupMessageLabel("Today's Offers!")
+        
+        viewModel.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        viewModel.loadFoods()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,12 +60,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 160
+        return viewModel.foodsList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let food = viewModel.foodsList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
-        cell.nameLabel.text = "\(indexPath)"
+        cell.nameLabel.text = food.yemek_adi
         return cell
     }
     
@@ -83,6 +94,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             messageLabel?.isHidden = true
         } else {
             messageLabel?.isHidden = false
+        }
+    }
+}
+
+extension HomeViewController: HomeViewModelProtocol {
+    func foodsDidLoad() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
 }

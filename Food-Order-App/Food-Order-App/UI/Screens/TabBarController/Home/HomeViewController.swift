@@ -38,6 +38,9 @@ class HomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+        
+        viewModel.loadCart()
     }
     
     @IBAction func filterButtonPressed(_ sender: UIButton) {
@@ -82,6 +85,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.image.kf.setImage(with: url)
             }
         }
+        
+        cell.delegate = self
+        cell.indexPath = indexPath
+        
         return cell
     }
     
@@ -119,5 +126,15 @@ extension HomeViewController: HomeViewModelProtocol {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+}
+
+extension HomeViewController: FoodsCellProtocol {
+    func addFoodToBasket(indexPath: IndexPath) {
+        let food = viewModel.foodsList[indexPath.row]
+        print("\(food.yemek_adi!) sepete eklendi")
+        //TODO: make network request for adding food to the basket
+        // we need username; => we need to get username from firebase
+        viewModel.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: 1)
     }
 }

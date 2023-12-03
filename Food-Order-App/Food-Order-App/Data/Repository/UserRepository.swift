@@ -14,6 +14,8 @@ class UserRepository {
     
     let db = Firestore.firestore()
     let collectionUsers = Firestore.firestore().collection("Users")
+    var allFoods: [Foods] = []
+    let homeManager = HomeManager.shared
     
     func createUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
         Auth.auth().createUser(withEmail: email, password: pw) { authResult, error in
@@ -90,9 +92,40 @@ class UserRepository {
     
     // v3: make request from homeManager and homeManager requests from NetworkManager
     func loadAllFoods(completion: @escaping ([Foods]) -> ()) {
-        let homeManager = HomeManager.shared
-        homeManager.loadAllFoods { foods in
+        homeManager.loadAllFoods { [weak self] foods in
+            self?.allFoods = foods
             completion(foods)
         }
     }
+    
+    func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
+        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe4" ]
+        
+        homeManager.addFoodToBasket(params: params) { succes in
+            print("repo callback success value: \(succes)")
+        }
+    }
+    
+    func getFoodsFromCart() {
+        let params: Parameters = ["kullanici_adi": "oe5"]
+        homeManager.loadCart(params: params) { foods, error in
+            if let error = error {
+                print("your card is empty")
+            } else {
+                guard let foods = foods else {
+                    print("error: cart data is nil")
+                    return
+                }
+                for food in foods {
+                    print(food.kullanici_adi!)
+                    print(food.sepet_yemek_id!)
+                    print(food.yemek_adi!)
+                    print("*******")
+                }
+            }
+        }
+    }
+    
+    // actually this function is so basic and bad. Before this function, I wrote a better function which is seperating errors by connection error or empty card error but this api doesn't supoort empty card message. If the user has item in the cart, the api returns foods and succes: 1 and sepet_yemekler = [Foods] but if the user dont have item in the cart, the api returns success: 0 and sepet_yemekler = nil. So i cant handle the errors.
+    
 }

@@ -31,4 +31,12 @@ class HomeViewModel {
             self?.foodsList = foods
         }
     }
+    
+    func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
+        repo.addFoodToCart(foodName: foodName, foodImageName: foodImageName, foodPrice: foodPrice, foodOrderCount: foodOrderCount)
+    }
+    
+    func loadCart() {
+        repo.getFoodsFromCart()
+    }
 }

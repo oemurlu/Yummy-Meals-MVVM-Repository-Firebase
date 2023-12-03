@@ -8,11 +8,18 @@
 import UIKit
 import Kingfisher
 
+protocol FoodsCellProtocol: AnyObject {
+    func addFoodToBasket(indexPath: IndexPath)
+}
+
 class FoodsCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    
+    weak var delegate: FoodsCellProtocol?
+    var indexPath: IndexPath?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -22,7 +29,7 @@ class FoodsCell: UICollectionViewCell {
     }
     
     @IBAction func addButton_TUI(_ sender: UIButton) {
-        // add to the basket via delegate method.
+        delegate?.addFoodToBasket(indexPath: indexPath!)
     }
     
     func addCellCornerRadius() {

@@ -24,8 +24,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.collectionViewLayout = .createCompositionalLayout()
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
+        setupCollectionView()
         setupMessageLabel("Today's Offers!")
         
         viewModel.delegate = self
@@ -42,6 +41,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIButton) {
+    }
+    
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.collectionViewLayout = .createCompositionalLayout()
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
     }
     
     private func setupMessageLabel(_ message: String) {
@@ -64,7 +71,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let food = viewModel.foodsList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
+        
+        cell.setupCellWithColor(index: indexPath.row)
+        
         cell.nameLabel.text = food.yemek_adi
+        cell.priceLabel.text = "$ \(food.yemek_fiyat ?? "0")"
+        
         return cell
     }
     

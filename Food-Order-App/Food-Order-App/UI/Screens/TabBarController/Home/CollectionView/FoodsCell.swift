@@ -25,7 +25,6 @@ class FoodsCell: UICollectionViewCell {
         super.layoutSubviews()
         setupAddButton() // it can writeable on cellForItem instead of here. It doesn't matter.
         addCellCornerRadius()
-        
     }
     
     @IBAction func addButton_TUI(_ sender: UIButton) {
@@ -45,7 +44,7 @@ class FoodsCell: UICollectionViewCell {
         addButton.tintColor = UIColor(hexString: "#1B1212")
     }
     
-    func setupCellWithColor(index: Int) {
+    func setupCellColor(index: Int) {
         let colors: [String] = ["#B9E4F3", "#C3F3D9", "#FFB7C5", "#DAC3FF", "#D9FFF3", "#FFE0B7", "#F7CED7", "#C8B9F3", "#F3B9D9", "#FFEC80"]
         let colorIndex = index % colors.count
         self.backgroundColor = UIColor(hexString: colors[colorIndex])

@@ -1,0 +1,20 @@
+//
+//  CartHelper.swift
+//  Food-Order-App
+//
+//  Created by Osman Emre Ömürlü on 3.12.2023.
+//
+
+import Foundation
+
+enum CartEndPoint: String {
+    case getFoodsFromCart = "sepettekiYemekleriGetir"
+
+    var path: String {
+        switch self {
+        case .getFoodsFromCart:
+            return NetworkHelper.shared.requestFinalUrl(url: CartEndPoint.getFoodsFromCart.rawValue)
+
+        }
+    }
+}

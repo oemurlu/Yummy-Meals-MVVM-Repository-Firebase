@@ -38,9 +38,6 @@ class HomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        
-        
-        viewModel.loadCart()
     }
     
     @IBAction func filterButtonPressed(_ sender: UIButton) {
@@ -75,7 +72,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let food = viewModel.foodsList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
         
-        cell.setupCellWithColor(index: indexPath.row)
+        cell.setupCellColor(index: indexPath.row)
         
         cell.nameLabel.text = food.yemek_adi
         cell.priceLabel.text = "$ \(food.yemek_fiyat ?? "0")"

@@ -16,6 +16,7 @@ class UserRepository {
     let collectionUsers = Firestore.firestore().collection("Users")
     var allFoods: [Foods] = []
     let homeManager = HomeManager.shared
+    let cartManager = CartManager.shared
     
     func createUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
         Auth.auth().createUser(withEmail: email, password: pw) { authResult, error in
@@ -99,16 +100,16 @@ class UserRepository {
     }
     
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
-        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe4" ]
+        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
         
         homeManager.addFoodToBasket(params: params) { succes in
             print("repo callback success value: \(succes)")
         }
     }
     
-    func getFoodsFromCart() {
-        let params: Parameters = ["kullanici_adi": "oe5"]
-        homeManager.loadCart(params: params) { foods, error in
+    func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]) -> ()) {
+        let params: Parameters = ["kullanici_adi": "oe7"]
+        cartManager.loadCart(params: params) { foods, error in
             if let error = error {
                 print("your card is empty")
             } else {
@@ -116,12 +117,13 @@ class UserRepository {
                     print("error: cart data is nil")
                     return
                 }
-                for food in foods {
-                    print(food.kullanici_adi!)
-                    print(food.sepet_yemek_id!)
-                    print(food.yemek_adi!)
-                    print("*******")
-                }
+                completion(foods)
+//                for food in foods {
+//                    print(food.kullanici_adi!)
+//                    print(food.sepet_yemek_id!)
+//                    print(food.yemek_adi!)
+//                    print("*******")
+//                }
             }
         }
     }

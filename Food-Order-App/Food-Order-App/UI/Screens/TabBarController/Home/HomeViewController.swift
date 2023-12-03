@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.collectionViewLayout = .createCompositionalLayout()
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 120, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
     }
     
     private func setupMessageLabel(_ message: String) {
@@ -77,15 +77,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.nameLabel.text = food.yemek_adi
         cell.priceLabel.text = "$ \(food.yemek_fiyat ?? "0")"
         
+        if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
+            DispatchQueue.main.async {
+                cell.image.kf.setImage(with: url)
+            }
+        }
         return cell
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // FIX IT !!!!
+        // FIX IT !!!! -> I added comment line to the code and the problem is solved.
+        // Probably the problem is: if the cell is empty, xcode get confused xd
         // some cell's was disappearing while scrolling. this is a temporary solution
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            self.collectionView.reloadData()
+//        }
         
         // Determine the y-axis movement limit for the messageLabel
         let upperLimit: CGFloat = 12

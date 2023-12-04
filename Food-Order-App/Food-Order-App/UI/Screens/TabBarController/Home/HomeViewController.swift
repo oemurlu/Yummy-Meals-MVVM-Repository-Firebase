@@ -90,13 +90,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // FIX IT !!!! -> I added comment line to the code and the problem is solved.
-        // Probably the problem is: if the cell is empty, xcode get confused xd
-        // some cell's was disappearing while scrolling. this is a temporary solution
-//        DispatchQueue.main.async {
-//            self.collectionView.reloadData()
-//        }
-        
+    
         // Determine the y-axis movement limit for the messageLabel
         let upperLimit: CGFloat = 12
         let lowerLimit: CGFloat = 72

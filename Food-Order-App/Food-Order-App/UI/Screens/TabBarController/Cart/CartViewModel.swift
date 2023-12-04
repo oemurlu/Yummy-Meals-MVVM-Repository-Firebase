@@ -9,6 +9,7 @@ import Foundation
 
 protocol CartViewModelProtocol: AnyObject {
     func foodsDidLoad()
+    func foodDeleted()
 }
 
 class CartViewModel {
@@ -28,5 +29,9 @@ class CartViewModel {
         }
     }
     
-    
+    func deleteItemFromCart(foodOrderId: String) {
+        repo.deleteItemFromCart(foodCartId: foodOrderId) {
+            self.delegate?.foodDeleted()
+        }
+    }
 }

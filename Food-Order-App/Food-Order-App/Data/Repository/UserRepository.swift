@@ -130,4 +130,13 @@ class UserRepository {
     
     // actually this function is so basic and bad. Before this function, I wrote a better function which is seperating errors by connection error or empty card error but this api doesn't supoort empty card message. If the user has item in the cart, the api returns foods and succes: 1 and sepet_yemekler = [Foods] but if the user dont have item in the cart, the api returns success: 0 and sepet_yemekler = nil. So i cant handle the errors.
     
+    
+    
+    func deleteItemFromCart(foodCartId: String, completion: @escaping () -> ()) {
+        let params: Parameters = ["sepet_yemek_id": foodCartId, "kullanici_adi": "oe7", ]
+        cartManager.deleteFoodFromCart(params: params) {
+            completion()
+        }
+    }
+    
 }

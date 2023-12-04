@@ -27,4 +27,20 @@ class CartManager {
             }
         }
     }
+    
+    func deleteFoodFromCart(params: Parameters, completion: @escaping () -> ()) {
+        let url = CartEndPoint.deleteFoodFromCart.path
+        print("delete url: \(url)")
+        NetworkManager.shared.request(url: url, method: .post, parameters: params) { (result: Result<DeleteFoodFromCartResponse, Error>) in
+            switch result {
+            case .success(let message):
+                print("message: \(message)")
+                completion()
+            case .failure(let error):
+                print("deleteFoodFromCartError: \(error.localizedDescription)")
+                completion()
+            }
+        }
+    }
+    
 }

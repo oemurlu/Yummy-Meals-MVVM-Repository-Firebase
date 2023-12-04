@@ -44,6 +44,7 @@
 		B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B92AFD4F720078660A /* EntranceViewModel.swift */; };
 		B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */; };
 		B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030C02AFE1B260078660A /* SignUpViewController.swift */; };
+		B6F59AB52B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59AB42B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		B6B030B92AFD4F720078660A /* EntranceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewModel.swift; sourceTree = "<group>"; };
 		B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B6B030C02AFE1B260078660A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B6F59AB42B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFoodFromCartResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				B626EE4E2B19234B0054B094 /* Foods.swift */,
 				B61B1A5A2B1C876900AC007F /* AddFoodToCart.swift */,
 				B61B1A5C2B1C945700AC007F /* GetFoodsFromCart.swift */,
+				B6F59AB42B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */,
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
+				B6F59AB52B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift in Sources */,
 				B61B1A652B1CCB9000AC007F /* CartViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,
 				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,

@@ -9,11 +9,14 @@ import Foundation
 
 enum CartEndPoint: String {
     case getFoodsFromCart = "sepettekiYemekleriGetir"
+    case deleteFoodFromCart = "sepettenYemekSil"
 
     var path: String {
         switch self {
         case .getFoodsFromCart:
             return NetworkHelper.shared.requestFinalUrl(url: CartEndPoint.getFoodsFromCart.rawValue)
+        case .deleteFoodFromCart:
+            return NetworkHelper.shared.requestFinalUrl(url: CartEndPoint.deleteFoodFromCart.rawValue)
 
         }
     }

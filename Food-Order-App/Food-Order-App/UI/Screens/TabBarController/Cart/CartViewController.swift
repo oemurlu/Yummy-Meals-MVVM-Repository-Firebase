@@ -92,12 +92,28 @@ extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return cell
     }
+    
+    
+    // TEST FOR DELETING ITEM WHEN USER PRESS THE CELL
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let food = viewModel.cartFoods[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCell
+        
+        let yemekId = food.sepet_yemek_id!
+        viewModel.deleteItemFromCart(foodOrderId: yemekId)
+    }
 }
 
 extension CartViewController: CartViewModelProtocol {
     func foodsDidLoad() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+        }
+    }
+    
+    func foodDeleted() {
+        DispatchQueue.main.async {
+            self.viewModel.loadFoods()
         }
     }
 }

@@ -53,7 +53,6 @@ class CartCell: UICollectionViewCell {
         
         quantityLabel.tintColor = color
         quantityLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
-        
     }
     
     func addCellCornerRadius() {

@@ -30,6 +30,11 @@ class CartTVCell: UITableViewCell {
         addCellCornerRadius()
         setupQuantityButtonsAndLabel()
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        contentView.layer.cornerRadius = 30
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

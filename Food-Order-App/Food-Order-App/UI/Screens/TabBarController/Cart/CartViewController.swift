@@ -85,9 +85,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let food = viewModel.cartFoods[indexPath.section]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellTV", for: indexPath) as! CartTVCell
-        
         cell.setupCellColor(index: indexPath.section)
         cell.nameLabel.text = food.yemek_adi
         cell.priceLabel.text = "$ \(food.yemek_fiyat!)"
@@ -97,21 +95,21 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.imageFood.kf.setImage(with: url)
             }
         }
-        
         return cell
     }
     
+//     disable click cell behavior
+        func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+            return nil
+        }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let food = viewModel.cartFoods[indexPath.row]
-        let yemekId = food.sepet_yemek_id!
-        viewModel.deleteItemFromCart(foodOrderId: yemekId)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let food = viewModel.cartFoods[indexPath.section]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            self.viewModel.deleteItemFromCart(foodOrderId: food.sepet_yemek_id!)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
-    // disable click cell behavior
-    //    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-    //        return nil
-    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 144
@@ -122,7 +120,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 extension CartViewController: CartViewModelProtocol {
     func foodsDidLoad() {
         DispatchQueue.main.async {
-            //            self.collectionView.reloadData()
             self.tableView.reloadData()
         }
     }

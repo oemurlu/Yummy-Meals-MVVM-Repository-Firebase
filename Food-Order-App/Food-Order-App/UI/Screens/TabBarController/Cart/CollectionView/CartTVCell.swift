@@ -1,37 +1,42 @@
 //
-//  CartCell.swift
+//  CartTVCell.swift
 //  Food-Order-App
 //
-//  Created by Osman Emre Ömürlü on 3.12.2023.
+//  Created by Osman Emre Ömürlü on 5.12.2023.
 //
 
 import UIKit
 
-protocol CartCellProtocol: AnyObject {
+protocol CartTVCellProtocol: AnyObject {
     func decreaseQuantity(indexPath: IndexPath)
     func increaseQuantity(indexPath: IndexPath)
 }
 
-class CartCell: UICollectionViewCell {
+class CartTVCell: UITableViewCell {
     
-//    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var imageFood: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var minusQuantityButton: UIButton!
     @IBOutlet weak var plusQuantityButton: UIButton!
     
-    weak var delegate: CartCellProtocol?
+    weak var delegate: CartTVCellProtocol?
     var indexPath: IndexPath?
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         addCellCornerRadius()
         setupQuantityButtonsAndLabel()
-        
     }
-    
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
     @IBAction func minusButton_TUI(_ sender: UIButton) {
         delegate?.decreaseQuantity(indexPath: indexPath!)
     }
@@ -56,6 +61,7 @@ class CartCell: UICollectionViewCell {
         quantityLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
     }
     
+    
     func addCellCornerRadius() {
         layer.cornerRadius = 12
         layer.masksToBounds = true
@@ -66,5 +72,7 @@ class CartCell: UICollectionViewCell {
         let colorIndex = index % colors.count
         self.backgroundColor = UIColor(hexString: colors[colorIndex])
     }
+
+    
     
 }

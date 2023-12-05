@@ -9,10 +9,11 @@ import UIKit
 import Kingfisher
 
 class CartViewController: UIViewController {
-
-    @IBOutlet weak var collectionView: UICollectionView!
+    
+    //    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var confirmCartButton: UIButton!
     @IBOutlet weak var totalCartPriceLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     private let viewModel: CartViewModel
     
@@ -28,7 +29,7 @@ class CartViewController: UIViewController {
         
         setupConfirmCartButton()
         setupTotalCartPriceLabel()
-        setupCollectionView()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,63 +52,78 @@ class CartViewController: UIViewController {
     }
     
     
-    func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        layout.minimumLineSpacing = 8
-        layout.minimumLineSpacing = 8
-        
-        let screenWidth = UIScreen.main.bounds.width
-        let itemWidth = (screenWidth - 16)
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth / 2.8)
-        collectionView.collectionViewLayout = layout
-        }
-
-
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
     @IBAction func confirmCartButton_TUI(_ sender: UIButton) {
     }
 }
 
-extension CartViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.cartFoods.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let foods = viewModel.cartFoods[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let food = viewModel.cartFoods[indexPath.section]
         
-        cell.setupCellColor(index: indexPath.row)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellTV", for: indexPath) as! CartTVCell
         
-        cell.nameLabel.text = foods.yemek_adi
-        cell.priceLabel.text = "$ \(foods.yemek_fiyat!)"
-        if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(foods.yemek_resim_adi!)") {
+        cell.setupCellColor(index: indexPath.section)
+        cell.nameLabel.text = food.yemek_adi
+        cell.priceLabel.text = "$ \(food.yemek_fiyat!)"
+        
+        if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
             DispatchQueue.main.async {
-                cell.image.kf.setImage(with: url)
+                cell.imageFood.kf.setImage(with: url)
             }
         }
+        
         return cell
     }
     
     
-    // TEST FOR DELETING ITEM WHEN USER PRESS THE CELL
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let food = viewModel.cartFoods[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CartCell", for: indexPath) as! CartCell
-        
         let yemekId = food.sepet_yemek_id!
         viewModel.deleteItemFromCart(foodOrderId: yemekId)
     }
+    
+    // disable click cell behavior
+    //    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    //        return nil
+    //    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 144
+    }
 }
+
 
 extension CartViewController: CartViewModelProtocol {
     func foodsDidLoad() {
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            //            self.collectionView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -118,10 +134,10 @@ extension CartViewController: CartViewModelProtocol {
     }
 }
 
-extension CartViewController: CartCellProtocol {
+extension CartViewController: CartTVCellProtocol {
     
     func decreaseQuantity(indexPath: IndexPath) {
-//        let food = viewModel.cartFoods[indexPath.row]
+        //        let food = viewModel.cartFoods[indexPath.row]
         //TODO: decrease the quantity
     }
     func increaseQuantity(indexPath: IndexPath) {

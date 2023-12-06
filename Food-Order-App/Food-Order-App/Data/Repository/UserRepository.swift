@@ -99,11 +99,12 @@ class UserRepository {
         }
     }
     
-    func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
+    func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int, completion: @escaping () -> ()) {
         let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
         
-        homeManager.addFoodToBasket(params: params) { succes in
-            print("repo callback success value: \(succes)")
+        homeManager.addFoodToBasket(params: params) { success in
+//            print("repo callback success value: \(success)")
+            completion()
         }
     }
     
@@ -111,19 +112,20 @@ class UserRepository {
         let params: Parameters = ["kullanici_adi": "oe7"]
         cartManager.loadCart(params: params) { foods, error in
             if let error = error {
-                print("your card is empty")
+                print("your card is empty: \(error)")
             } else {
                 guard let foods = foods else {
                     print("error: cart data is nil")
                     return
                 }
-                completion(foods)
 //                for food in foods {
 //                    print(food.kullanici_adi!)
 //                    print(food.sepet_yemek_id!)
 //                    print(food.yemek_adi!)
+//                    print(food.yemek_siparis_adet!)
 //                    print("*******")
 //                }
+                completion(foods)
             }
         }
     }
@@ -139,4 +141,14 @@ class UserRepository {
         }
     }
     
+    func updateQuantity(food: GetFoodsFromCart, completion: @escaping () -> ()) {
+        if let foodId = food.sepet_yemek_id {
+            self.deleteItemFromCart(foodCartId: foodId) {
+                self.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: Int(food.yemek_siparis_adet!)!) {
+                    completion()
+                }
+//                completion()
+            }
+        }
+    }
 }

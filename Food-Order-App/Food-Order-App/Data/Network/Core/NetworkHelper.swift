@@ -16,7 +16,7 @@ class NetworkHelper {
     
     func requestFinalUrl(url: String) -> String {
         let finalUrl = "\(NetworkEndPoint.base_url.rawValue)\(url).php"
-        print("finalUrl: \(finalUrl)")
+//        print("finalUrl: \(finalUrl)")
         return finalUrl
     }
 }

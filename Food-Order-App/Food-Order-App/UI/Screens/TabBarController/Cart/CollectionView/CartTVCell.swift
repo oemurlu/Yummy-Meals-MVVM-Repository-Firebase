@@ -33,7 +33,6 @@ class CartTVCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        contentView.layer.cornerRadius = 30
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,8 +50,8 @@ class CartTVCell: UITableViewCell {
     
     func setupQuantityButtonsAndLabel() {
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .large)
-        let largeBoldMinus = UIImage(systemName: "plus.square.fill", withConfiguration: largeConfig)
-        let largeBoldPlus = UIImage(systemName: "minus.square.fill", withConfiguration: largeConfig)
+        let largeBoldMinus = UIImage(systemName: "minus.square.fill", withConfiguration: largeConfig)
+        let largeBoldPlus = UIImage(systemName: "plus.square.fill", withConfiguration: largeConfig)
         
         minusQuantityButton.setImage(largeBoldMinus, for: .normal)
         plusQuantityButton.setImage(largeBoldPlus, for: .normal)
@@ -77,7 +76,4 @@ class CartTVCell: UITableViewCell {
         let colorIndex = index % colors.count
         self.backgroundColor = UIColor(hexString: colors[colorIndex])
     }
-
-    
-    
 }

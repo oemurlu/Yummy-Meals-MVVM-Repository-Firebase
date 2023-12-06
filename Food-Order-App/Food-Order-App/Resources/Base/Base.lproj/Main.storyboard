@@ -641,12 +641,18 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMr-Pb-V1v">
                                                     <rect key="frame" x="317" y="93.5" width="29" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="TMr-Pb-V1v" secondAttribute="height" multiplier="1:1" id="ev0-MK-CkE"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGe-pp-sVG">
                                                     <rect key="frame" x="346" y="96" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1:1" id="Ned-h3-5I2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="plus.app.fill" catalog="system"/>
@@ -676,11 +682,9 @@
                                                 <constraint firstItem="s28-S8-Ceb" firstAttribute="height" secondItem="TMr-Pb-V1v" secondAttribute="height" id="Hvy-e4-mWZ"/>
                                                 <constraint firstItem="5eh-cv-xT4" firstAttribute="height" secondItem="ow1-Dl-Ykp" secondAttribute="height" multiplier="0.803571" id="KsD-HB-Nbe"/>
                                                 <constraint firstItem="TMr-Pb-V1v" firstAttribute="height" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1.20833" id="NAi-FP-1Om"/>
-                                                <constraint firstItem="EGe-pp-sVG" firstAttribute="width" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1:1" id="Ned-h3-5I2"/>
                                                 <constraint firstItem="TMr-Pb-V1v" firstAttribute="leading" secondItem="s28-S8-Ceb" secondAttribute="trailing" id="PZH-zJ-qYv"/>
                                                 <constraint firstAttribute="bottom" secondItem="EGe-pp-sVG" secondAttribute="bottom" constant="20" id="Z8d-WP-jwb"/>
                                                 <constraint firstItem="L5o-8b-hdW" firstAttribute="top" secondItem="rsm-OL-pxS" secondAttribute="bottom" constant="4" id="cYh-rz-DZZ"/>
-                                                <constraint firstItem="TMr-Pb-V1v" firstAttribute="width" secondItem="TMr-Pb-V1v" secondAttribute="height" multiplier="1:1" id="ev0-MK-CkE"/>
                                                 <constraint firstItem="rsm-OL-pxS" firstAttribute="leading" secondItem="5eh-cv-xT4" secondAttribute="trailing" constant="20" id="i2d-L5-Zzt"/>
                                                 <constraint firstItem="s28-S8-Ceb" firstAttribute="centerY" secondItem="TMr-Pb-V1v" secondAttribute="centerY" id="jGt-dd-irO"/>
                                                 <constraint firstItem="L5o-8b-hdW" firstAttribute="leading" secondItem="rsm-OL-pxS" secondAttribute="leading" id="phc-SA-Zi8"/>

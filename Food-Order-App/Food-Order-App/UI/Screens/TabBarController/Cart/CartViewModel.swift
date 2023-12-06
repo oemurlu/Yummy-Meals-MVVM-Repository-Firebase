@@ -10,6 +10,7 @@ import Foundation
 protocol CartViewModelProtocol: AnyObject {
     func foodsDidLoad()
     func foodDeleted()
+    func foodQuantityUpdated()
 }
 
 class CartViewModel {
@@ -19,6 +20,7 @@ class CartViewModel {
     
     var cartFoods = [GetFoodsFromCart]() {
         didSet {
+            cartFoods.sort(by: {Int($0.yemek_fiyat!)! < Int($1.yemek_fiyat!)!})
             delegate?.foodsDidLoad()
         }
     }
@@ -32,6 +34,14 @@ class CartViewModel {
     func deleteItemFromCart(foodOrderId: String) {
         repo.deleteItemFromCart(foodCartId: foodOrderId) {
             self.delegate?.foodDeleted()
+        }
+    }
+    
+    func updateQuantity(index: IndexPath, newQuantity: Int) {
+        var food = cartFoods[index.section]
+        food.yemek_siparis_adet = "\(newQuantity)"
+        repo.updateQuantity(food: food) {
+            self.delegate?.foodQuantityUpdated()
         }
     }
 }

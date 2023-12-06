@@ -33,7 +33,7 @@ class CartManager {
         NetworkManager.shared.request(url: url, method: .post, parameters: params) { (result: Result<DeleteFoodFromCartResponse, Error>) in
             switch result {
             case .success(let message):
-                print("message: \(message)")
+//                print("message: \(message)")
                 completion()
             case .failure(let error):
                 print("deleteFoodFromCartError: \(error.localizedDescription)")

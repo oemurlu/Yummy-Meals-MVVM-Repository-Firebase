@@ -86,9 +86,14 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let food = viewModel.cartFoods[indexPath.section]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartCellTV", for: indexPath) as! CartTVCell
+        cell.delegate = self
+        
         cell.setupCellColor(index: indexPath.section)
         cell.nameLabel.text = food.yemek_adi
         cell.priceLabel.text = "$ \(food.yemek_fiyat!)"
+        cell.quantityLabel.text = "\(food.yemek_siparis_adet!)"
+        
+        cell.indexPath = indexPath
         
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
             DispatchQueue.main.async {
@@ -131,13 +136,45 @@ extension CartViewController: CartViewModelProtocol {
     }
 }
 
+//extension CartViewController: CartTVCellProtocol {
+//    
+//    func decreaseQuantity(indexPath: IndexPath) {
+//        let food = viewModel.cartFoods[indexPath.section]
+//        guard var quantity: Int = Int(food.yemek_siparis_adet!),
+//                quantity > 1 else { return }
+//        quantity -= 1
+//        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
+//    }
+//    func increaseQuantity(indexPath: IndexPath) {
+//        //TODO: increase the quantity
+//        let food = viewModel.cartFoods[indexPath.section]
+//        guard var quantity: Int = Int(food.yemek_siparis_adet!), quantity > 0 else { return }
+//        quantity += 1
+//        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
+//    }
+//    
+//    func foodQuantityUpdated() {
+//        viewModel.loadFoods()
+//    }
+//}
+
 extension CartViewController: CartTVCellProtocol {
     
     func decreaseQuantity(indexPath: IndexPath) {
-        //        let food = viewModel.cartFoods[indexPath.row]
-        //TODO: decrease the quantity
+        let food = viewModel.cartFoods[indexPath.section]
+        guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 1 else { return }
+        quantity -= 1
+        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
     }
+    
     func increaseQuantity(indexPath: IndexPath) {
-        //TODO: increase the quantity
+        let food = viewModel.cartFoods[indexPath.section]
+        guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 0 else { return }
+        quantity += 1
+        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
+    }
+    
+    func foodQuantityUpdated() {
+        viewModel.loadFoods()
     }
 }

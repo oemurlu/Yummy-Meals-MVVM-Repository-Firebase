@@ -35,6 +35,7 @@
 		B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6E9C2B210280008114AC /* String+Extensions.swift */; };
 		B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6EA22B21A841008114AC /* EmptyCartView.swift */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
+		B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */; };
 		B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030A82AF6864A0078660A /* OnboardingViewController.swift */; };
 		B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */; };
 		B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AC2AF68D580078660A /* OnboardingSlide.swift */; };
@@ -82,6 +83,7 @@
 		B67E6E9C2B210280008114AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B67E6EA22B21A841008114AC /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B6B030A82AF6864A0078660A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		B6B030AC2AF68D580078660A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
@@ -324,6 +326,24 @@
 			path = EmptyCartView;
 			sourceTree = "<group>";
 		};
+		B698B0CA2B21F68C0056B798 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B60883952B15D296006DDBA8 /* CollectionView */,
+				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
+				B626EE4A2B1918F60054B094 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B698B0CB2B21F6BA0056B798 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */,
+			);
+			path = FoodDetail;
+			sourceTree = "<group>";
+		};
 		B6B030A72AF685FE0078660A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,9 +358,8 @@
 		B6B030B02AFBA3C30078660A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B60883952B15D296006DDBA8 /* CollectionView */,
-				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
-				B626EE4A2B1918F60054B094 /* HomeViewModel.swift */,
+				B698B0CA2B21F68C0056B798 /* Home */,
+				B698B0CB2B21F6BA0056B798 /* FoodDetail */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -525,6 +544,7 @@
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B6F59AB52B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift in Sources */,
 				B61B1A652B1CCB9000AC007F /* CartViewController.swift in Sources */,
+				B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,
 				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,

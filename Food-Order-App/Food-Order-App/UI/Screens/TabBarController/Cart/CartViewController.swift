@@ -141,7 +141,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
 extension CartViewController: CartViewModelProtocol {
     func foodsDidLoad() {
         DispatchQueue.main.async {

@@ -12,6 +12,7 @@ protocol CartViewModelProtocol: AnyObject {
     func foodDeleted()
     func foodQuantityUpdated()
     func updateTotalCartPrice()
+    func isCartEmpty(isEmpty: Bool)
 }
 
 class CartViewModel {
@@ -31,8 +32,9 @@ class CartViewModel {
     func isCartEmpty() {
         if cartFoods.count == 0 {
             print("your cart is empty.")
+            delegate?.isCartEmpty(isEmpty: true)
         } else {
-            // do nothing
+            delegate?.isCartEmpty(isEmpty: false)
         }
     }
     

@@ -14,6 +14,8 @@ class CartViewController: UIViewController {
     @IBOutlet weak var confirmCartButton: UIButton!
     @IBOutlet weak var totalCartPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emptyCartView: EmptyCartView!
+    
     
     private let viewModel: CartViewModel
     
@@ -35,6 +37,12 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        emptyCartView.isHidden = true
+        totalCartPriceLabel.isHidden = true
+        confirmCartButton.isHidden = true
+        tableView.isHidden = true
+        viewModel.totalCartPrice = 0
+        
         viewModel.loadFoods()
     }
     
@@ -42,7 +50,8 @@ class CartViewController: UIViewController {
         confirmCartButton.setTitle("CHECKOUT", for: .normal)
         confirmCartButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 28)
         confirmCartButton.layer.cornerRadius = 12.0
-        confirmCartButton.backgroundColor = UIColor(named: "red")
+//        confirmCartButton.backgroundColor = UIColor(named: "red")
+        confirmCartButton.backgroundColor = .black
         confirmCartButton.tintColor = UIColor(named: "white")
     }
     
@@ -145,6 +154,13 @@ extension CartViewController: CartViewModelProtocol {
             self.viewModel.totalCartPrice = 0
             self.viewModel.loadFoods()
         }
+    }
+    
+    func isCartEmpty(isEmpty: Bool) {
+        emptyCartView.isHidden = !isEmpty
+        tableView.isHidden = isEmpty
+        confirmCartButton.isHidden = isEmpty
+        totalCartPriceLabel.isHidden = isEmpty
     }
 }
 

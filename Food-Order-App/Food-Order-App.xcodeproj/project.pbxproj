@@ -32,6 +32,7 @@
 		B639376E2AF66851001604AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B639376C2AF66851001604AB /* Main.storyboard */; };
 		B63937702AF66852001604AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B639376F2AF66852001604AB /* Assets.xcassets */; };
 		B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63937712AF66852001604AB /* LaunchScreen.storyboard */; };
+		B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6E9C2B210280008114AC /* String+Extensions.swift */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
 		B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030A82AF6864A0078660A /* OnboardingViewController.swift */; };
 		B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */; };
@@ -77,6 +78,7 @@
 		B639376F2AF66852001604AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B63937722AF66852001604AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B63937742AF66852001604AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B67E6E9C2B210280008114AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		B6B030A82AF6864A0078660A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */,
 				B61B1A572B1C641000AC007F /* UIColor+Extensions.swift */,
+				B67E6E9C2B210280008114AC /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */,
 				B61B1A602B1CC9FD00AC007F /* CartManager.swift in Sources */,
 				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
+				B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */,
 				B61B1A622B1CCA0600AC007F /* CartHelper.swift in Sources */,
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
 				B61B1A582B1C641000AC007F /* UIColor+Extensions.swift in Sources */,

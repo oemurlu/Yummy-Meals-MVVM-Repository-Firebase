@@ -11,23 +11,39 @@ protocol CartViewModelProtocol: AnyObject {
     func foodsDidLoad()
     func foodDeleted()
     func foodQuantityUpdated()
+    func updateTotalCartPrice()
 }
 
 class CartViewModel {
     
     var repo = UserRepository()
     weak var delegate: CartViewModelProtocol?
+    var totalCartPrice: Int = 0
     
     var cartFoods = [GetFoodsFromCart]() {
         didSet {
             cartFoods.sort(by: {Int($0.yemek_fiyat!)! < Int($1.yemek_fiyat!)!})
             delegate?.foodsDidLoad()
+            self.isCartEmpty()
+        }
+    }
+    
+    func isCartEmpty() {
+        if cartFoods.count == 0 {
+            print("your cart is empty.")
+        } else {
+            // do nothing
         }
     }
     
     func loadFoods() {
         repo.loadFoodsFromCart { [weak self] foods in
-            self?.cartFoods = foods
+            if let foods = foods {
+                self?.cartFoods = foods
+            } else {
+                self?.cartFoods = [GetFoodsFromCart]()
+                self?.delegate?.updateTotalCartPrice()
+            }
         }
     }
     

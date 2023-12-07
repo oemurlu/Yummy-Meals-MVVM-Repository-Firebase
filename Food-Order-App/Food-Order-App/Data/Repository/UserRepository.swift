@@ -108,11 +108,12 @@ class UserRepository {
         }
     }
     
-    func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]) -> ()) {
+    func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]?) -> ()) {
         let params: Parameters = ["kullanici_adi": "oe7"]
         cartManager.loadCart(params: params) { foods, error in
             if let error = error {
                 print("your card is empty: \(error)")
+                completion(nil)
             } else {
                 guard let foods = foods else {
                     print("error: cart data is nil")

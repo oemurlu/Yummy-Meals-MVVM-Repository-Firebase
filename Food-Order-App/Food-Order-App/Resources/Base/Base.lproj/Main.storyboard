@@ -622,25 +622,31 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5eh-cv-xT4">
-                                                    <rect key="frame" x="40" y="14" width="112.5" height="112.5"/>
+                                                    <rect key="frame" x="36" y="14" width="112.5" height="112.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="5eh-cv-xT4" secondAttribute="height" multiplier="1:1" id="qvH-vx-E4G"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsm-OL-pxS">
-                                                    <rect key="frame" x="172.5" y="14" width="209.5" height="33"/>
+                                                    <rect key="frame" x="168.5" y="14" width="213.5" height="33"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$ 12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMQ-wJ-x5r">
+                                                    <rect key="frame" x="284" y="98" width="98" height="33"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 7.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5o-8b-hdW">
-                                                    <rect key="frame" x="172.5" y="51" width="67.5" height="29"/>
+                                                    <rect key="frame" x="168.5" y="51" width="67.5" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMr-Pb-V1v">
-                                                    <rect key="frame" x="317" y="93.5" width="29" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMr-Pb-V1v">
+                                                    <rect key="frame" x="194" y="100" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="TMr-Pb-V1v" secondAttribute="height" multiplier="1:1" id="ev0-MK-CkE"/>
                                                     </constraints>
@@ -648,20 +654,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGe-pp-sVG">
-                                                    <rect key="frame" x="346" y="96" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1:1" id="Ned-h3-5I2"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="plus.app.fill" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="plusButton_TUI:" destination="TB0-1v-m4o" eventType="touchUpInside" id="s2S-K9-YjY"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s28-S8-Ceb">
-                                                    <rect key="frame" x="288" y="93.5" width="29" height="29"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s28-S8-Ceb">
+                                                    <rect key="frame" x="165" y="100" width="29" height="29"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="s28-S8-Ceb" secondAttribute="height" multiplier="1:1" id="IKq-ce-LqW"/>
                                                     </constraints>
@@ -672,27 +666,43 @@
                                                         <action selector="minusButton_TUI:" destination="TB0-1v-m4o" eventType="touchUpInside" id="rUE-jR-vNe"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGe-pp-sVG">
+                                                    <rect key="frame" x="225" y="102" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1:1" id="Ned-h3-5I2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="plus.app.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="plusButton_TUI:" destination="TB0-1v-m4o" eventType="touchUpInside" id="s2S-K9-YjY"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EGe-pp-sVG" firstAttribute="centerY" secondItem="TMr-Pb-V1v" secondAttribute="centerY" id="0hP-5U-j33"/>
                                                 <constraint firstItem="rsm-OL-pxS" firstAttribute="top" secondItem="5eh-cv-xT4" secondAttribute="top" id="36f-bd-d49"/>
                                                 <constraint firstAttribute="trailing" secondItem="rsm-OL-pxS" secondAttribute="trailing" constant="8" id="5l2-Gj-gKR"/>
-                                                <constraint firstAttribute="trailing" secondItem="EGe-pp-sVG" secondAttribute="trailing" constant="20" id="8nf-Hf-T2w"/>
-                                                <constraint firstItem="EGe-pp-sVG" firstAttribute="leading" secondItem="TMr-Pb-V1v" secondAttribute="trailing" id="GQH-2J-Tzj"/>
+                                                <constraint firstItem="ZMQ-wJ-x5r" firstAttribute="height" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1.375" id="9UF-db-Qi2"/>
+                                                <constraint firstItem="EGe-pp-sVG" firstAttribute="leading" secondItem="TMr-Pb-V1v" secondAttribute="trailing" constant="-4" id="GQH-2J-Tzj"/>
                                                 <constraint firstItem="s28-S8-Ceb" firstAttribute="height" secondItem="TMr-Pb-V1v" secondAttribute="height" id="Hvy-e4-mWZ"/>
+                                                <constraint firstItem="ZMQ-wJ-x5r" firstAttribute="centerY" secondItem="EGe-pp-sVG" secondAttribute="centerY" id="KUv-mf-Um4"/>
                                                 <constraint firstItem="5eh-cv-xT4" firstAttribute="height" secondItem="ow1-Dl-Ykp" secondAttribute="height" multiplier="0.803571" id="KsD-HB-Nbe"/>
                                                 <constraint firstItem="TMr-Pb-V1v" firstAttribute="height" secondItem="EGe-pp-sVG" secondAttribute="height" multiplier="1.20833" id="NAi-FP-1Om"/>
-                                                <constraint firstItem="TMr-Pb-V1v" firstAttribute="leading" secondItem="s28-S8-Ceb" secondAttribute="trailing" id="PZH-zJ-qYv"/>
-                                                <constraint firstAttribute="bottom" secondItem="EGe-pp-sVG" secondAttribute="bottom" constant="20" id="Z8d-WP-jwb"/>
+                                                <constraint firstItem="TMr-Pb-V1v" firstAttribute="leading" secondItem="s28-S8-Ceb" secondAttribute="trailing" constant="-4" id="PZH-zJ-qYv"/>
                                                 <constraint firstItem="L5o-8b-hdW" firstAttribute="top" secondItem="rsm-OL-pxS" secondAttribute="bottom" constant="4" id="cYh-rz-DZZ"/>
                                                 <constraint firstItem="rsm-OL-pxS" firstAttribute="leading" secondItem="5eh-cv-xT4" secondAttribute="trailing" constant="20" id="i2d-L5-Zzt"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZMQ-wJ-x5r" secondAttribute="trailing" constant="20" id="iMh-HR-whz"/>
                                                 <constraint firstItem="s28-S8-Ceb" firstAttribute="centerY" secondItem="TMr-Pb-V1v" secondAttribute="centerY" id="jGt-dd-irO"/>
+                                                <constraint firstItem="s28-S8-Ceb" firstAttribute="top" secondItem="L5o-8b-hdW" secondAttribute="bottom" constant="4" id="jdz-33-vu4"/>
                                                 <constraint firstItem="L5o-8b-hdW" firstAttribute="leading" secondItem="rsm-OL-pxS" secondAttribute="leading" id="phc-SA-Zi8"/>
                                                 <constraint firstItem="5eh-cv-xT4" firstAttribute="centerY" secondItem="ow1-Dl-Ykp" secondAttribute="centerY" id="q1k-I2-S9b"/>
-                                                <constraint firstItem="5eh-cv-xT4" firstAttribute="leading" secondItem="ow1-Dl-Ykp" secondAttribute="leadingMargin" constant="20" id="stV-Jn-ofW"/>
+                                                <constraint firstItem="5eh-cv-xT4" firstAttribute="leading" secondItem="ow1-Dl-Ykp" secondAttribute="leadingMargin" constant="16" id="stV-Jn-ofW"/>
+                                                <constraint firstItem="s28-S8-Ceb" firstAttribute="leading" secondItem="L5o-8b-hdW" secondAttribute="leading" id="uzO-Pl-YfY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="foodPriceLabel" destination="ZMQ-wJ-x5r" id="9Eh-Bw-K7A"/>
                                             <outlet property="imageFood" destination="5eh-cv-xT4" id="ThL-d8-UfD"/>
                                             <outlet property="minusQuantityButton" destination="s28-S8-Ceb" id="gPB-Kw-aSK"/>
                                             <outlet property="nameLabel" destination="rsm-OL-pxS" id="qjN-ft-afg"/>

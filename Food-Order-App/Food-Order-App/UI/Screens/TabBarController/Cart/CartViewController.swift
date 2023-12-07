@@ -47,6 +47,7 @@ class CartViewController: UIViewController {
     }
     
     func setupTotalCartPriceLabel() {
+        totalCartPriceLabel.text = "$ 0"
         totalCartPriceLabel.font = UIFont(name: "Helvetica-Bold", size: 28)
         totalCartPriceLabel.tintColor = UIColor.black
     }
@@ -92,9 +93,19 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = food.yemek_adi
         cell.priceLabel.text = "$ \(food.yemek_fiyat!)"
         cell.quantityLabel.text = "\(food.yemek_siparis_adet!)"
-        
         cell.indexPath = indexPath
         
+        //total food price
+        if let quantity = food.yemek_siparis_adet?.toInt(), let price = food.yemek_fiyat?.toInt() {
+            let totalPrice = quantity * price
+            cell.foodPriceLabel.text = "$ \(totalPrice)"
+            
+            viewModel.totalCartPrice += totalPrice
+            self.totalCartPriceLabel.text = "$ \(viewModel.totalCartPrice)"
+        }
+        
+        
+    
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
             DispatchQueue.main.async {
                 cell.imageFood.kf.setImage(with: url)
@@ -131,32 +142,11 @@ extension CartViewController: CartViewModelProtocol {
     
     func foodDeleted() {
         DispatchQueue.main.async {
+            self.viewModel.totalCartPrice = 0
             self.viewModel.loadFoods()
         }
     }
 }
-
-//extension CartViewController: CartTVCellProtocol {
-//    
-//    func decreaseQuantity(indexPath: IndexPath) {
-//        let food = viewModel.cartFoods[indexPath.section]
-//        guard var quantity: Int = Int(food.yemek_siparis_adet!),
-//                quantity > 1 else { return }
-//        quantity -= 1
-//        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
-//    }
-//    func increaseQuantity(indexPath: IndexPath) {
-//        //TODO: increase the quantity
-//        let food = viewModel.cartFoods[indexPath.section]
-//        guard var quantity: Int = Int(food.yemek_siparis_adet!), quantity > 0 else { return }
-//        quantity += 1
-//        viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
-//    }
-//    
-//    func foodQuantityUpdated() {
-//        viewModel.loadFoods()
-//    }
-//}
 
 extension CartViewController: CartTVCellProtocol {
     
@@ -176,5 +166,12 @@ extension CartViewController: CartTVCellProtocol {
     
     func foodQuantityUpdated() {
         viewModel.loadFoods()
+        
+        // update totalCartPriceLabel
+        viewModel.totalCartPrice = 0
+    }
+    
+    func updateTotalCartPrice() {
+        self.totalCartPriceLabel.text = "$ \(viewModel.totalCartPrice)"
     }
 }

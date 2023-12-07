@@ -20,6 +20,7 @@ class CartTVCell: UITableViewCell {
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var minusQuantityButton: UIButton!
     @IBOutlet weak var plusQuantityButton: UIButton!
+    @IBOutlet weak var foodPriceLabel: UILabel!
     
     weak var delegate: CartTVCellProtocol?
     var indexPath: IndexPath?
@@ -49,7 +50,7 @@ class CartTVCell: UITableViewCell {
     }
     
     func setupQuantityButtonsAndLabel() {
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .large)
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular, scale: .large)
         let largeBoldMinus = UIImage(systemName: "minus.square.fill", withConfiguration: largeConfig)
         let largeBoldPlus = UIImage(systemName: "plus.square.fill", withConfiguration: largeConfig)
         
@@ -62,7 +63,7 @@ class CartTVCell: UITableViewCell {
         plusQuantityButton.tintColor = color
         
         quantityLabel.tintColor = color
-        quantityLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 24)
+        quantityLabel.font = UIFont(name: "HelveticaNeue", size: 24)
     }
     
     

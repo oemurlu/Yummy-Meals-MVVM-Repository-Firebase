@@ -36,6 +36,7 @@
 		B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6EA22B21A841008114AC /* EmptyCartView.swift */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
 		B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */; };
+		B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */; };
 		B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030A82AF6864A0078660A /* OnboardingViewController.swift */; };
 		B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */; };
 		B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030AC2AF68D580078660A /* OnboardingSlide.swift */; };
@@ -84,6 +85,7 @@
 		B67E6EA22B21A841008114AC /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewModel.swift; sourceTree = "<group>"; };
 		B6B030A82AF6864A0078660A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B6B030AA2AF68B5F0078660A /* OnboardingCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCVC.swift; sourceTree = "<group>"; };
 		B6B030AC2AF68D580078660A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */,
+				B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */,
 			);
 			path = FoodDetail;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */,
 				B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */,
+				B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */,
 				B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */,
 				B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */,
 				B6F59AB52B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift in Sources */,

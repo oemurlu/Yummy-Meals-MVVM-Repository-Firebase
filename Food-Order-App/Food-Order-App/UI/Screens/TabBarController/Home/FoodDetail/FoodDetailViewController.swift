@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FoodDetailViewController: UIViewController {
 
@@ -20,15 +21,56 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    let viewModel: FoodVDetailviewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupQuantityButtonsAndLabel()
         setupAddFootToCartButton()
         setupStackViewLabels()
+        configureFood()
+        
+        viewModel?.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = FoodVDetailviewModel()
+        super.init(coder: coder)
+    }
+    
+    
+    @IBAction func decreaseQuantityButton_TUI(_ sender: UIButton) {
+        viewModel?.decreaseQuantity()
+    }
+    
+    @IBAction func increaseQuantityButton_TUI(_ sender: UIButton) {
+        viewModel?.increaseQuantity()
     }
     
     @IBAction func addFoodToCartButton_TUI(_ sender: UIButton) {
+        viewModel?.addToCart()
+    }
+    
+    func configureFood() {
+        if let viewModel = viewModel,
+           let food = viewModel.food {
+            foodNameLabel.text = food.yemek_adi
+            foodPriceLabel.text = "$ \(food.yemek_fiyat!)"
+            quantityLabel.text = "\(viewModel.quantityOfOrder!)"
+        }
+        
+        let randomRating = viewModel?.randomBetween3_5And5_0()
+        ratingLabel.text = "\(randomRating ?? "4.2") Rating"
+        
+        if let viewModel = viewModel,
+           let food = viewModel.food,
+           let yemekResimAdi = food.yemek_resim_adi,
+           let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(yemekResimAdi)") {
+            DispatchQueue.main.async {
+                self.imageViewFood.kf.setImage(with: url)
+            }
+        }
     }
     
     func setupStackViewLabels() {
@@ -72,4 +114,18 @@ class FoodDetailViewController: UIViewController {
     }
     
     
+}
+
+extension FoodDetailViewController: FoodDetailViewModelProtocol {
+    func quantityChanged(quantity: Int) {
+        quantityLabel.text = "\(quantity)"
+    }
+    
+    func foodPriceChanged(price: Int) {
+        foodPriceLabel.text = "$ \(price)"
+    }
+    
+    func addFoodToCart() {
+        MakeAlert.alertMessage(title: "Success", message: "Food added to cart!", style: .alert, vc: self)
+    }
 }

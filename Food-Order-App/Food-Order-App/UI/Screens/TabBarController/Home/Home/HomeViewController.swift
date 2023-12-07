@@ -43,6 +43,15 @@ class HomeViewController: UIViewController {
     @IBAction func filterButtonPressed(_ sender: UIButton) {
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToFoodDetail" {
+            if let food = sender as? Foods {
+                let destinationVC = segue.destination as! FoodDetailViewController
+                destinationVC.viewModel?.food = food
+            }
+        }
+    }
+    
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -87,6 +96,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.indexPath = indexPath
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let food = viewModel.foodsList[indexPath.row]
+        performSegue(withIdentifier: "homeToFoodDetail", sender: food)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

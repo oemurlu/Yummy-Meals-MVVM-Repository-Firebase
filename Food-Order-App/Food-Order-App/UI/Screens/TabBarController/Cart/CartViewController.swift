@@ -50,7 +50,6 @@ class CartViewController: UIViewController {
         confirmCartButton.setTitle("CHECKOUT", for: .normal)
         confirmCartButton.titleLabel?.font = UIFont(name: "Helvetica-Bold", size: 28)
         confirmCartButton.layer.cornerRadius = 12.0
-//        confirmCartButton.backgroundColor = UIColor(named: "red")
         confirmCartButton.backgroundColor = .black
         confirmCartButton.tintColor = UIColor(named: "white")
     }

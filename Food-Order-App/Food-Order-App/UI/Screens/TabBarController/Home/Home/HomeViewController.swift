@@ -74,11 +74,11 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.foodsList.count
+        return viewModel.filteredList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let food = viewModel.foodsList[indexPath.row]
+        let food = viewModel.filteredList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodsCell", for: indexPath) as! FoodsCell
         
         cell.setupCellColor(index: indexPath.row)
@@ -99,7 +99,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let food = viewModel.foodsList[indexPath.row]
+        let food = viewModel.filteredList[indexPath.row]
         performSegue(withIdentifier: "homeToFoodDetail", sender: food)
     }
     
@@ -136,10 +136,16 @@ extension HomeViewController: HomeViewModelProtocol {
 
 extension HomeViewController: FoodsCellProtocol {
     func addFoodToBasket(indexPath: IndexPath) {
-        let food = viewModel.foodsList[indexPath.row]
+        let food = viewModel.filteredList[indexPath.row]
         print("\(food.yemek_adi!) sepete eklendi")
         //TODO: make network request for adding food to the basket
         // we need username; => we need to get username from firebase
         viewModel.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: 1)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchBarTextDidChange(text: searchText)
     }
 }

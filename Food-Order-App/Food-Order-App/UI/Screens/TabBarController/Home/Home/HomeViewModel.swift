@@ -22,6 +22,12 @@ class HomeViewModel {
         }
     }
     
+    var filteredList = [Foods]() {
+        didSet {
+            delegate?.foodsDidLoad()
+        }
+    }
+    
     init() {
         loadFoods()
     }
@@ -29,12 +35,26 @@ class HomeViewModel {
     func loadFoods() {
         repo.loadAllFoods { [weak self] foods in
             self?.foodsList = foods
+            self?.filteredList = foods
         }
     }
     
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
         repo.addFoodToCart(foodName: foodName, foodImageName: foodImageName, foodPrice: foodPrice, foodOrderCount: foodOrderCount) {
             print("food added to cart")
+        }
+    }
+    
+    func searchBarTextDidChange(text: String) {
+        if text != "" {
+            filteredList = foodsList.filter { food in
+                if let foodName = food.yemek_adi {
+                    return foodName.lowercased().contains(text.lowercased())
+                }
+            return true
+            }
+        } else {
+            filteredList = foodsList
         }
     }
 }

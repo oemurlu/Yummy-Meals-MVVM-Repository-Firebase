@@ -107,13 +107,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         if let quantity = food.yemek_siparis_adet?.toInt(), let price = food.yemek_fiyat?.toInt() {
             let totalPrice = quantity * price
             cell.foodPriceLabel.text = "$ \(totalPrice)"
-            
-            viewModel.totalCartPrice += totalPrice
-            self.totalCartPriceLabel.text = "$ \(viewModel.totalCartPrice)"
         }
         
-        
-    
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
             DispatchQueue.main.async {
                 cell.imageFood.kf.setImage(with: url)
@@ -159,6 +154,13 @@ extension CartViewController: CartViewModelProtocol {
         tableView.isHidden = isEmpty
         confirmCartButton.isHidden = isEmpty
         totalCartPriceLabel.isHidden = isEmpty
+    }
+    
+    func totalCartPriceChanged(price: Int) {
+        DispatchQueue.main.async {
+            print("fiyat hesaplandi...")
+            self.totalCartPriceLabel.text = "$ \(price)"
+        }
     }
 }
 

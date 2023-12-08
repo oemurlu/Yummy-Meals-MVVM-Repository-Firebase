@@ -17,7 +17,6 @@ enum CartEndPoint: String {
             return NetworkHelper.shared.requestFinalUrl(url: CartEndPoint.getFoodsFromCart.rawValue)
         case .deleteFoodFromCart:
             return NetworkHelper.shared.requestFinalUrl(url: CartEndPoint.deleteFoodFromCart.rawValue)
-
         }
     }
 }

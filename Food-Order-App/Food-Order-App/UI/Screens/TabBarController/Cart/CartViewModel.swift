@@ -13,6 +13,7 @@ protocol CartViewModelProtocol: AnyObject {
     func foodQuantityUpdated()
     func updateTotalCartPrice()
     func isCartEmpty(isEmpty: Bool)
+    func totalCartPriceChanged(price: Int)
 }
 
 class CartViewModel {
@@ -26,6 +27,7 @@ class CartViewModel {
             cartFoods.sort(by: {Int($0.yemek_fiyat!)! < Int($1.yemek_fiyat!)!})
             delegate?.foodsDidLoad()
             self.isCartEmpty()
+            self.calculateTotalCartPrice()
         }
     }
     
@@ -61,5 +63,16 @@ class CartViewModel {
         repo.updateQuantity(food: food) {
             self.delegate?.foodQuantityUpdated()
         }
+    }
+    
+    func calculateTotalCartPrice() {
+        self.totalCartPrice = 0
+        for food in cartFoods {
+            if let orderQuantity = Int(food.yemek_siparis_adet ?? "1"), let price = Int(food.yemek_fiyat ?? "0") {
+                let foodTotalPrice = orderQuantity * price
+                self.totalCartPrice += foodTotalPrice
+            }
+        }
+        delegate?.totalCartPriceChanged(price: self.totalCartPrice)
     }
 }

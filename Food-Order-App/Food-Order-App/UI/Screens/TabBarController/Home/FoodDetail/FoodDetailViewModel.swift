@@ -68,12 +68,6 @@ class FoodVDetailviewModel {
             repo.addFoodToCart(foodName: name, foodImageName: imageName, foodPrice: price, foodOrderCount: orderCount) {
                 self.delegate?.addFoodToCart()
             }
-            
-            
         }
-           
-        
     }
-    
-    
 }

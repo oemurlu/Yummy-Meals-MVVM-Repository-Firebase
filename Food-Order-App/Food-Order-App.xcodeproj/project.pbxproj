@@ -34,6 +34,9 @@
 		B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63937712AF66852001604AB /* LaunchScreen.storyboard */; };
 		B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6E9C2B210280008114AC /* String+Extensions.swift */; };
 		B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6EA22B21A841008114AC /* EmptyCartView.swift */; };
+		B68ED33D2B26183A004541F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED33C2B26183A004541F5 /* FavoritesViewController.swift */; };
+		B68ED3402B262E1E004541F5 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED33F2B262E1E004541F5 /* FavoritesCell.swift */; };
+		B68ED3422B283E22004541F5 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED3412B283E22004541F5 /* FavoritesViewModel.swift */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
 		B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */; };
 		B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */; };
@@ -83,6 +86,9 @@
 		B63937742AF66852001604AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67E6E9C2B210280008114AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B67E6EA22B21A841008114AC /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
+		B68ED33C2B26183A004541F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		B68ED33F2B262E1E004541F5 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		B68ED3412B283E22004541F5 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewModel.swift; sourceTree = "<group>"; };
@@ -137,12 +143,12 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		B60883952B15D296006DDBA8 /* CollectionView */ = {
+		B60883952B15D296006DDBA8 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				B60883962B15D2C4006DDBA8 /* FoodsCell.swift */,
 			);
-			path = CollectionView;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		B61B1A592B1C643A00AC007F /* Extensions */ = {
@@ -328,10 +334,28 @@
 			path = EmptyCartView;
 			sourceTree = "<group>";
 		};
+		B68ED33B2B261815004541F5 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				B68ED33E2B262DD7004541F5 /* CollectionViewCell */,
+				B68ED33C2B26183A004541F5 /* FavoritesViewController.swift */,
+				B68ED3412B283E22004541F5 /* FavoritesViewModel.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		B68ED33E2B262DD7004541F5 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B68ED33F2B262E1E004541F5 /* FavoritesCell.swift */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
 		B698B0CA2B21F68C0056B798 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B60883952B15D296006DDBA8 /* CollectionView */,
+				B60883952B15D296006DDBA8 /* CollectionViewCell */,
 				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
 				B626EE4A2B1918F60054B094 /* HomeViewModel.swift */,
 			);
@@ -373,6 +397,7 @@
 				B6B030B42AFBAC4E0078660A /* TabBarController.swift */,
 				B6B030B02AFBA3C30078660A /* Home */,
 				B61B1A632B1CCB7300AC007F /* Cart */,
+				B68ED33B2B261815004541F5 /* Favorites */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -530,6 +555,8 @@
 				B6F59AB72B1F0C42003023D4 /* CartTVCell.swift in Sources */,
 				B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */,
 				B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */,
+				B68ED3422B283E22004541F5 /* FavoritesViewModel.swift in Sources */,
+				B68ED33D2B26183A004541F5 /* FavoritesViewController.swift in Sources */,
 				B61B1A602B1CC9FD00AC007F /* CartManager.swift in Sources */,
 				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
 				B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */,
@@ -551,6 +578,7 @@
 				B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,
 				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,
+				B68ED3402B262E1E004541F5 /* FavoritesCell.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */,
 				B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */,

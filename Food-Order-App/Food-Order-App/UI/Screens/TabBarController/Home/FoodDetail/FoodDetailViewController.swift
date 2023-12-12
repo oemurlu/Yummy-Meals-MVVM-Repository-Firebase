@@ -20,6 +20,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var freeDeliveryLabel: UILabel!
     @IBOutlet weak var minuteLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     let viewModel: FoodVDetailviewModel?
     
@@ -29,6 +30,7 @@ class FoodDetailViewController: UIViewController {
         setupQuantityButtonsAndLabel()
         setupAddFootToCartButton()
         setupStackViewLabels()
+        setupFavoriteButton()
         configureFood()
         
         viewModel?.delegate = self
@@ -38,7 +40,6 @@ class FoodDetailViewController: UIViewController {
         self.viewModel = FoodVDetailviewModel()
         super.init(coder: coder)
     }
-    
     
     @IBAction func decreaseQuantityButton_TUI(_ sender: UIButton) {
         viewModel?.decreaseQuantity()
@@ -50,6 +51,17 @@ class FoodDetailViewController: UIViewController {
     
     @IBAction func addFoodToCartButton_TUI(_ sender: UIButton) {
         viewModel?.addToCart()
+    }
+    
+    @IBAction func favoriteButton_TUI(_ sender: UIButton) {
+        
+    }
+    
+    func setupFavoriteButton() {
+        let largeConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular, scale: .large)
+        let largeBoldDoc = UIImage(systemName: "heart", withConfiguration: largeConfig)
+        favoriteButton.setImage(largeBoldDoc, for: .normal)
+        favoriteButton.tintColor = UIColor(hexString: "#1B1212")
     }
     
     func configureFood() {

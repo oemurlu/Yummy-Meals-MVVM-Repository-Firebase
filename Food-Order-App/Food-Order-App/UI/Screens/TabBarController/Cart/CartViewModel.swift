@@ -18,7 +18,8 @@ protocol CartViewModelProtocol: AnyObject {
 
 class CartViewModel {
     
-    var repo = UserRepository()
+//    var repo = UserRepository()
+    private let repo: UserRepository
     weak var delegate: CartViewModelProtocol?
     var totalCartPrice: Int = 0
     
@@ -29,6 +30,10 @@ class CartViewModel {
             self.isCartEmpty()
             self.calculateTotalCartPrice()
         }
+    }
+    
+    init(repo: UserRepository) {
+        self.repo = repo
     }
     
     func isCartEmpty() {

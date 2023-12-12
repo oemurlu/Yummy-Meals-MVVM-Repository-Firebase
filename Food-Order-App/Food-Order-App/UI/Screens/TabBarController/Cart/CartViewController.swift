@@ -20,7 +20,8 @@ class CartViewController: UIViewController {
     private let viewModel: CartViewModel
     
     required init?(coder: NSCoder) {
-        self.viewModel = CartViewModel()
+        let userRepository = UserRepository()
+        self.viewModel = CartViewModel(repo: userRepository)
         super.init(coder: coder)
     }
     

@@ -17,7 +17,9 @@ class HomeViewController: UIViewController {
     private let viewModel: HomeViewModel
     
     required init?(coder: NSCoder) {
-        self.viewModel = HomeViewModel()
+        let userRepository = UserRepository()
+
+        self.viewModel = HomeViewModel(repo: userRepository)
         super.init(coder: coder)
     }
     

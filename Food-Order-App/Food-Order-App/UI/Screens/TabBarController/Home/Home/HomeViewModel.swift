@@ -13,7 +13,8 @@ protocol HomeViewModelProtocol: AnyObject {
 
 class HomeViewModel {
     
-    var repo = UserRepository()
+//    var repo = UserRepository()
+    private let repo: UserRepository
     weak var delegate: HomeViewModelProtocol?
     
     var foodsList = [Foods]() {
@@ -28,7 +29,8 @@ class HomeViewModel {
         }
     }
     
-    init() {
+    init(repo: UserRepository) {
+        self.repo = repo
         loadFoods()
     }
     

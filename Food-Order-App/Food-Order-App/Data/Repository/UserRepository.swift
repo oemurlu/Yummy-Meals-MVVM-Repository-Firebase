@@ -19,15 +19,6 @@ class UserRepository {
     weak var delegate: UserRepositoryDelegate?
     let db = Firestore.firestore()
     let collectionUsers = Firestore.firestore().collection("Users")
-    //    var allFoods = [Foods]()
-    var favoriteFoods = [Foods]() {
-        didSet {
-            DispatchQueue.main.async {
-                print("delegate yonlendirildi")
-                self.delegate?.favoriteFoodsDidUpdate(foods: self.favoriteFoods)
-            }
-        }
-    }
     let homeManager = HomeManager.shared
     let cartManager = CartManager.shared
     
@@ -107,7 +98,6 @@ class UserRepository {
     // v3: make request from homeManager and homeManager requests from NetworkManager
     func loadAllFoods(completion: @escaping ([Foods]) -> ()) {
         homeManager.loadAllFoods { [weak self] foods in
-            //            self?.allFoods = foods
             completion(foods)
         }
     }
@@ -120,6 +110,23 @@ class UserRepository {
             completion()
         }
     }
+    
+    func addOrIncreaseFoodInCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int, completion: @escaping () -> ()) {
+        self.loadFoodsFromCart { [weak self] foods in
+            if let existingFood = foods?.first(where: { $0.yemek_adi == foodName }) {
+                // If the product is already in the cart, increase the quantity of the available product
+                let updatedCount = (existingFood.yemek_siparis_adet?.toInt())! + foodOrderCount
+                self?.updateQuantity(food: existingFood, newQuantity: updatedCount) {
+                    print("quantity update edildi. newQuantity: \(updatedCount)")
+                }
+            } else {
+                // If the product is not in the cart, add it as a new product
+                self?.addFoodToCart(foodName: foodName, foodImageName: foodImageName, foodPrice: foodPrice, foodOrderCount: foodOrderCount, completion: completion)
+                print("urun sepette yok, sepete eklendi")
+            }
+        }
+    }
+        
     
     func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]?) -> ()) {
         let params: Parameters = ["kullanici_adi": "oe7"]
@@ -155,13 +162,12 @@ class UserRepository {
         }
     }
     
-    func updateQuantity(food: GetFoodsFromCart, completion: @escaping () -> ()) {
+    func updateQuantity(food: GetFoodsFromCart, newQuantity: Int, completion: @escaping () -> ()) {
         if let foodId = food.sepet_yemek_id {
             self.deleteItemFromCart(foodCartId: foodId) {
-                self.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: Int(food.yemek_siparis_adet!)!) {
+                self.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: newQuantity) {
                     completion()
                 }
-                //                completion()
             }
         }
     }

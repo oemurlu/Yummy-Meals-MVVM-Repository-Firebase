@@ -25,7 +25,6 @@ class FoodVDetailviewModel {
         self.repo = repo
     }
     
-    
     var quantityOfOrder: Int? = 1 {
         didSet {
             calculateFoodPriceWithQuantity()
@@ -71,7 +70,7 @@ class FoodVDetailviewModel {
            let price = Int(priceString),
            let orderCount = quantityOfOrder {
             
-            repo.addFoodToCart(foodName: name, foodImageName: imageName, foodPrice: price, foodOrderCount: orderCount) {
+            repo.addOrIncreaseFoodInCart(foodName: name, foodImageName: imageName, foodPrice: price, foodOrderCount: orderCount) {
                 self.delegate?.addFoodToCart()
             }
         }

@@ -65,7 +65,11 @@ class CartViewModel {
     func updateQuantity(index: IndexPath, newQuantity: Int) {
         var food = cartFoods[index.section]
         food.yemek_siparis_adet = "\(newQuantity)"
-        repo.updateQuantity(food: food) {
+//        repo.updateQuantity(food: food) {
+//            self.delegate?.foodQuantityUpdated()
+//        }
+        
+        repo.updateQuantity(food: food, newQuantity: newQuantity) {
             self.delegate?.foodQuantityUpdated()
         }
     }

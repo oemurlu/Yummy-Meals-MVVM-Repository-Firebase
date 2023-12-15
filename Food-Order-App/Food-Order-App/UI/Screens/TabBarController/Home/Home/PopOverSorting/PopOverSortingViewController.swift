@@ -8,6 +8,7 @@
 import UIKit
 
 enum FilterBy {
+    case todaysOffers
     case ascending
     case descending
     case aToZ
@@ -36,6 +37,8 @@ class PopOverSortingViewController: UIViewController {
         tableView.register(UINib(nibName: "FilterCell", bundle: nil), forCellReuseIdentifier: "filterCell")
         
         tableView.alwaysBounceVertical = false;
+        tableView.isScrollEnabled = false
+        
     }
 }
 
@@ -45,21 +48,21 @@ extension PopOverSortingViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Filter by"
+        return "Order by"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
+        return 45    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath) as! FilterCell
         var cellText = cell.label.text
         switch indexPath.row {
-        case 0: cellText = "Price: Ascending"
-        case 1: cellText = "Price: Descending"
-        case 2: cellText = "Name: A-Z"
-        case 3: cellText = "Name: Z-A"
+        case 0: cellText = "Today's Offers!"
+        case 1: cellText = "Price: Ascending"
+        case 2: cellText = "Price: Descending"
+        case 3: cellText = "Name: A-Z"
+        case 4: cellText = "Name: Z-A"
         default: cellText = ""
         }
         
@@ -68,17 +71,16 @@ extension PopOverSortingViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
         switch indexPath.row {
-        case 0: delegate?.filterCellDidSelect(filterBy: .ascending)
-        case 1: delegate?.filterCellDidSelect(filterBy: .descending)
-        case 2: delegate?.filterCellDidSelect(filterBy: .aToZ)
-        case 3: delegate?.filterCellDidSelect(filterBy: .zToA)
+        case 0: self.delegate?.filterCellDidSelect(filterBy: .todaysOffers)
+        case 1: self.delegate?.filterCellDidSelect(filterBy: .ascending)
+        case 2: self.delegate?.filterCellDidSelect(filterBy: .descending)
+        case 3: self.delegate?.filterCellDidSelect(filterBy: .aToZ)
+        case 4: self.delegate?.filterCellDidSelect(filterBy: .zToA)
         default: break;
         }
-        
-        DispatchQueue.main.async {
             self.tableView.deselectRow(at: indexPath, animated: true)
         }
     }

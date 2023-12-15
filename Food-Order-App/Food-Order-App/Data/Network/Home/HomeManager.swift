@@ -28,7 +28,7 @@ class HomeManager {
             }
         }
     }
-    
+
     func addFoodToBasket(params: Parameters, completion: @escaping (Int) -> ()) {
         let url = HomeEndPoint.addFoodToCart.path
         NetworkManager.shared.request(url: url, method: .post, parameters: params) { (result: Result<AddFoodToCartResponse, Error>) in

@@ -13,7 +13,6 @@ protocol HomeViewModelProtocol: AnyObject {
 
 class HomeViewModel {
     
-//    var repo = UserRepository()
     private let repo: UserRepository
     weak var delegate: HomeViewModelProtocol?
     
@@ -41,6 +40,36 @@ class HomeViewModel {
         }
     }
     
+    func loadFoodsByFilter(filter: FilterBy) {
+        var foods = self.filteredList
+        switch filter {
+        case .todaysOffers:
+            self.filteredList = self.foodsList
+        case .ascending:
+            let sortedByPriceAscending = foods.sorted { (food1, food2) -> Bool in
+                guard let price1 = food1.yemek_fiyat, let price2 = food2.yemek_fiyat else {
+                    return false
+                }
+                return Double(price1) ?? 0 < Double(price2) ?? 0
+            }
+            self.filteredList = sortedByPriceAscending
+        case .descending:
+            let sortedByPriceDescending = foods.sorted { (food1, food2) -> Bool in
+                guard let price1 = food1.yemek_fiyat, let price2 = food2.yemek_fiyat else {
+                    return false
+                }
+                return Double(price1) ?? 0 > Double(price2) ?? 0
+            }
+            self.filteredList = sortedByPriceDescending
+        case .aToZ:
+            let sortedByNameAtoZ = foods.sorted { $0.yemek_adi ?? "" < $1.yemek_adi ?? "" }
+            self.filteredList = sortedByNameAtoZ
+        case .zToA:
+            let sortedByNameZtoA = foods.sorted { $0.yemek_adi ?? "" > $1.yemek_adi  ?? "" }
+            self.filteredList = sortedByNameZtoA
+        }
+    }
+    
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int) {
         repo.addOrIncreaseFoodInCart(foodName: foodName, foodImageName: foodImageName, foodPrice: foodPrice, foodOrderCount: foodOrderCount) {
         }
@@ -52,7 +81,7 @@ class HomeViewModel {
                 if let foodName = food.yemek_adi {
                     return foodName.lowercased().contains(text.lowercased())
                 }
-            return true
+                return true
             }
         } else {
             filteredList = foodsList

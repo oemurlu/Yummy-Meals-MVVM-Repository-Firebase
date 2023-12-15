@@ -37,18 +37,18 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func filterButtonPressed(_ sender: UIButton) {
-        let desiredWidth = view.layer.bounds.size.width / 1.8
+        let desiredWidth = view.layer.bounds.size.width
         let popVC = PopOverSortingViewController()
         popVC.delegate = self
         
-        self.presentPopOver(viewController: popVC, sender: filterButton, size: CGSize(width: desiredWidth, height: desiredWidth), arrowDirection: .right)
+        self.presentPopOver(viewController: popVC, sender: filterButton, size: CGSize(width: desiredWidth / 1.7, height: desiredWidth / 1.6), arrowDirection: .right)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,7 +129,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    
+        
         // Determine the y-axis movement limit for the messageLabel
         let upperLimit: CGFloat = 12
         let lowerLimit: CGFloat = 72
@@ -183,14 +183,19 @@ extension HomeViewController: UIPopoverPresentationControllerDelegate {
 
 extension HomeViewController: PopOverSortingDelegate {
     func filterCellDidSelect(filterBy: FilterBy) {
-        var content: String = "qwe"
-        switch filterBy {
-        case .ascending: content = "ascending";
-        case .descending: content = "descending";
-        case .aToZ: content = "aToZ"
-        case .zToA: content = "zToA"
+        DispatchQueue.main.async {
+            switch filterBy {
+            case .todaysOffers:
+                self.viewModel.loadFoodsByFilter(filter: .todaysOffers)
+            case .ascending:
+                self.viewModel.loadFoodsByFilter(filter: .ascending)
+            case .descending:
+                self.viewModel.loadFoodsByFilter(filter: .descending)
+            case .aToZ:
+                self.viewModel.loadFoodsByFilter(filter: .aToZ)
+            case .zToA:
+                self.viewModel.loadFoodsByFilter(filter: .zToA)
+            }
         }
-        
-        print("didSelect = \(content)")
     }
 }

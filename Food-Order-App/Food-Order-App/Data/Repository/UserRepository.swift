@@ -102,6 +102,13 @@ class UserRepository {
         }
     }
     
+//    func loadAllFoodsByOrder(completion: @escaping ([Foods]) -> ()) {
+//        homeManager.loadAllFoods { [weak self] foods in
+//            completion(foods)
+//        }
+//    }
+
+    
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int, completion: @escaping () -> ()) {
         let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
         

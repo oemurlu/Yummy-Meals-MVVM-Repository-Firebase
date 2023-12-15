@@ -562,6 +562,7 @@
                     <navigationItem key="navigationItem" id="iL7-92-d9Q"/>
                     <connections>
                         <outlet property="collectionView" destination="VJR-c5-Oh5" id="Qq0-fk-7AA"/>
+                        <outlet property="filterButton" destination="4ha-u7-Tvg" id="YP1-LF-5wG"/>
                         <outlet property="searchBar" destination="gfk-rR-M6v" id="p1f-H8-MEI"/>
                         <outlet property="welcomingMessageLabel" destination="AWH-A4-Ef2" id="rZh-3f-1Zz"/>
                         <segue destination="YAy-2T-00P" kind="show" identifier="homeToFoodDetail" id="I8W-gn-NGU"/>

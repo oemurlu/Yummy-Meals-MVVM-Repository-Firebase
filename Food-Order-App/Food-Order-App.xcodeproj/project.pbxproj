@@ -34,6 +34,10 @@
 		B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63937712AF66852001604AB /* LaunchScreen.storyboard */; };
 		B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6E9C2B210280008114AC /* String+Extensions.swift */; };
 		B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6EA22B21A841008114AC /* EmptyCartView.swift */; };
+		B68ED3462B2B7B73004541F5 /* PopOverSortingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED3442B2B7B73004541F5 /* PopOverSortingViewController.swift */; };
+		B68ED3472B2B7B73004541F5 /* PopOverSortingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68ED3452B2B7B73004541F5 /* PopOverSortingViewController.xib */; };
+		B68ED34D2B2C33B7004541F5 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED34B2B2C33B7004541F5 /* FilterCell.swift */; };
+		B68ED34E2B2C33B7004541F5 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68ED34C2B2C33B7004541F5 /* FilterCell.xib */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
 		B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */; };
 		B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */; };
@@ -83,6 +87,10 @@
 		B63937742AF66852001604AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B67E6E9C2B210280008114AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B67E6EA22B21A841008114AC /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
+		B68ED3442B2B7B73004541F5 /* PopOverSortingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverSortingViewController.swift; sourceTree = "<group>"; };
+		B68ED3452B2B7B73004541F5 /* PopOverSortingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverSortingViewController.xib; sourceTree = "<group>"; };
+		B68ED34B2B2C33B7004541F5 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		B68ED34C2B2C33B7004541F5 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewModel.swift; sourceTree = "<group>"; };
@@ -328,9 +336,29 @@
 			path = EmptyCartView;
 			sourceTree = "<group>";
 		};
+		B68ED3432B2B7ADA004541F5 /* PopOverSorting */ = {
+			isa = PBXGroup;
+			children = (
+				B68ED34A2B2C339E004541F5 /* CustomCell */,
+				B68ED3442B2B7B73004541F5 /* PopOverSortingViewController.swift */,
+				B68ED3452B2B7B73004541F5 /* PopOverSortingViewController.xib */,
+			);
+			path = PopOverSorting;
+			sourceTree = "<group>";
+		};
+		B68ED34A2B2C339E004541F5 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				B68ED34B2B2C33B7004541F5 /* FilterCell.swift */,
+				B68ED34C2B2C33B7004541F5 /* FilterCell.xib */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		B698B0CA2B21F68C0056B798 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B68ED3432B2B7ADA004541F5 /* PopOverSorting */,
 				B60883952B15D296006DDBA8 /* CollectionViewCell */,
 				B6B030B12AFBA3E40078660A /* HomeViewController.swift */,
 				B626EE4A2B1918F60054B094 /* HomeViewModel.swift */,
@@ -467,7 +495,9 @@
 				B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */,
 				B60883912B135375006DDBA8 /* GoogleService-Info.plist in Resources */,
 				B63937702AF66852001604AB /* Assets.xcassets in Resources */,
+				B68ED34E2B2C33B7004541F5 /* FilterCell.xib in Resources */,
 				B639376E2AF66851001604AB /* Main.storyboard in Resources */,
+				B68ED3472B2B7B73004541F5 /* PopOverSortingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,10 +581,12 @@
 				B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */,
 				B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */,
 				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,
+				B68ED34D2B2C33B7004541F5 /* FilterCell.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */,
 				B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,
+				B68ED3462B2B7B73004541F5 /* PopOverSortingViewController.swift in Sources */,
 				B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */,
 				B6125A892B039F4D00A13215 /* SignInViewModel.swift in Sources */,
 			);

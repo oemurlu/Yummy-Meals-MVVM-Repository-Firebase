@@ -12,13 +12,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var welcomingMessageLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterButton: UIButton!
     
     private var messageLabel: UILabel?
     private let viewModel: HomeViewModel
     
     required init?(coder: NSCoder) {
         let userRepository = UserRepository()
-
         self.viewModel = HomeViewModel(repo: userRepository)
         super.init(coder: coder)
     }
@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         setupMessageLabel("Today's Offers!")
         
         viewModel.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +44,11 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func filterButtonPressed(_ sender: UIButton) {
+        let desiredWidth = view.layer.bounds.size.width / 1.8
+        let popVC = PopOverSortingViewController()
+        popVC.delegate = self
+        
+        self.presentPopOver(viewController: popVC, sender: filterButton, size: CGSize(width: desiredWidth, height: desiredWidth), arrowDirection: .right)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,6 +57,23 @@ class HomeViewController: UIViewController {
                 let destinationVC = segue.destination as! FoodDetailViewController
                 destinationVC.viewModel?.food = food
             }
+        }
+    }
+    
+    func presentPopOver(viewController: UIViewController, sender: UIView, size: CGSize, arrowDirection: UIPopoverArrowDirection) {
+        viewController.preferredContentSize = size
+        viewController.modalPresentationStyle = .popover
+        
+        if let pres = viewController.presentationController {
+            pres.delegate = self
+        }
+        
+        present(viewController, animated: true)
+        
+        if let pop = viewController.popoverPresentationController {
+            pop.sourceView = sender
+            pop.sourceRect = sender.bounds
+            pop.permittedArrowDirections = arrowDirection
         }
     }
     
@@ -149,5 +172,25 @@ extension HomeViewController: FoodsCellProtocol {
 extension HomeViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchBarTextDidChange(text: searchText)
+    }
+}
+
+extension HomeViewController: UIPopoverPresentationControllerDelegate {
+    public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+extension HomeViewController: PopOverSortingDelegate {
+    func filterCellDidSelect(filterBy: FilterBy) {
+        var content: String = "qwe"
+        switch filterBy {
+        case .ascending: content = "ascending";
+        case .descending: content = "descending";
+        case .aToZ: content = "aToZ"
+        case .zToA: content = "zToA"
+        }
+        
+        print("didSelect = \(content)")
     }
 }

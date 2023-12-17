@@ -22,8 +22,7 @@ class UserRepository {
     let homeManager = HomeManager.shared
     let cartManager = CartManager.shared
     let currentUser = Auth.auth().currentUser
-    let userUid = SingletonUser.shared.getUserUid()
-    
+    let userUid = SingletonUser.shared.getUserUid
     
     func createUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
         Auth.auth().createUser(withEmail: email, password: pw) { authResult, error in

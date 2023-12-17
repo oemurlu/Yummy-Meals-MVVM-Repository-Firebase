@@ -28,6 +28,7 @@ class HomeViewController: UIViewController {
         
         setupCollectionView()
         setupMessageLabel("Today's Offers!")
+        setupWelcomingLabel()
         
         viewModel.delegate = self
         
@@ -74,6 +75,12 @@ class HomeViewController: UIViewController {
             pop.sourceView = sender
             pop.sourceRect = sender.bounds
             pop.permittedArrowDirections = arrowDirection
+        }
+    }
+    
+    private func setupWelcomingLabel() {
+        SingletonUser.shared.getUserName { name in
+            self.welcomingMessageLabel.text = "Hi \(name)"
         }
     }
     

@@ -55,16 +55,17 @@ class SignUpViewModel {
     func createUser(username: String, fullName: String, email: String, phoneNumber: String, pw: String) {
         userRepo.createUser(email: email, pw: pw) { [weak self] result in
             switch result {
-            case .success(_):
-                self?.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber)
+            case .success(let authResult):
+                let userUid = authResult.user.uid
+                self?.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber, userUid: userUid)
             case .failure(let error):
                 self?.delegate?.showAlertMessage(title: "Error", message: error.localizedDescription, style: .alert)
             }
         }
     }
     
-    func saveUserInfosToFirestore(username: String, fullName: String, email: String, phoneNumber: String) {
-        userRepo.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber) { result in
+    func saveUserInfosToFirestore(username: String, fullName: String, email: String, phoneNumber: String, userUid: String) {
+        userRepo.saveUserInfosToFirestore(username: username, fullName: fullName, email: email, phoneNumber: phoneNumber, userUid: userUid) { result in
             switch result {
             case .success():
                 self.delegate?.goToSignInScreen()

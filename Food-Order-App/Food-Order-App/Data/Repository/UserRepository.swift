@@ -21,6 +21,9 @@ class UserRepository {
     let collectionUsers = Firestore.firestore().collection("Users")
     let homeManager = HomeManager.shared
     let cartManager = CartManager.shared
+    let currentUser = Auth.auth().currentUser
+    let userUid = SingletonUser.shared.getUserUid()
+    
     
     func createUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
         Auth.auth().createUser(withEmail: email, password: pw) { authResult, error in
@@ -48,9 +51,9 @@ class UserRepository {
         }
     }
     
-    func saveUserInfosToFirestore(username: String, fullName: String, email: String, phoneNumber: String, completion: @escaping (Result<Void, Error>) -> (Void)) {
-        let newUser: [String: Any] = ["username": username, "fullName": fullName, "email": email, "phoneNumber": phoneNumber]
-        collectionUsers.document().setData(newUser) { error in
+    func saveUserInfosToFirestore(username: String, fullName: String, email: String, phoneNumber: String,userUid: String, completion: @escaping (Result<Void, Error>) -> (Void)) {
+        let newUser: [String: Any] = ["username": username, "fullName": fullName, "email": email, "phoneNumber": phoneNumber, "uid": userUid]
+        collectionUsers.document(userUid).setData(newUser) { error in
             if let error = error {
                 print("error saveUserInfosToFirestore on UserRepository: \(error)")
                 completion(.failure(error))
@@ -110,7 +113,8 @@ class UserRepository {
 
     
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int, completion: @escaping () -> ()) {
-        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
+//        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
+        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": userUid]
         
         homeManager.addFoodToBasket(params: params) { success in
             //            print("repo callback success value: \(success)")
@@ -136,7 +140,7 @@ class UserRepository {
         
     
     func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]?) -> ()) {
-        let params: Parameters = ["kullanici_adi": "oe7"]
+        let params: Parameters = ["kullanici_adi": userUid]
         cartManager.loadCart(params: params) { foods, error in
             if let error = error {
                 print("your card is empty: \(error)")
@@ -163,7 +167,7 @@ class UserRepository {
     
     
     func deleteItemFromCart(foodCartId: String, completion: @escaping () -> ()) {
-        let params: Parameters = ["sepet_yemek_id": foodCartId, "kullanici_adi": "oe7", ]
+        let params: Parameters = ["sepet_yemek_id": foodCartId, "kullanici_adi": userUid, ]
         cartManager.deleteFoodFromCart(params: params) {
             completion()
         }

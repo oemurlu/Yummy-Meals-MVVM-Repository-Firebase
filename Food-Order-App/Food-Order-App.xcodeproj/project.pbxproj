@@ -38,6 +38,7 @@
 		B68ED3472B2B7B73004541F5 /* PopOverSortingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68ED3452B2B7B73004541F5 /* PopOverSortingViewController.xib */; };
 		B68ED34D2B2C33B7004541F5 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED34B2B2C33B7004541F5 /* FilterCell.swift */; };
 		B68ED34E2B2C33B7004541F5 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68ED34C2B2C33B7004541F5 /* FilterCell.xib */; };
+		B68ED3502B2CFA78004541F5 /* SingletonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED34F2B2CFA78004541F5 /* SingletonUser.swift */; };
 		B68FA9BC2AF680A800748603 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FA9BB2AF680A800748603 /* UserRepository.swift */; };
 		B698B0CD2B21F6DB0056B798 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */; };
 		B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */; };
@@ -91,6 +92,7 @@
 		B68ED3452B2B7B73004541F5 /* PopOverSortingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopOverSortingViewController.xib; sourceTree = "<group>"; };
 		B68ED34B2B2C33B7004541F5 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		B68ED34C2B2C33B7004541F5 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		B68ED34F2B2CFA78004541F5 /* SingletonUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonUser.swift; sourceTree = "<group>"; };
 		B68FA9BB2AF680A800748603 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		B698B0CC2B21F6DB0056B798 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		B698B0CE2B224BFE0056B798 /* FoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewModel.swift; sourceTree = "<group>"; };
@@ -137,12 +139,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B60883922B136707006DDBA8 /* Helper */ = {
+		B60883922B136707006DDBA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				B60883932B136729006DDBA8 /* MakeAlert.swift */,
+				B68ED34F2B2CFA78004541F5 /* SingletonUser.swift */,
 			);
-			path = Helper;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B60883952B15D296006DDBA8 /* CollectionViewCell */ = {
@@ -322,7 +325,7 @@
 				B63530362AF672290048C7AA /* UI */,
 				B63530352AF672090048C7AA /* Supports */,
 				B61B1A592B1C643A00AC007F /* Extensions */,
-				B60883922B136707006DDBA8 /* Helper */,
+				B60883922B136707006DDBA8 /* Helpers */,
 				B63530332AF671DF0048C7AA /* Resources */,
 			);
 			path = "Food-Order-App";
@@ -550,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68ED3502B2CFA78004541F5 /* SingletonUser.swift in Sources */,
 				B6B030AD2AF68D580078660A /* OnboardingSlide.swift in Sources */,
 				B60883972B15D2C4006DDBA8 /* FoodsCell.swift in Sources */,
 				B61B1A5D2B1C945700AC007F /* GetFoodsFromCart.swift in Sources */,

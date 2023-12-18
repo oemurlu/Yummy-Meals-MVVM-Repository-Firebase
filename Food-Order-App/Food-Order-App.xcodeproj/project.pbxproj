@@ -32,6 +32,9 @@
 		B639376E2AF66851001604AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B639376C2AF66851001604AB /* Main.storyboard */; };
 		B63937702AF66852001604AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B639376F2AF66852001604AB /* Assets.xcassets */; };
 		B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63937712AF66852001604AB /* LaunchScreen.storyboard */; };
+		B652D78D2B30DB4400394D2D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652D78C2B30DB4400394D2D /* ProfileViewController.swift */; };
+		B65C2EB02B30DF7E0025455D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65C2EAF2B30DF7E0025455D /* ProfileViewModel.swift */; };
+		B65C2EB32B30E1150025455D /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65C2EB22B30E1150025455D /* ProfileManager.swift */; };
 		B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6E9C2B210280008114AC /* String+Extensions.swift */; };
 		B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67E6EA22B21A841008114AC /* EmptyCartView.swift */; };
 		B68ED3462B2B7B73004541F5 /* PopOverSortingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68ED3442B2B7B73004541F5 /* PopOverSortingViewController.swift */; };
@@ -86,6 +89,9 @@
 		B639376F2AF66852001604AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B63937722AF66852001604AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B63937742AF66852001604AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B652D78C2B30DB4400394D2D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B65C2EAF2B30DF7E0025455D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B65C2EB22B30E1150025455D /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		B67E6E9C2B210280008114AC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		B67E6EA22B21A841008114AC /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		B68ED3442B2B7B73004541F5 /* PopOverSortingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverSortingViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				B626EE542B1A15BF0054B094 /* Core */,
 				B626EE592B1A18450054B094 /* Home */,
 				B61B1A5E2B1CC9E000AC007F /* Cart */,
+				B65C2EB12B30E0F20025455D /* Profile */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -331,6 +338,23 @@
 			path = "Food-Order-App";
 			sourceTree = "<group>";
 		};
+		B652D78B2B30DB0D00394D2D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B652D78C2B30DB4400394D2D /* ProfileViewController.swift */,
+				B65C2EAF2B30DF7E0025455D /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B65C2EB12B30E0F20025455D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B65C2EB22B30E1150025455D /* ProfileManager.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B67E6EA42B21A850008114AC /* EmptyCartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +428,7 @@
 				B6B030B42AFBAC4E0078660A /* TabBarController.swift */,
 				B6B030B02AFBA3C30078660A /* Home */,
 				B61B1A632B1CCB7300AC007F /* Cart */,
+				B652D78B2B30DB0D00394D2D /* Profile */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -559,6 +584,7 @@
 				B61B1A5D2B1C945700AC007F /* GetFoodsFromCart.swift in Sources */,
 				B61B1A5B2B1C876900AC007F /* AddFoodToCart.swift in Sources */,
 				B626EE4F2B19234B0054B094 /* Foods.swift in Sources */,
+				B65C2EB02B30DF7E0025455D /* ProfileViewModel.swift in Sources */,
 				B626EE562B1A15C90054B094 /* NetworkManager.swift in Sources */,
 				B626EE582B1A172F0054B094 /* NetworkHelper.swift in Sources */,
 				B6F59AB72B1F0C42003023D4 /* CartTVCell.swift in Sources */,
@@ -589,6 +615,8 @@
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
 				B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */,
 				B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */,
+				B652D78D2B30DB4400394D2D /* ProfileViewController.swift in Sources */,
+				B65C2EB32B30E1150025455D /* ProfileManager.swift in Sources */,
 				B63937692AF66851001604AB /* SceneDelegate.swift in Sources */,
 				B68ED3462B2B7B73004541F5 /* PopOverSortingViewController.swift in Sources */,
 				B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */,

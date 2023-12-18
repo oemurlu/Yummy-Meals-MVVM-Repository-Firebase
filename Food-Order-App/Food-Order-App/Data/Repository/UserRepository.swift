@@ -21,6 +21,7 @@ class UserRepository {
     let collectionUsers = Firestore.firestore().collection("Users")
     let homeManager = HomeManager.shared
     let cartManager = CartManager.shared
+    let profileManager = ProfileManager.shared
     let currentUser = Auth.auth().currentUser
     let userUid = SingletonUser.shared.getUserUid
     
@@ -181,5 +182,21 @@ class UserRepository {
             }
         }
     }
+    
+    func fetchUserInfosFromFirestore(completion: @escaping (String, String, String, String) -> ()) {
+        profileManager.fetchUserInfosFromFirebase { userName, fullName, email, phoneNumber in
+            completion(userName, fullName, email, phoneNumber)
+        }
+    }
+    
+    func logout(onSucces: @escaping () -> (), onError: (String) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            onSucces()
+        } catch let error {
+            onError(error.localizedDescription)
+        }
+    }
+    
 }
 

@@ -988,21 +988,76 @@
             </objects>
             <point key="canvasLocation" x="3014" y="-2"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile-->
         <scene sceneID="9NC-6i-fRh">
             <objects>
-                <viewController id="ClR-16-3YK" sceneMemberID="viewController">
+                <viewController id="ClR-16-3YK" customClass="ProfileViewController" customModule="Food_Order_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Twj-Ff-R8g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6DI-3g-Cv6">
+                                <rect key="frame" x="20" y="168" width="374" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGm-bI-Zjw">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="29"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojA-rr-XBE">
+                                        <rect key="frame" x="0.0" y="37" width="374" height="29"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3a8-eQ-X94">
+                                        <rect key="frame" x="0.0" y="74" width="374" height="29"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ab-d5-Ncx">
+                                        <rect key="frame" x="0.0" y="111" width="374" height="29"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ojA-rr-XBE" firstAttribute="width" secondItem="sGm-bI-Zjw" secondAttribute="width" id="5VX-lO-B6f"/>
+                                    <constraint firstItem="3a8-eQ-X94" firstAttribute="width" secondItem="ojA-rr-XBE" secondAttribute="width" id="JU2-Xr-8pp"/>
+                                    <constraint firstItem="sGm-bI-Zjw" firstAttribute="width" secondItem="6DI-3g-Cv6" secondAttribute="width" id="Teu-wt-8x9"/>
+                                    <constraint firstItem="3Ab-d5-Ncx" firstAttribute="width" secondItem="3a8-eQ-X94" secondAttribute="width" id="gGL-Fq-i0n"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="YNW-sq-r4M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6DI-3g-Cv6" firstAttribute="top" secondItem="YNW-sq-r4M" secondAttribute="top" constant="24" id="eWG-Kk-Lzn"/>
+                            <constraint firstItem="6DI-3g-Cv6" firstAttribute="leading" secondItem="YNW-sq-r4M" secondAttribute="leading" constant="20" id="lBh-IS-IEk"/>
+                            <constraint firstItem="YNW-sq-r4M" firstAttribute="trailing" secondItem="6DI-3g-Cv6" secondAttribute="trailing" constant="20" id="ubM-25-Ps5"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="E92-X1-ngt"/>
+                    <navigationItem key="navigationItem" title="Profile" largeTitleDisplayMode="always" id="E92-X1-ngt">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="rectangle.portrait.and.arrow.right" catalog="system" id="JoG-P5-2cC">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="logoutBarButtonItem_TUI:" destination="ClR-16-3YK" id="Yc2-HY-Jkj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailLabel" destination="3a8-eQ-X94" id="Z8i-dj-Z9V"/>
+                        <outlet property="fullNameLabel" destination="ojA-rr-XBE" id="I7X-rI-Dsl"/>
+                        <outlet property="phoneLabel" destination="3Ab-d5-Ncx" id="KDQ-Lk-aCM"/>
+                        <outlet property="usernameLabel" destination="sGm-bI-Zjw" id="voI-Ga-DxS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uAS-0k-EMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3923" y="821"/>
+            <point key="canvasLocation" x="3921.739130434783" y="820.98214285714278"/>
         </scene>
         <!--Account-->
         <scene sceneID="ZSY-z8-x2U">
@@ -1010,8 +1065,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ijd-vp-8U5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="BZh-87-y41"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cMx-Dl-LFy">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="cMx-Dl-LFy">
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1052,6 +1107,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus.app.fill" catalog="system" width="128" height="114"/>
         <image name="plus.square.fill" catalog="system" width="128" height="114"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="xbox.logo" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

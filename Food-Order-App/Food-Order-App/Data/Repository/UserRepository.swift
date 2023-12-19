@@ -23,7 +23,7 @@ class UserRepository {
     let cartManager = CartManager.shared
     let profileManager = ProfileManager.shared
     let currentUser = Auth.auth().currentUser
-    let userUid = SingletonUser.shared.getUserUid
+    let userUid: String = SingletonUser.shared.getUserUid()
     
     func createUser(email: String, pw: String, completion: @escaping (Result<AuthDataResult, Error>) -> (Void)) {
         Auth.auth().createUser(withEmail: email, password: pw) { authResult, error in
@@ -141,6 +141,7 @@ class UserRepository {
     
     func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]?) -> ()) {
         let params: Parameters = ["kullanici_adi": userUid]
+        print("loadFoodsFromCart UserUid: \(userUid)")
         cartManager.loadCart(params: params) { foods, error in
             if let error = error {
                 print("your card is empty: \(error)")

@@ -34,6 +34,10 @@ class ProfileViewController: UIViewController {
         signOutAlert()
     }
     
+    @IBAction func uploadPhotoButton_TUI(_ sender: UIButton) {
+    }
+    
+    
     func signOutAlert() {
         let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to logout ?", preferredStyle: .actionSheet)
         
@@ -60,10 +64,10 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: ProfileViewModelDelegate {
     func infosDidLoad(username: String, fullName: String, email: String, phoneNumber: String) {
         DispatchQueue.main.async {
-            self.usernameLabel.text = "Username: \(username)"
-            self.fullNameLabel.text = "Full Name: \(fullName)"
-            self.emailLabel.text = "E-mail: \(email)"
-            self.phoneLabel.text = "Phone: \(phoneNumber)"
+            self.usernameLabel.text = username
+            self.fullNameLabel.text = fullName
+            self.emailLabel.text = email
+            self.phoneLabel.text = phoneNumber
         }
     }
     

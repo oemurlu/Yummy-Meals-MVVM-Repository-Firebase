@@ -999,6 +999,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EDC-7Q-KIY">
                                 <rect key="frame" x="103.5" y="178.5" width="207" height="206"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EDC-7Q-KIY" secondAttribute="height" multiplier="1:1" id="27k-Vr-NRd"/>
                                 </constraints>
@@ -1113,6 +1114,7 @@
                         <outlet property="emailLabel" destination="wkm-Sz-yKo" id="3Rh-D9-RMa"/>
                         <outlet property="fullNameLabel" destination="XMO-fO-54G" id="IMG-s1-hG0"/>
                         <outlet property="phoneLabel" destination="NBx-pE-LuJ" id="klL-u5-4qH"/>
+                        <outlet property="profilePictureImage" destination="EDC-7Q-KIY" id="S3p-LT-2ML"/>
                         <outlet property="usernameLabel" destination="504-of-e19" id="4lc-zR-wd7"/>
                     </connections>
                 </viewController>

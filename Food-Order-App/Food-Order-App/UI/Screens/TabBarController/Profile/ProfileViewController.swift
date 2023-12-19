@@ -13,8 +13,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var profilePictureImage: UIImageView!
     
     let viewModel: ProfileViewModel
+    private let imagePicker = UIImagePickerController()
     
     required init?(coder: NSCoder) {
         let repo = UserRepository()
@@ -26,6 +28,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupNavBarTitle()
+        setupProfilePicture()
         viewModel.delegate = self
         viewModel.fetchInfosFromFirestore()
     }
@@ -35,6 +38,20 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func uploadPhotoButton_TUI(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.imagePicker.allowsEditing = true
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true)
+        }
+    }
+    
+    func setupProfilePicture() {
+        imagePicker.delegate = self
+        profilePictureImage.layer.cornerRadius = profilePictureImage.frame.size.height / 2
+        profilePictureImage.layer.masksToBounds = true
+        profilePictureImage.contentMode = .scaleAspectFill
+        
+        viewModel.fetchProfilePhotoFromFirebase()
     }
     
     
@@ -84,4 +101,24 @@ extension ProfileViewController: ProfileViewModelDelegate {
     func logoutFailure(errorMessage: String) {
         MakeAlert.alertMessage(title: "Error", message: errorMessage, style: .alert, vc: self)
     }
+    
+    func profilePhotoUpdated(imageData: Data) {
+        DispatchQueue.main.async {
+            self.profilePictureImage.image = UIImage(data: imageData)
+        }
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            viewModel.selectedProfileImage = pickedImage
+            profilePictureImage.image = viewModel.selectedProfileImage
+            dismiss(animated: true)
+        }
+    }
+}
+
+extension ProfileViewController: UINavigationControllerDelegate {
+    // this extension should be for imagepicker
 }

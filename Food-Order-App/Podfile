@@ -7,4 +7,5 @@ target 'Food-Order-App' do
 	pod 'FirebaseAuth'
 	pod 'Alamofire'
         pod 'Kingfisher', '~> 7.0'
+	pod 'FirebaseStorage'
 end

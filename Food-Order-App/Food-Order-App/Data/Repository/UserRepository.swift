@@ -202,61 +202,13 @@ class UserRepository {
     }
     
     func uploadProfilePhotoToFirebase(image: UIImage) {
-        guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
-
-        let storageRef = storage.reference().child("profile_photos").child("\(String(describing: userUid)).jpg")
-        let uploadTask = storageRef.putData(imageData) { metaData, error in
-            if error != nil {
-                print("upload error: \(error?.localizedDescription)")
-                return
-            }
-            
-            storageRef.downloadURL { url, error in
-                if error != nil {
-                    print("download url error: \(error?.localizedDescription)")
-                    return
-                }
-                
-                let downloadUrl = url?.absoluteString
-                print("resmin indirme url'si: \(downloadUrl)")
-                
-                // save downloadUrl to fireStore
-                
-                self.collectionUsers.document(self.userUid).setData(["profilePhotoUrl": downloadUrl], merge: true) { error in
-                    if error != nil {
-                        print("error saving profile photo url to firestore: \(error?.localizedDescription)")
-                        return
-                    }
-                    print("save profile photo url to firestore successfully")
-                }
-            }
-        }
-        uploadTask.resume()
+        profileManager.uploadProfilePhotoToFirebase(image: image, userUid: userUid)
     }
     
     func fetchProfilePhotoFromFirebase(completion: @escaping (Data) -> ()) {
-        collectionUsers.document(userUid).getDocument { document, error in
-            if error != nil {
-                print("failed to connect firebase for fetch profile photo")
-                return
-            }
-            
-            guard let document = document, document.exists else { return }
-            if let profilePhotoUrl = document.get("profilePhotoUrl") as? String {
-                let storageRef = self.storage.reference(forURL: profilePhotoUrl)
-                storageRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
-                    if error != nil {
-                        print("error while downloading profile photo: \(error?.localizedDescription)")
-                        return
-                    }
-                    
-                    guard let imageData = data else { return }
-                    completion(imageData)
-                }
-            }
-            
+        profileManager.fetchProfilePhotoFromFirebase(userUid: userUid) { imageData in
+            completion(imageData)
         }
     }
-    
 }
 

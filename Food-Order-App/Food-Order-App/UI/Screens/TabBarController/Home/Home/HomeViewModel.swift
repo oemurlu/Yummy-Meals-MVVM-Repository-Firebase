@@ -87,4 +87,10 @@ class HomeViewModel {
             filteredList = foodsList
         }
     }
+    
+    func getUserName(completion: @escaping (String) -> ()) {
+        SingletonUser.shared.getUserName { name in
+            completion(name)
+        }
+    }
 }

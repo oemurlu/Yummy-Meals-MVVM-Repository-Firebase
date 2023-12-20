@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupWelcomingLabel() {
-        SingletonUser.shared.getUserName { name in
+        viewModel.getUserName { name in
             self.welcomingMessageLabel.text = "Hi \(name)"
         }
     }

@@ -68,6 +68,9 @@ class CartViewController: UIViewController {
     }
     
     @IBAction func confirmCartButton_TUI(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "cartToPayment", sender: nil)
+        }
     }
 }
 

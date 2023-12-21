@@ -6,18 +6,13 @@
 //
 
 import Foundation
+import Alamofire
 import FirebaseAuth
 import FirebaseFirestore
-import Alamofire
 import FirebaseStorage
-
-protocol UserRepositoryDelegate: AnyObject {
-    func favoriteFoodsDidUpdate(foods: [Foods])
-}
 
 class UserRepository {
     
-    weak var delegate: UserRepositoryDelegate?
     let db = Firestore.firestore()
     let collectionUsers = Firestore.firestore().collection("Users")
     let homeManager = HomeManager.shared
@@ -65,61 +60,17 @@ class UserRepository {
         }
     }
     
-    // v1 request directly
-    //    func loadFoods(completion: @escaping ([Foods]) -> ()) {
-    //        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
-    //            if let data = response.data {
-    //                do {
-    //                    let response = try JSONDecoder().decode(FoodsResponse.self, from: data)
-    //                    if let foods = response.yemekler {
-    //                        completion(foods)
-    //                    } else {
-    //                        print("loadFoods error on userRepository")
-    //                    }
-    //                } catch {
-    //                    print(error.localizedDescription)
-    //                }
-    //            }
-    //        }
-    //    }
-    
-    // v2 request from network manager
-    //    func loadFoods(completion: @escaping ([Foods]) -> ()) {
-    //        let networkManager = NetworkManager.shared
-    //        networkManager.request(url: "tumYemekleriGetir", method: .get) { (result: Result<FoodsResponse, Error>) in
-    //            switch result {
-    //            case .success(let response):
-    //                if let foods = response.yemekler {
-    //                    completion(foods)
-    //                } else {
-    //                    print("loadFoods error on userRepository")
-    //                }
-    //            case .failure(let error):
-    //                print(error.localizedDescription)
-    //            }
-    //        }
-    //    }
-    
-    // v3: make request from homeManager and homeManager requests from NetworkManager
     func loadAllFoods(completion: @escaping ([Foods]) -> ()) {
         homeManager.loadAllFoods { [weak self] foods in
             completion(foods)
         }
     }
     
-//    func loadAllFoodsByOrder(completion: @escaping ([Foods]) -> ()) {
-//        homeManager.loadAllFoods { [weak self] foods in
-//            completion(foods)
-//        }
-//    }
-
-    
     func addFoodToCart(foodName: String, foodImageName: String, foodPrice: Int, foodOrderCount: Int, completion: @escaping () -> ()) {
-//        let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": "oe7"]
+        
         let params: Parameters = ["yemek_adi": foodName, "yemek_resim_adi": foodImageName, "yemek_fiyat": foodPrice, "yemek_siparis_adet": foodOrderCount, "kullanici_adi": userUid]
         
         homeManager.addFoodToBasket(params: params) { success in
-            //            print("repo callback success value: \(success)")
             completion()
         }
     }
@@ -129,13 +80,12 @@ class UserRepository {
             if let existingFood = foods?.first(where: { $0.yemek_adi == foodName }) {
                 // If the product is already in the cart, increase the quantity of the available product
                 let updatedCount = (existingFood.yemek_siparis_adet?.toInt())! + foodOrderCount
-                self?.updateQuantity(food: existingFood, newQuantity: updatedCount) {
-                    print("quantity update edildi. newQuantity: \(updatedCount)")
-                }
+                self?.updateQuantity(food: existingFood, newQuantity: updatedCount, completion: completion)
+                    print("quantity updated. newQuantity: \(updatedCount)")
             } else {
                 // If the product is not in the cart, add it as a new product
                 self?.addFoodToCart(foodName: foodName, foodImageName: foodImageName, foodPrice: foodPrice, foodOrderCount: foodOrderCount, completion: completion)
-                print("urun sepette yok, sepete eklendi")
+                print("there is no food in the cart so, food was added to cart.")
             }
         }
     }
@@ -143,7 +93,6 @@ class UserRepository {
     
     func loadFoodsFromCart(completion: @escaping ([GetFoodsFromCart]?) -> ()) {
         let params: Parameters = ["kullanici_adi": userUid]
-        print("loadFoodsFromCart UserUid: \(userUid)")
         cartManager.loadCart(params: params) { foods, error in
             if let error = error {
                 print("your card is empty: \(error)")
@@ -153,18 +102,10 @@ class UserRepository {
                     print("error: cart data is nil")
                     return
                 }
-                //                for food in foods {
-                //                    print(food.kullanici_adi!)
-                //                    print(food.sepet_yemek_id!)
-                //                    print(food.yemek_adi!)
-                //                    print(food.yemek_siparis_adet!)
-                //                    print("*******")
-                //                }
                 completion(foods)
             }
         }
     }
-    
     // actually this function is so basic and bad. Before this function, I wrote a better function which is seperating errors by connection error or empty card error but this api doesn't supoort empty card message. If the user has item in the cart, the api returns foods and succes: 1 and sepet_yemekler = [Foods] but if the user dont have item in the cart, the api returns success: 0 and sepet_yemekler = nil. So i cant handle the errors.
     
     

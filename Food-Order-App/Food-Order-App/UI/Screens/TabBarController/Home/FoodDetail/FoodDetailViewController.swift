@@ -112,8 +112,6 @@ class FoodDetailViewController: UIViewController {
         addFoodToCartButton.tintColor = UIColor(named: "white")
         addFoodToCartButton.layer.cornerRadius = 10
     }
-    
-    
 }
 
 extension FoodDetailViewController: FoodDetailViewModelProtocol {
@@ -126,6 +124,8 @@ extension FoodDetailViewController: FoodDetailViewModelProtocol {
     }
     
     func addFoodToCart() {
-        MakeAlert.alertMessage(title: "Success", message: "Food added to cart!", style: .alert, vc: self)
+        MakeAlert.alertMessageWithHandler(title: "Success", message: "Food added to cart!", style: .alert, vc: self) {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }

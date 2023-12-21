@@ -34,8 +34,6 @@ class OnboardingViewModel {
     
     func nextButton_TUI() {
         if currentPage == slides.count - 1 {
-//            delegate?.showTabBarController()
-//            delegate?.showEntranceController()
             delegate?.showNavigationController()
         } else {
             currentPage += 1

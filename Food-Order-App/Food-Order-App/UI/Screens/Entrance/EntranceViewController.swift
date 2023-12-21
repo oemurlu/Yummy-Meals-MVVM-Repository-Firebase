@@ -20,10 +20,14 @@ class EntranceViewController: UIViewController {
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSignIn", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toSignIn", sender: nil)
+        }
     }
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
-        performSegue(withIdentifier: "toSignUp", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "toSignUp", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,9 +36,7 @@ class EntranceViewController: UIViewController {
                 let userRepository = UserRepository()
                 signUpVC.viewModel = SignUpViewModel(userRepo: userRepository)
             }
-        } else if segue.identifier == "toSignUp" {
-            print("up")
-        }
+        } 
     }
     
     func setupButtons() {

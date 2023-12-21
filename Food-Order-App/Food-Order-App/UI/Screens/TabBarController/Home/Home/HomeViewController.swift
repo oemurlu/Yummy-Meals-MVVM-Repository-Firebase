@@ -169,9 +169,6 @@ extension HomeViewController: HomeViewModelProtocol {
 extension HomeViewController: FoodsCellProtocol {
     func addFoodToBasket(indexPath: IndexPath) {
         let food = viewModel.filteredList[indexPath.row]
-        print("\(food.yemek_adi!) sepete eklendi")
-        //TODO: make network request for adding food to the basket
-        // we need username; => we need to get username from firebase
         viewModel.addFoodToCart(foodName: food.yemek_adi!, foodImageName: food.yemek_resim_adi!, foodPrice: Int(food.yemek_fiyat!)!, foodOrderCount: 1)
     }
 }

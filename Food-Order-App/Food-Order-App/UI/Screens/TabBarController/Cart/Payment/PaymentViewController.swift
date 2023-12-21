@@ -52,7 +52,5 @@ class PaymentViewController: UIViewController {
                 }
             }
         }
-    
     }
-    
 }

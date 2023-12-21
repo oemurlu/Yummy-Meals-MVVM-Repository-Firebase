@@ -64,10 +64,12 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
     }
     
     // ScrollView kaydirmasi tamamlaninca cagirilir.
+    // Called when ScrollView scrolling is complete.
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = scrollView.frame.width
         viewModel.currentPage = Int(scrollView.contentOffset.x / pageWidth)
         // scrollView'in total genisligi ekran genisligine bolunurse index'i verir. Bu sayede pageControl'u takip ederiz.
+        // the total width of the scrollView divided by the screen width gives the index. This is how we keep track of the pageControl.
     }
 }
 
@@ -93,5 +95,3 @@ extension OnboardingViewController: OnboardingViewModelProtocol {
         }
     }
 }
-
-

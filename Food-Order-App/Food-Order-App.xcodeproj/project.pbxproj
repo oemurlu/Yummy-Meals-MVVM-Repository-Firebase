@@ -21,7 +21,6 @@
 		B61B1A622B1CCA0600AC007F /* CartHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1A612B1CCA0600AC007F /* CartHelper.swift */; };
 		B61B1A652B1CCB9000AC007F /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1A642B1CCB9000AC007F /* CartViewController.swift */; };
 		B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1A662B1CCB9F00AC007F /* CartViewModel.swift */; };
-		B62364152B332733007E03A5 /* ProfileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364142B332733007E03A5 /* ProfileHelper.swift */; };
 		B62364182B3340FD007E03A5 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364172B3340FD007E03A5 /* PaymentViewController.swift */; };
 		B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4A2B1918F60054B094 /* HomeViewModel.swift */; };
 		B626EE4F2B19234B0054B094 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4E2B19234B0054B094 /* Foods.swift */; };
@@ -54,7 +53,6 @@
 		B6B030B22AFBA3E40078660A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B12AFBA3E40078660A /* HomeViewController.swift */; };
 		B6B030B52AFBAC4E0078660A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B42AFBAC4E0078660A /* TabBarController.swift */; };
 		B6B030B82AFD48B80078660A /* EntranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B72AFD48B80078660A /* EntranceViewController.swift */; };
-		B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030B92AFD4F720078660A /* EntranceViewModel.swift */; };
 		B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */; };
 		B6B030C12AFE1B260078660A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B030C02AFE1B260078660A /* SignUpViewController.swift */; };
 		B6F59AB52B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F59AB42B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift */; };
@@ -78,7 +76,6 @@
 		B61B1A612B1CCA0600AC007F /* CartHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartHelper.swift; sourceTree = "<group>"; };
 		B61B1A642B1CCB9000AC007F /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B61B1A662B1CCB9F00AC007F /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
-		B62364142B332733007E03A5 /* ProfileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHelper.swift; sourceTree = "<group>"; };
 		B62364172B3340FD007E03A5 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		B626EE4A2B1918F60054B094 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B626EE4E2B19234B0054B094 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
@@ -113,7 +110,6 @@
 		B6B030B12AFBA3E40078660A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B6B030B42AFBAC4E0078660A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B6B030B72AFD48B80078660A /* EntranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewController.swift; sourceTree = "<group>"; };
-		B6B030B92AFD4F720078660A /* EntranceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceViewModel.swift; sourceTree = "<group>"; };
 		B6B030BE2AFE1B1C0078660A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B6B030C02AFE1B260078660A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B6F59AB42B1E72DE003023D4 /* DeleteFoodFromCartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFoodFromCartResponse.swift; sourceTree = "<group>"; };
@@ -364,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				B65C2EB22B30E1150025455D /* ProfileManager.swift */,
-				B62364142B332733007E03A5 /* ProfileHelper.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -451,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				B6B030B72AFD48B80078660A /* EntranceViewController.swift */,
-				B6B030B92AFD4F720078660A /* EntranceViewModel.swift */,
 			);
 			path = Entrance;
 			sourceTree = "<group>";
@@ -615,7 +609,6 @@
 				B6B030AF2AF68E2A0078660A /* OnboardingViewModel.swift in Sources */,
 				B6B030BF2AFE1B1C0078660A /* SignInViewController.swift in Sources */,
 				B6B030A92AF6864A0078660A /* OnboardingViewController.swift in Sources */,
-				B6B030BA2AFD4F720078660A /* EntranceViewModel.swift in Sources */,
 				B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */,
 				B67E6EA32B21A841008114AC /* EmptyCartView.swift in Sources */,
 				B698B0CF2B224BFE0056B798 /* FoodDetailViewModel.swift in Sources */,
@@ -628,7 +621,6 @@
 				B626EE5B2B1A18690054B094 /* HomeManager.swift in Sources */,
 				B68ED34D2B2C33B7004541F5 /* FilterCell.swift in Sources */,
 				B63937672AF66851001604AB /* AppDelegate.swift in Sources */,
-				B62364152B332733007E03A5 /* ProfileHelper.swift in Sources */,
 				B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */,
 				B626EE5D2B1A18790054B094 /* HomeHelper.swift in Sources */,
 				B652D78D2B30DB4400394D2D /* ProfileViewController.swift in Sources */,

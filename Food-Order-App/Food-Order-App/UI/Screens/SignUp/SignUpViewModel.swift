@@ -32,7 +32,6 @@ class SignUpViewModel {
     
     
     func checkTextFields() {
-        print("checkTextFields...")
         let textFields = [username, fullName, email, phoneNumber, password, confirmPassword]
         // check the all text fields whether is empty or not
         let allTextFieldsFilled = textFields.allSatisfy { $0!.isEmpty == false }

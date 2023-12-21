@@ -18,7 +18,6 @@ class FoodVDetailviewModel {
     weak var delegate: FoodDetailViewModelProtocol?
     
     var food: Foods?
-//    var repo = UserRepository()
     private let repo: UserRepository
     
     init(repo: UserRepository) {

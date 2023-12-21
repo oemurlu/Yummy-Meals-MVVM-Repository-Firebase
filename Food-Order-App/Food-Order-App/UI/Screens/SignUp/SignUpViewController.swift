@@ -38,7 +38,6 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
         self.view.endEditing(true)
-        //        viewModel.checkTextFields(tf1: usernameTextField.text ?? "", tf2: fullNameTextField.text ?? "", tf3: emailTextField.text ?? "", tf4: phoneNumberTextField.text ?? "", tf5: passwordTextField.text ?? "", tf6: passwordConfirmTextField.text ?? "")
         
         viewModel.username = usernameTextField.text
         viewModel.fullName = fullNameTextField.text

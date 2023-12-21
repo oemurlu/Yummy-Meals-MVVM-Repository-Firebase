@@ -14,7 +14,6 @@ class ProfileManager {
     private let storage = Storage.storage()
     let collectionUsers = Firestore.firestore().collection("Users")
     
-    
     private init() {}
     
     func fetchUserInfosFromFirebase(completion: @escaping (String, String, String, String) -> ()) {
@@ -59,7 +58,6 @@ class ProfileManager {
                     completion(imageData)
                 }
             }
-            
         }
     }
     
@@ -76,23 +74,19 @@ class ProfileManager {
             storageRef.downloadURL { result in
                 switch result {
                 case .success(let url):
-                    print("Resmin indirme url'si: \(url.absoluteString)")
-                    // Firestore'a downloadUrl'ı kaydet
+                    // Save the downloadUrl to firestore
                     self.collectionUsers.document(userUid).setData(["profilePhotoUrl": url.absoluteString], merge: true) { error in
                         if let error = error {
-                            print("Firestore'a profile photo url kaydı sırasında hata oluştu: \(error.localizedDescription)")
+                            print("error while uploading photo to Firestore: \(error.localizedDescription)")
                         } else {
-                            print("Firestore'a profile photo url'ı başarıyla kaydedildi.")
+                            print("photo url saved to firestore successfully.")
                         }
                     }
                 case .failure(let error):
-                    print("Resim indirme url'si alınamadı, hata: \(error.localizedDescription)")
+                    print("download photo url couldn't get, error: \(error.localizedDescription)")
                 }
             }
-            
         }
         uploadTask.resume()
     }
-    
-    
 }

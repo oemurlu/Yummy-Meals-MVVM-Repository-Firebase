@@ -162,7 +162,6 @@ extension CartViewController: CartViewModelProtocol {
     
     func totalCartPriceChanged(price: Int) {
         DispatchQueue.main.async {
-            print("fiyat hesaplandi...")
             self.totalCartPriceLabel.text = "$ \(price)"
         }
     }

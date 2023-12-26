@@ -14,11 +14,20 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var validThruMonthLabel: UILabel!
     @IBOutlet weak var validThruYearLabel: UILabel!
     @IBOutlet weak var confirmCardButton: UIButton!
+    @IBOutlet weak var cvcLabel: UITextField!
+    
+    let viewModel: PaymentViewModel
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = PaymentViewModel()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupConfirmButton()
+        viewModel.delegate = self
     }
     
     func setupConfirmButton() {
@@ -45,6 +54,19 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func confirmCardButton_TUI(_ sender: UIButton) {
+        
+        viewModel.fullName = self.nameLabel.text
+        viewModel.cardNo = self.cardNoLabel.text
+        viewModel.validMonth = self.validThruMonthLabel.text
+        viewModel.validYear = self.validThruYearLabel.text
+        viewModel.cvc = self.cvcLabel.text
+        
+        viewModel.checkTextFields()
+    }
+}
+
+extension PaymentViewController: PaymentViewModelDelegate {
+    func paymentSuccess() {
         MakeAlert.alertMessageWithHandler(title: "Success", message: "Your payment has been confirmed, your order will arrive soon :)", style: .alert, vc: self) {
             DispatchQueue.main.async {
                 if let tabBarVC = self.tabBarController, let viewControllers = tabBarVC.viewControllers, viewControllers.indices.contains(0) {
@@ -52,5 +74,9 @@ class PaymentViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
+        MakeAlert.alertMessage(title: title, message: message, style: style, vc: self)
     }
 }

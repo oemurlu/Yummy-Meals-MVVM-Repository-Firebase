@@ -31,6 +31,8 @@ class ProfileViewController: UIViewController {
         setupProfilePicture()
         viewModel.delegate = self
         viewModel.fetchInfosFromFirestore()
+        
+        ActivityIndicatorHelper.shared.start()
     }
     
     @IBAction func logoutBarButtonItem_TUI(_ sender: UIBarButtonItem) {
@@ -86,6 +88,7 @@ extension ProfileViewController: ProfileViewModelDelegate {
             self.emailLabel.text = email
             self.phoneLabel.text = phoneNumber
         }
+        ActivityIndicatorHelper.shared.stop()
     }
     
     func logoutSuccess() {
@@ -104,7 +107,9 @@ extension ProfileViewController: ProfileViewModelDelegate {
     
     func profilePhotoUpdated(imageData: Data) {
         DispatchQueue.main.async {
-            self.profilePictureImage.image = UIImage(data: imageData)
+            self.profilePictureImage.image = UIImage(data: imageData) ?? UIImage(systemName: "person.circle")
+            ActivityIndicatorHelper.shared.stop()
+            print("pp updated")
         }
     }
 }
@@ -113,8 +118,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             viewModel.selectedProfileImage = pickedImage
-            profilePictureImage.image = viewModel.selectedProfileImage
+//            profilePictureImage.image = viewModel.selectedProfileImage
             dismiss(animated: true)
+            ActivityIndicatorHelper.shared.start()
         }
     }
 }

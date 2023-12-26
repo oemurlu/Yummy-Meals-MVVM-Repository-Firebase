@@ -17,6 +17,7 @@ class EntranceViewController: UIViewController {
         super.viewDidLoad()
 
         setupButtons()
+        ActivityIndicatorHelper.shared.stop()
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {

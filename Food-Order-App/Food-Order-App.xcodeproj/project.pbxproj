@@ -22,6 +22,7 @@
 		B61B1A652B1CCB9000AC007F /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1A642B1CCB9000AC007F /* CartViewController.swift */; };
 		B61B1A672B1CCB9F00AC007F /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61B1A662B1CCB9F00AC007F /* CartViewModel.swift */; };
 		B62364182B3340FD007E03A5 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364172B3340FD007E03A5 /* PaymentViewController.swift */; };
+		B623641A2B348C6B007E03A5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364192B348C6B007E03A5 /* ActivityIndicator.swift */; };
 		B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4A2B1918F60054B094 /* HomeViewModel.swift */; };
 		B626EE4F2B19234B0054B094 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4E2B19234B0054B094 /* Foods.swift */; };
 		B626EE562B1A15C90054B094 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE552B1A15C90054B094 /* NetworkManager.swift */; };
@@ -77,6 +78,7 @@
 		B61B1A642B1CCB9000AC007F /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B61B1A662B1CCB9F00AC007F /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		B62364172B3340FD007E03A5 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		B62364192B348C6B007E03A5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B626EE4A2B1918F60054B094 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B626EE4E2B19234B0054B094 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
 		B626EE552B1A15C90054B094 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				B60883932B136729006DDBA8 /* MakeAlert.swift */,
 				B68ED34F2B2CFA78004541F5 /* SingletonUser.swift */,
+				B62364192B348C6B007E03A5 /* ActivityIndicator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				B61B1A602B1CC9FD00AC007F /* CartManager.swift in Sources */,
 				B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */,
 				B67E6E9D2B210280008114AC /* String+Extensions.swift in Sources */,
+				B623641A2B348C6B007E03A5 /* ActivityIndicator.swift in Sources */,
 				B61B1A622B1CCA0600AC007F /* CartHelper.swift in Sources */,
 				B6B030AB2AF68B5F0078660A /* OnboardingCVC.swift in Sources */,
 				B61B1A582B1C641000AC007F /* UIColor+Extensions.swift in Sources */,

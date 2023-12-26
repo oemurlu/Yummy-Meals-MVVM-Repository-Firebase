@@ -38,6 +38,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButton_TUI(_ sender: UIButton) {
         self.view.endEditing(true)
+        ActivityIndicatorHelper.shared.start()
         
         viewModel.username = usernameTextField.text
         viewModel.fullName = fullNameTextField.text
@@ -79,15 +80,18 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: SignUpProtocol {
     func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
+        ActivityIndicatorHelper.shared.stop()
         MakeAlert.alertMessage(title: title, message: message, style: .alert, vc: self)
     }
     
     func showPasswordError() {
-            MakeAlert.alertMessage(title: "Error", message: "Passwords do not match.", style: .alert, vc: self)
+        ActivityIndicatorHelper.shared.stop()
+        MakeAlert.alertMessage(title: "Error", message: "Passwords do not match.", style: .alert, vc: self)
     }
     
     func goToSignInScreen() {
         DispatchQueue.main.async {
+            ActivityIndicatorHelper.shared.stop()
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
                 self.navigationController?.pushViewController(signInVC, animated: true)

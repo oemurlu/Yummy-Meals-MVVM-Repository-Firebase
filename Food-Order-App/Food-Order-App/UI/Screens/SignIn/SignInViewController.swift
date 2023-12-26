@@ -37,6 +37,7 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {
+        ActivityIndicatorHelper.shared.start()
         if let email = emailTexfField.text, let password = passwordTextField.text {
             viewModel.signInClicked(email: email, pw: password)
         }
@@ -51,10 +52,12 @@ extension SignInViewController: SignInProtocol {
             vc?.modalPresentationStyle = .fullScreen
             vc?.modalTransitionStyle  = .flipHorizontal
             self.present(vc!, animated: true)
+            ActivityIndicatorHelper.shared.start()
         }
     }
     
     func showAlertMessage(title: String, message: String, style: UIAlertController.Style) {
+        ActivityIndicatorHelper.shared.stop()
         MakeAlert.alertMessage(title: title, message: message, style: .alert, vc: self)
     }
 }

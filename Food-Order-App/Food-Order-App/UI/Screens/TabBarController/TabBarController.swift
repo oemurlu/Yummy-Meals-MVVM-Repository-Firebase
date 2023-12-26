@@ -14,5 +14,7 @@ class TabBarController: UITabBarController {
         
         tabBar.isTranslucent = true
         tabBar.backgroundColor = .white
+        
+        ActivityIndicatorHelper.shared.stop()
     }
 }

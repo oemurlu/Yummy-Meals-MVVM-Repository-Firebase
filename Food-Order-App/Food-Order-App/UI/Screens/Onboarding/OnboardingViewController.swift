@@ -92,6 +92,7 @@ extension OnboardingViewController: OnboardingViewModelProtocol {
             vc?.modalPresentationStyle = .fullScreen
             vc?.modalTransitionStyle  = .flipHorizontal
             self.present(vc!, animated: true)
+            ActivityIndicatorHelper.shared.start()
         }
     }
 }

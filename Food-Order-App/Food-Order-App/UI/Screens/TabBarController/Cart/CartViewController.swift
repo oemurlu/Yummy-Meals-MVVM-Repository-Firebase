@@ -38,6 +38,7 @@ class CartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        ActivityIndicatorHelper.shared.start()
         emptyCartView.isHidden = true
         totalCartPriceLabel.isHidden = true
         confirmCartButton.isHidden = true
@@ -143,6 +144,7 @@ extension CartViewController: CartViewModelProtocol {
     func foodsDidLoad() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            ActivityIndicatorHelper.shared.stop()
         }
     }
     
@@ -162,6 +164,7 @@ extension CartViewController: CartViewModelProtocol {
     
     func totalCartPriceChanged(price: Int) {
         DispatchQueue.main.async {
+            ActivityIndicatorHelper.shared.stop()
             self.totalCartPriceLabel.text = "$ \(price)"
         }
     }
@@ -170,6 +173,7 @@ extension CartViewController: CartViewModelProtocol {
 extension CartViewController: CartTVCellProtocol {
     
     func decreaseQuantity(indexPath: IndexPath) {
+        ActivityIndicatorHelper.shared.start()
         let food = viewModel.cartFoods[indexPath.section]
         guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 1 else { return }
         quantity -= 1
@@ -177,6 +181,7 @@ extension CartViewController: CartTVCellProtocol {
     }
     
     func increaseQuantity(indexPath: IndexPath) {
+        ActivityIndicatorHelper.shared.start()
         let food = viewModel.cartFoods[indexPath.section]
         guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 0 else { return }
         quantity += 1
@@ -188,9 +193,11 @@ extension CartViewController: CartTVCellProtocol {
         
         // update totalCartPriceLabel
         viewModel.totalCartPrice = 0
+        ActivityIndicatorHelper.shared.stop()
     }
     
     func updateTotalCartPrice() {
+        ActivityIndicatorHelper.shared.stop()
         self.totalCartPriceLabel.text = "$ \(viewModel.totalCartPrice)"
     }
 }

@@ -142,8 +142,14 @@ class UserRepository {
         }
     }
     
-    func uploadProfilePhotoToFirebase(image: UIImage) {
-        profileManager.uploadProfilePhotoToFirebase(image: image, userUid: userUid)
+    func uploadProfilePhotoToFirebase(image: UIImage, onSuccess: @escaping () -> (), onError: @escaping () -> ()) {
+//        profileManager.uploadProfilePhotoToFirebase(image: image, userUid: userUid)
+        profileManager.uploadProfilePhotoToFirebase(image: image, userUid: userUid) {
+            onSuccess()
+        } onError: {
+            onError()
+        }
+
     }
     
     func fetchProfilePhotoFromFirebase(completion: @escaping (Data) -> ()) {

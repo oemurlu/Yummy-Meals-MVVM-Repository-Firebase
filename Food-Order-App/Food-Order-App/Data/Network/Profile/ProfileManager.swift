@@ -61,7 +61,7 @@ class ProfileManager {
         }
     }
     
-    func uploadProfilePhotoToFirebase(image: UIImage, userUid: String) {
+    func uploadProfilePhotoToFirebase(image: UIImage, userUid: String, onSuccess: @escaping () -> (), onError: @escaping () -> ()) {
         guard let imageData = image.jpegData(compressionQuality: 0.1) else { return }
         
         let storageRef = storage.reference().child("profile_photos").child("\(String(describing: userUid)).jpg")
@@ -78,12 +78,15 @@ class ProfileManager {
                     self.collectionUsers.document(userUid).setData(["profilePhotoUrl": url.absoluteString], merge: true) { error in
                         if let error = error {
                             print("error while uploading photo to Firestore: \(error.localizedDescription)")
+                            onError()
                         } else {
                             print("photo url saved to firestore successfully.")
+                            onSuccess()
                         }
                     }
                 case .failure(let error):
                     print("download photo url couldn't get, error: \(error.localizedDescription)")
+                    onError()
                 }
             }
         }

@@ -37,33 +37,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SSZ-l4-YCO">
-                                                    <rect key="frame" x="41.5" y="100" width="334" height="333.5"/>
+                                                    <rect key="frame" x="62.5" y="120" width="292" height="292"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="SSZ-l4-YCO" secondAttribute="height" multiplier="1:1" id="Wk8-a9-gww"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9la-Mt-VAp">
-                                                    <rect key="frame" x="173" y="485.5" width="71" height="36"/>
+                                                    <rect key="frame" x="173" y="476" width="71" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor ahmet mehmet osman emre omurllu oemoto super cok ii fena" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpR-sg-cCf">
-                                                    <rect key="frame" x="16" y="544" width="385" height="48"/>
+                                                    <rect key="frame" x="32" y="540" width="353" height="72"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="SSZ-l4-YCO" firstAttribute="width" secondItem="z08-ge-OBs" secondAttribute="width" multiplier="0.8" id="64h-D7-oGf"/>
-                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="leading" secondItem="z08-ge-OBs" secondAttribute="leading" constant="16" id="76Q-0u-TpI"/>
+                                                <constraint firstItem="SSZ-l4-YCO" firstAttribute="width" secondItem="z08-ge-OBs" secondAttribute="width" multiplier="0.7" id="64h-D7-oGf"/>
+                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="leading" secondItem="z08-ge-OBs" secondAttribute="leading" constant="32" id="76Q-0u-TpI"/>
                                                 <constraint firstItem="9la-Mt-VAp" firstAttribute="centerX" secondItem="SSZ-l4-YCO" secondAttribute="centerX" id="BYL-qP-e5H"/>
-                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="top" secondItem="9la-Mt-VAp" secondAttribute="bottom" constant="22.5" id="Mty-R7-TC9"/>
+                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="top" secondItem="9la-Mt-VAp" secondAttribute="bottom" constant="28" id="Mty-R7-TC9"/>
                                                 <constraint firstItem="kpR-sg-cCf" firstAttribute="centerX" secondItem="9la-Mt-VAp" secondAttribute="centerX" id="Nhq-Gr-9Df"/>
-                                                <constraint firstAttribute="trailing" secondItem="kpR-sg-cCf" secondAttribute="trailing" constant="16" id="QV2-wR-vE1"/>
-                                                <constraint firstItem="SSZ-l4-YCO" firstAttribute="top" secondItem="z08-ge-OBs" secondAttribute="top" constant="100" id="VDU-Jk-VRF"/>
-                                                <constraint firstItem="9la-Mt-VAp" firstAttribute="top" secondItem="SSZ-l4-YCO" secondAttribute="bottom" constant="52" id="vSd-bR-yPl"/>
+                                                <constraint firstAttribute="trailing" secondItem="kpR-sg-cCf" secondAttribute="trailing" constant="32" id="QV2-wR-vE1"/>
+                                                <constraint firstItem="SSZ-l4-YCO" firstAttribute="top" secondItem="z08-ge-OBs" secondAttribute="top" constant="120" id="VDU-Jk-VRF"/>
+                                                <constraint firstItem="9la-Mt-VAp" firstAttribute="top" secondItem="SSZ-l4-YCO" secondAttribute="bottom" constant="64" id="vSd-bR-yPl"/>
                                                 <constraint firstItem="SSZ-l4-YCO" firstAttribute="centerX" secondItem="z08-ge-OBs" secondAttribute="centerX" id="wty-zb-G9e"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -128,11 +128,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xbox.logo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rPd-Su-SCS">
-                                <rect key="frame" x="62" y="212" width="290" height="289.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App" translatesAutoresizingMaskIntoConstraints="NO" id="rPd-Su-SCS">
+                                <rect key="frame" x="62" y="212" width="290" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rPd-Su-SCS" secondAttribute="height" multiplier="1:1" id="42a-h6-cnv"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="9Je-Jp-WfD">
                                 <rect key="frame" x="86.5" y="582" width="241" height="122"/>
@@ -585,8 +591,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6Z-kp-ZBi">
                                 <rect key="frame" x="0.0" y="313.5" width="414" height="582.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-xs-awx">
-                                        <rect key="frame" x="62" y="-144.5" width="290" height="289"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j9M-xs-awx">
+                                        <rect key="frame" x="62" y="-145" width="290" height="290"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j9M-xs-awx" secondAttribute="height" multiplier="1:1" id="zjd-q9-Wf4"/>
                                         </constraints>
@@ -1353,6 +1359,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="App" width="1024" height="1024"/>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="creditCard" width="368" height="234"/>
         <image name="empty-card" width="896" height="747.971435546875"/>
@@ -1360,7 +1367,6 @@
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="minus.square.fill" catalog="system" width="128" height="114"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="phone" catalog="system" width="128" height="115"/>
@@ -1368,7 +1374,6 @@
         <image name="plus.square.fill" catalog="system" width="128" height="114"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="text.justifyleft" catalog="system" width="128" height="99"/>
-        <image name="xbox.logo" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

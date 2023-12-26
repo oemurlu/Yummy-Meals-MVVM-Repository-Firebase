@@ -44,9 +44,9 @@ class OnboardingViewModel {
     
     func createSlides() {
         slides = [
-            OnboardingSlide(label: "Delicious Dishes", image: UIImage(systemName: "square.and.arrow.up.fill")),
-            OnboardingSlide(label: "Best Quality Standarts", image: UIImage(systemName: "rectangle.portrait.and.arrow.forward.fill")),
-            OnboardingSlide(label: "Fast Delivery", image: UIImage(systemName: "eraser.line.dashed.fill")),
+            OnboardingSlide(label: "Delicious Dishes", image: UIImage(named: "burger")),
+            OnboardingSlide(label: "Best Quality Standarts", image: UIImage(named: "quality")),
+            OnboardingSlide(label: "Fast Delivery", image: UIImage(named: "delivery-man")),
         ]
     }
 }

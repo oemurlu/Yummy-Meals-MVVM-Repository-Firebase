@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		402272312C8D3BF9FAEA588E /* Pods_Food_Order_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A48071F2A66F9C1C3F173F /* Pods_Food_Order_App.framework */; };
 		B608838F2B1232A4006DDBA8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */; };
-		B60883912B135375006DDBA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B60883902B135375006DDBA8 /* GoogleService-Info.plist */; };
 		B60883942B136729006DDBA8 /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60883932B136729006DDBA8 /* MakeAlert.swift */; };
 		B60883972B15D2C4006DDBA8 /* FoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60883962B15D2C4006DDBA8 /* FoodsCell.swift */; };
 		B608839E2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */; };
@@ -24,6 +23,7 @@
 		B62364182B3340FD007E03A5 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364172B3340FD007E03A5 /* PaymentViewController.swift */; };
 		B623641A2B348C6B007E03A5 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62364192B348C6B007E03A5 /* ActivityIndicator.swift */; };
 		B623641C2B3B19DF007E03A5 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B623641B2B3B19DF007E03A5 /* PaymentViewModel.swift */; };
+		B623641E2B3B75B8007E03A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B623641D2B3B75B8007E03A5 /* GoogleService-Info.plist */; };
 		B626EE4B2B1918F60054B094 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4A2B1918F60054B094 /* HomeViewModel.swift */; };
 		B626EE4F2B19234B0054B094 /* Foods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE4E2B19234B0054B094 /* Foods.swift */; };
 		B626EE562B1A15C90054B094 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626EE552B1A15C90054B094 /* NetworkManager.swift */; };
@@ -66,7 +66,6 @@
 		87A48071F2A66F9C1C3F173F /* Pods_Food_Order_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Order_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0ED184F98FC37E69129757 /* Pods-Food-Order-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food-Order-App.debug.xcconfig"; path = "Target Support Files/Pods-Food-Order-App/Pods-Food-Order-App.debug.xcconfig"; sourceTree = "<group>"; };
 		B608838E2B1232A3006DDBA8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		B60883902B135375006DDBA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B60883932B136729006DDBA8 /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		B60883962B15D2C4006DDBA8 /* FoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodsCell.swift; sourceTree = "<group>"; };
 		B608839D2B1688B5006DDBA8 /* UICollectionViewLayout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Extensions.swift"; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		B62364172B3340FD007E03A5 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		B62364192B348C6B007E03A5 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		B623641B2B3B19DF007E03A5 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		B623641D2B3B75B8007E03A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B626EE4A2B1918F60054B094 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B626EE4E2B19234B0054B094 /* Foods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foods.swift; sourceTree = "<group>"; };
 		B626EE552B1A15C90054B094 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 				B63937662AF66851001604AB /* AppDelegate.swift */,
 				B63937682AF66851001604AB /* SceneDelegate.swift */,
 				B63937742AF66852001604AB /* Info.plist */,
-				B60883902B135375006DDBA8 /* GoogleService-Info.plist */,
+				B623641D2B3B75B8007E03A5 /* GoogleService-Info.plist */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -535,11 +535,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63937732AF66852001604AB /* LaunchScreen.storyboard in Resources */,
-				B60883912B135375006DDBA8 /* GoogleService-Info.plist in Resources */,
 				B63937702AF66852001604AB /* Assets.xcassets in Resources */,
 				B68ED34E2B2C33B7004541F5 /* FilterCell.xib in Resources */,
 				B639376E2AF66851001604AB /* Main.storyboard in Resources */,
 				B68ED3472B2B7B73004541F5 /* PopOverSortingViewController.xib in Resources */,
+				B623641E2B3B75B8007E03A5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

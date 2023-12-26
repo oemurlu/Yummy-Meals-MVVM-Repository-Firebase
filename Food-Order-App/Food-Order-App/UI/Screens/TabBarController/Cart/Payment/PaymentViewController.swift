@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PaymentViewController: UIViewController {
+final class PaymentViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cardNoLabel: UILabel!

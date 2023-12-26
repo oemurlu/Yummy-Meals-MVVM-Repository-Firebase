@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
     
     @IBOutlet weak var emailTexfField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

@@ -12,7 +12,7 @@ protocol CartTVCellProtocol: AnyObject {
     func increaseQuantity(indexPath: IndexPath)
 }
 
-class CartTVCell: UITableViewCell {
+final class CartTVCell: UITableViewCell {
     
     @IBOutlet weak var imageFood: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

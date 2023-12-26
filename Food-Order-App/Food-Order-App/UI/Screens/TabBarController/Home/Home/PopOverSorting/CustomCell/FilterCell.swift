@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilterCell: UITableViewCell {
+final class FilterCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     

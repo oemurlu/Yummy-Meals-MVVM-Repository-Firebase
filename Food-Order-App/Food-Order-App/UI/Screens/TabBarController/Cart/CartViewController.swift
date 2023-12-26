@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class CartViewController: UIViewController {
+final class CartViewController: UIViewController {
     
     @IBOutlet weak var confirmCartButton: UIButton!
     @IBOutlet weak var totalCartPriceLabel: UILabel!
@@ -210,7 +210,6 @@ extension CartViewController: CartTVCellProtocol {
 
 extension CartViewController: EmptyCartViewDelegate {
     func exploreFoodsButtonPressed() {
-        print("delegated")
         if let tabBarController = self.tabBarController {
             tabBarController.selectedIndex = 0
             let transition = CATransition()

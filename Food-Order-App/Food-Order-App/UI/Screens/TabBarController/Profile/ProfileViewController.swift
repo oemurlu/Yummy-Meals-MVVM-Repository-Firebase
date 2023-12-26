@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -95,12 +95,18 @@ extension ProfileViewController: ProfileViewModelDelegate {
         DispatchQueue.main.async {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "navigationController") as? UINavigationController
-            vc?.modalPresentationStyle = .fullScreen
-            vc?.modalTransitionStyle  = .partialCurl
-            self.present(vc!, animated: true)
+
+            if let sceneDelegate = UIApplication.shared.connectedScenes
+                .first(where: { $0.delegate is SceneDelegate })?.delegate as? SceneDelegate,
+                let window = sceneDelegate.window {
+                
+                UIView.transition(with: window, duration: 0.5, options: .transitionCurlUp, animations: {
+                    window.rootViewController = vc
+                }, completion: nil)
+            }
         }
     }
-    
+
     func logoutFailure(errorMessage: String) {
         MakeAlert.alertMessage(title: "Error", message: errorMessage, style: .alert, vc: self)
     }

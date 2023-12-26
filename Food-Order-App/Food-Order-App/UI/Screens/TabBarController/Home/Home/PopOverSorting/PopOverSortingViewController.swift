@@ -19,7 +19,7 @@ protocol PopOverSortingDelegate: AnyObject {
     func filterCellDidSelect(filterBy: FilterBy)
 }
 
-class PopOverSortingViewController: UIViewController {
+final class PopOverSortingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: PopOverSortingDelegate?

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntranceViewController: UIViewController {
+final class EntranceViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var signInButton: UIButton!

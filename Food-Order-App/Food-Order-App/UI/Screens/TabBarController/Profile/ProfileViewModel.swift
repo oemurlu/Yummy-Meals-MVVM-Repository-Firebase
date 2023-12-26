@@ -46,13 +46,11 @@ class ProfileViewModel {
     
     func uploadProfilePhotoToFirebase() {
         if let image = selectedProfileImage {
-//            repo.uploadProfilePhotoToFirebase(image: image)
             repo.uploadProfilePhotoToFirebase(image: image) {
                 self.fetchProfilePhotoFromFirebase()
             } onError: {
                 self.delegate?.profilePhotoUpdated(imageData: Data.empty)
             }
-
         }
     }
     

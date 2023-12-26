@@ -11,7 +11,7 @@ protocol EmptyCartViewDelegate: AnyObject {
     func exploreFoodsButtonPressed()
 }
 
-class EmptyCartView: UIView {
+final class EmptyCartView: UIView {
     
     weak var delegate: EmptyCartViewDelegate?
     

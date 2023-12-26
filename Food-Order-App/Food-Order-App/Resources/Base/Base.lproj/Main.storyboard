@@ -785,14 +785,13 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O5F-WE-d7F">
                                         <rect key="frame" x="93.5" y="542.5" width="187" height="37"/>
-                                        <color key="tintColor" name="red"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Explore Foods" cornerStyle="large">
                                             <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="exploreFoods_TUI:" destination="YOy-SA-kvi" eventType="touchUpInside" id="bE5-f1-CkL"/>
+                                            <action selector="exploreFoods_TUI:" destination="YOy-SA-kvi" eventType="touchUpInside" id="2KC-5w-Nz3"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -943,6 +942,7 @@
                     <navigationItem key="navigationItem" id="NjO-Ur-V2h"/>
                     <connections>
                         <outlet property="confirmCartButton" destination="B3z-sI-exy" id="9qq-NC-Ce3"/>
+                        <outlet property="emptyCartExploreFoodsButton" destination="O5F-WE-d7F" id="RWQ-p5-ruc"/>
                         <outlet property="emptyCartView" destination="YOy-SA-kvi" id="VZ0-cC-JlJ"/>
                         <outlet property="tableView" destination="7wg-Un-XPI" id="e3s-ci-Euz"/>
                         <outlet property="totalCartPriceLabel" destination="Qug-Pg-b1L" id="nFz-Mr-xAL"/>
@@ -1133,6 +1133,7 @@
                     <connections>
                         <outlet property="cardNoLabel" destination="Dcm-Qj-Pgv" id="zdZ-Ru-Lvv"/>
                         <outlet property="confirmCardButton" destination="D4c-3P-hfH" id="UZu-Gi-qec"/>
+                        <outlet property="cvcLabel" destination="HMi-Lb-0b0" id="0FF-yw-xSs"/>
                         <outlet property="nameLabel" destination="bI7-vf-Xw5" id="R3W-Kk-Sft"/>
                         <outlet property="validThruMonthLabel" destination="76p-tF-4de" id="o3X-en-I1g"/>
                         <outlet property="validThruYearLabel" destination="X0k-xe-gDk" id="bBs-hu-4Dg"/>

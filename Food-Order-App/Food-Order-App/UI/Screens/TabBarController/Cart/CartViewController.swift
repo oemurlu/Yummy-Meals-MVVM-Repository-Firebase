@@ -10,12 +10,11 @@ import Kingfisher
 
 class CartViewController: UIViewController {
     
-    //    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var confirmCartButton: UIButton!
     @IBOutlet weak var totalCartPriceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emptyCartView: EmptyCartView!
-    
+    @IBOutlet weak var emptyCartExploreFoodsButton: UIButton!
     
     private let viewModel: CartViewModel
     
@@ -29,10 +28,13 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
+        emptyCartView.delegate = self
+        
         
         setupConfirmCartButton()
         setupTotalCartPriceLabel()
         setupTableView()
+        setupEmptyCartExploreFoodsButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +48,10 @@ class CartViewController: UIViewController {
         viewModel.totalCartPrice = 0
         
         viewModel.loadFoods()
+    }
+    
+    func setupEmptyCartExploreFoodsButton() {
+        emptyCartExploreFoodsButton.tintColor = UIColor(named: "red")
     }
     
     func setupConfirmCartButton() {
@@ -122,10 +128,10 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-//     disable click cell behavior
-        func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-            return nil
-        }
+    //     disable click cell behavior
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let food = viewModel.cartFoods[indexPath.section]
@@ -199,5 +205,18 @@ extension CartViewController: CartTVCellProtocol {
     func updateTotalCartPrice() {
         ActivityIndicatorHelper.shared.stop()
         self.totalCartPriceLabel.text = "$ \(viewModel.totalCartPrice)"
+    }
+}
+
+extension CartViewController: EmptyCartViewDelegate {
+    func exploreFoodsButtonPressed() {
+        print("delegated")
+        if let tabBarController = self.tabBarController {
+            tabBarController.selectedIndex = 0
+            let transition = CATransition()
+            transition.duration = 0.3
+            transition.type = .fade
+            tabBarController.view.layer.add(transition, forKey: kCATransition)
+        }
     }
 }

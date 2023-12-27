@@ -43,13 +43,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9la-Mt-VAp">
-                                                    <rect key="frame" x="173" y="476" width="71" height="36"/>
+                                                    <rect key="frame" x="173" y="472" width="71" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor ahmet mehmet osman emre omurllu oemoto super cok ii fena" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpR-sg-cCf">
-                                                    <rect key="frame" x="32" y="540" width="353" height="72"/>
+                                                    <rect key="frame" x="32" y="532" width="353" height="72"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,11 +59,11 @@
                                                 <constraint firstItem="SSZ-l4-YCO" firstAttribute="width" secondItem="z08-ge-OBs" secondAttribute="width" multiplier="0.7" id="64h-D7-oGf"/>
                                                 <constraint firstItem="kpR-sg-cCf" firstAttribute="leading" secondItem="z08-ge-OBs" secondAttribute="leading" constant="32" id="76Q-0u-TpI"/>
                                                 <constraint firstItem="9la-Mt-VAp" firstAttribute="centerX" secondItem="SSZ-l4-YCO" secondAttribute="centerX" id="BYL-qP-e5H"/>
-                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="top" secondItem="9la-Mt-VAp" secondAttribute="bottom" constant="28" id="Mty-R7-TC9"/>
+                                                <constraint firstItem="kpR-sg-cCf" firstAttribute="top" secondItem="9la-Mt-VAp" secondAttribute="bottom" constant="24" id="Mty-R7-TC9"/>
                                                 <constraint firstItem="kpR-sg-cCf" firstAttribute="centerX" secondItem="9la-Mt-VAp" secondAttribute="centerX" id="Nhq-Gr-9Df"/>
                                                 <constraint firstAttribute="trailing" secondItem="kpR-sg-cCf" secondAttribute="trailing" constant="32" id="QV2-wR-vE1"/>
                                                 <constraint firstItem="SSZ-l4-YCO" firstAttribute="top" secondItem="z08-ge-OBs" secondAttribute="top" constant="120" id="VDU-Jk-VRF"/>
-                                                <constraint firstItem="9la-Mt-VAp" firstAttribute="top" secondItem="SSZ-l4-YCO" secondAttribute="bottom" constant="64" id="vSd-bR-yPl"/>
+                                                <constraint firstItem="9la-Mt-VAp" firstAttribute="top" secondItem="SSZ-l4-YCO" secondAttribute="bottom" constant="60" id="vSd-bR-yPl"/>
                                                 <constraint firstItem="SSZ-l4-YCO" firstAttribute="centerX" secondItem="z08-ge-OBs" secondAttribute="centerX" id="wty-zb-G9e"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -71,6 +71,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="SSZ-l4-YCO" id="LfM-rV-33K"/>
                                             <outlet property="label" destination="9la-Mt-VAp" id="WcF-FS-eR1"/>
+                                            <outlet property="textLabel" destination="kpR-sg-cCf" id="kaP-8C-gsy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -81,12 +82,12 @@
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gJi-KQ-6VX">
                                 <rect key="frame" x="149" y="692.5" width="116.5" height="26"/>
-                                <color key="pageIndicatorTintColor" red="0.97657614946365356" green="0.47163492441177368" blue="0.097584150731563568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="currentPageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="pageIndicatorTintColor" name="gray"/>
+                                <color key="currentPageIndicatorTintColor" name="red2"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-4x-vCx">
                                 <rect key="frame" x="83" y="736.5" width="248" height="62.5"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="backgroundColor" name="red2"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Next"/>
@@ -246,12 +247,12 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cFm-20-8Ml">
                                                         <rect key="frame" x="0.0" y="256" width="310" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V40-rJ-bLI">
                                                         <rect key="frame" x="0.0" y="320" width="310" height="40"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="new-password"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -1374,14 +1375,14 @@
         <image name="plus.square.fill" catalog="system" width="128" height="114"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <image name="text.justifyleft" catalog="system" width="128" height="99"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="gray">
             <color red="0.61960784313725492" green="0.62352941176470589" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="0.98039215686274506" green="0.0" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red2">
+            <color red="0.83529411764705885" green="0.074509803921568626" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

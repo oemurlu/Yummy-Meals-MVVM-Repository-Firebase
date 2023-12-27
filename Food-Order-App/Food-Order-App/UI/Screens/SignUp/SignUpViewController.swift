@@ -9,14 +9,14 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var passwordConfirmTextField: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var usernameTextField: UITextField!
+    @IBOutlet private weak var fullNameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var phoneNumberTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var passwordConfirmTextField: UITextField!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     var viewModel: SignUpViewModel
     var isExpand: Bool = false

@@ -9,9 +9,9 @@ import UIKit
 
 final class OnboardingViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var pageControl: UIPageControl!
     
     private let viewModel: OnboardingViewModel
     

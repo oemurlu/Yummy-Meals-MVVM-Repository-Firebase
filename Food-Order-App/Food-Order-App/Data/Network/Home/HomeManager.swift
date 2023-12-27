@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class HomeManager {
+final class HomeManager {
     static let shared = HomeManager()
     
     private init() {}

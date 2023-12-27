@@ -9,11 +9,11 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var profilePictureImage: UIImageView!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var fullNameLabel: UILabel!
+    @IBOutlet private weak var phoneLabel: UILabel!
+    @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var profilePictureImage: UIImageView!
     
     let viewModel: ProfileViewModel
     private let imagePicker = UIImagePickerController()

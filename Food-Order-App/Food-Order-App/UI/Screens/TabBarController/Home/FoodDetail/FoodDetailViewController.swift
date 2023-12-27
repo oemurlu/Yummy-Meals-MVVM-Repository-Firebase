@@ -10,16 +10,16 @@ import Kingfisher
 
 final class FoodDetailViewController: UIViewController {
 
-    @IBOutlet weak var imageViewFood: UIImageView!
-    @IBOutlet weak var foodNameLabel: UILabel!
-    @IBOutlet weak var decreaseQuantityButton: UIButton!
-    @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var increaseQuantityButton: UIButton!
-    @IBOutlet weak var foodPriceLabel: UILabel!
-    @IBOutlet weak var addFoodToCartButton: UIButton!
-    @IBOutlet weak var freeDeliveryLabel: UILabel!
-    @IBOutlet weak var minuteLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet private weak var imageViewFood: UIImageView!
+    @IBOutlet private weak var foodNameLabel: UILabel!
+    @IBOutlet private weak var decreaseQuantityButton: UIButton!
+    @IBOutlet private weak var quantityLabel: UILabel!
+    @IBOutlet private weak var increaseQuantityButton: UIButton!
+    @IBOutlet private weak var foodPriceLabel: UILabel!
+    @IBOutlet private weak var addFoodToCartButton: UIButton!
+    @IBOutlet private weak var freeDeliveryLabel: UILabel!
+    @IBOutlet private weak var minuteLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     
     let viewModel: FoodVDetailviewModel?
     

@@ -10,4 +10,5 @@ import UIKit
 struct OnboardingSlide {
     let label: String?
     let image: UIImage?
+    let text: String?
 }

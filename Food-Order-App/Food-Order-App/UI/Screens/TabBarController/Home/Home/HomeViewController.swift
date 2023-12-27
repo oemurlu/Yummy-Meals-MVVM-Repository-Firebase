@@ -9,10 +9,10 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var welcomingMessageLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var welcomingMessageLabel: UILabel!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var filterButton: UIButton!
     
     private var messageLabel: UILabel?
     private let viewModel: HomeViewModel

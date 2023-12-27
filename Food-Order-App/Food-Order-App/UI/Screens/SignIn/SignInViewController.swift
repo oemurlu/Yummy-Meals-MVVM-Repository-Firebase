@@ -9,9 +9,9 @@ import UIKit
 
 final class SignInViewController: UIViewController {
     
-    @IBOutlet weak var emailTexfField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private weak var emailTexfField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signInButton: UIButton!
     
     private let viewModel: SignInViewModel
     

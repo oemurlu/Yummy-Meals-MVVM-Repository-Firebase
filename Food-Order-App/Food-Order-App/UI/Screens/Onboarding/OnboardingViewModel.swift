@@ -44,9 +44,9 @@ class OnboardingViewModel {
     
     func createSlides() {
         slides = [
-            OnboardingSlide(label: "Delicious Dishes", image: UIImage(named: "burger")),
-            OnboardingSlide(label: "Best Quality Standarts", image: UIImage(named: "quality")),
-            OnboardingSlide(label: "Fast Delivery", image: UIImage(named: "delivery-man")),
+            OnboardingSlide(label: "Delicious Dishes", image: UIImage(named: "burger"), text: "Discover a culinary adventure where each dish is a masterpiece. welcome to the world of Delicious Dishes!"),
+            OnboardingSlide(label: "Best Quality Standarts", image: UIImage(named: "quality"), text: "Excellence is our tradition. From field to fork, we promise the Best Quality Standards for an unmatched dining experience."),
+            OnboardingSlide(label: "Fast Delivery", image: UIImage(named: "delivery-man"), text: "Craving something delicious? We've got you covered. Enjoy swift and reliable Fast Delivery, bringing your favorites to your doorstep in no time."),
         ]
     }
 }

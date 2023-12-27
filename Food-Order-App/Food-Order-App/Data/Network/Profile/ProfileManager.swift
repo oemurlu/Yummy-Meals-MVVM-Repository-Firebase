@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseStorage
 
-class ProfileManager {
+final class ProfileManager {
     static let shared = ProfileManager()
     private let storage = Storage.storage()
     let collectionUsers = Firestore.firestore().collection("Users")

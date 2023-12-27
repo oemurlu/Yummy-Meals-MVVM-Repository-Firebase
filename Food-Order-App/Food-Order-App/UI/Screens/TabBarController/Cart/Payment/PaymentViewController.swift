@@ -9,12 +9,12 @@ import UIKit
 
 final class PaymentViewController: UIViewController {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var cardNoLabel: UILabel!
-    @IBOutlet weak var validThruMonthLabel: UILabel!
-    @IBOutlet weak var validThruYearLabel: UILabel!
-    @IBOutlet weak var confirmCardButton: UIButton!
-    @IBOutlet weak var cvcLabel: UITextField!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var cardNoLabel: UILabel!
+    @IBOutlet private weak var validThruMonthLabel: UILabel!
+    @IBOutlet private weak var validThruYearLabel: UILabel!
+    @IBOutlet private weak var confirmCardButton: UIButton!
+    @IBOutlet private weak var cvcLabel: UITextField!
     
     let viewModel: PaymentViewModel
     

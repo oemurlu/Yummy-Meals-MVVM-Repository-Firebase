@@ -21,7 +21,7 @@ protocol PopOverSortingDelegate: AnyObject {
 
 final class PopOverSortingViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     weak var delegate: PopOverSortingDelegate?
     
     override func viewDidLoad() {

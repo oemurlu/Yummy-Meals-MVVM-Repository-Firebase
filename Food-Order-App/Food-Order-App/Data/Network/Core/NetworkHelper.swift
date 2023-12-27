@@ -11,7 +11,7 @@ enum NetworkEndPoint: String {
     case base_url = "http://kasimadalan.pe.hu/yemekler/"
 }
 
-class NetworkHelper {
+final class NetworkHelper {
     static let shared = NetworkHelper()
     
     func requestFinalUrl(url: String) -> String {

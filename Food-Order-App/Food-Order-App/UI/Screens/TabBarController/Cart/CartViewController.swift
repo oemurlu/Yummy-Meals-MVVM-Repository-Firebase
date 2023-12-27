@@ -10,11 +10,11 @@ import Kingfisher
 
 final class CartViewController: UIViewController {
     
-    @IBOutlet weak var confirmCartButton: UIButton!
-    @IBOutlet weak var totalCartPriceLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var emptyCartView: EmptyCartView!
-    @IBOutlet weak var emptyCartExploreFoodsButton: UIButton!
+    @IBOutlet private weak var confirmCartButton: UIButton!
+    @IBOutlet private weak var totalCartPriceLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var emptyCartView: EmptyCartView!
+    @IBOutlet private weak var emptyCartExploreFoodsButton: UIButton!
     
     private let viewModel: CartViewModel
     
@@ -179,17 +179,17 @@ extension CartViewController: CartViewModelProtocol {
 extension CartViewController: CartTVCellProtocol {
     
     func decreaseQuantity(indexPath: IndexPath) {
-        ActivityIndicatorHelper.shared.start()
         let food = viewModel.cartFoods[indexPath.section]
         guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 1 else { return }
+        ActivityIndicatorHelper.shared.start()
         quantity -= 1
         viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
     }
     
     func increaseQuantity(indexPath: IndexPath) {
-        ActivityIndicatorHelper.shared.start()
         let food = viewModel.cartFoods[indexPath.section]
         guard var quantity = Int(food.yemek_siparis_adet ?? "0"), quantity > 0 else { return }
+        ActivityIndicatorHelper.shared.start()
         quantity += 1
         viewModel.updateQuantity(index: indexPath, newQuantity: quantity)
     }

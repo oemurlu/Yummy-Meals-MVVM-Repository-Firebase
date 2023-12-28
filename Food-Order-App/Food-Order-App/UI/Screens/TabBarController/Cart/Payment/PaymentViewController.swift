@@ -28,6 +28,7 @@ final class PaymentViewController: UIViewController {
         
         setupConfirmButton()
         viewModel.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupConfirmButton() {

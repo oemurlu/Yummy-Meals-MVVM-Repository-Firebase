@@ -31,7 +31,7 @@ final class HomeViewController: UIViewController {
         setupWelcomingLabel()
         
         viewModel.delegate = self
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {

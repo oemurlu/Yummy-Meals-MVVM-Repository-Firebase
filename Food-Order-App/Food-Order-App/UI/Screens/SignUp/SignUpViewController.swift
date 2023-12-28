@@ -34,6 +34,7 @@ final class SignUpViewController: UIViewController {
         
         setupSignUpButton()
         setupScrollView()
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func signUpButton_TUI(_ sender: UIButton) {

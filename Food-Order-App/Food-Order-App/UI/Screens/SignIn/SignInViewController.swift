@@ -26,7 +26,7 @@ final class SignInViewController: UIViewController {
         
         viewModel.delegate = self
         setupSignInButton()
-        
+        self.hideKeyboardWhenTappedAround()
     }
     
     func setupSignInButton() {

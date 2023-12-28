@@ -15,9 +15,10 @@ final class EntranceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupButtons()
         ActivityIndicatorHelper.shared.stop()
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func signInButton_TUI(_ sender: UIButton) {

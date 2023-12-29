@@ -16,13 +16,13 @@ This is a simple food order app. I made this app for [Kasım Adalan's iOS Bootca
 
 ### iOS
 - TableView
-- CollectionView
+- Compositional CollectionView
 - TabBar Controller
 - Navigation Controller
 - Alert
 
 ### Service
-- Generic API 
+- Generic Network Layer 
 - Firestore Firestore
 - Firebase Storage
 - Firebase Authentication

@@ -1,4 +1,4 @@
-# :pizza: Food-Order-App-MVVM-RepositoryPattern-Firebase-Swift-UIKit
+# :pizza: Yummy-Meals-Food-Order-App-MVVM-RepositoryPattern-Firebase-Swift-UIKit
 
 This is a simple food order app. I made this app for [Kasım Adalan's iOS Bootcamp](https://www.udemy.com/course/ios-bootcamp-program-swift/) final project.  You can see the details, video and screenshots below.
 
